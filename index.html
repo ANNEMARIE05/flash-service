@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flash Service - Paiement Paris Sportifs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 min-h-screen">
+    <div class="hidden sm:block bg-gradient-to-r from-couleurPrincipale-900 to-couleurPrincipale-800 text-white py-3 border-b border-couleurPrincipale-700/50">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center text-sm">
+            <div class="flex space-x-6">
+                <span class="flex items-center hover:text-couleurAccent-400 transition-colors">
+                    <i class="fas fa-envelope mr-2"></i> flashservice436@gmail.com
+                </span>
+                <span class="flex items-center hover:text-couleurAccent-400 transition-colors">
+                    <i class="fas fa-phone mr-2"></i> +225 05 76 46 42 41
+                </span>
+            </div>
+            <div class="flex space-x-4">
+                <a href="https://wa.me/+22505764642" class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center hover:bg-green-400 transition-all transform hover:scale-110">
+                    <i class="fab fa-whatsapp text-sm"></i>
+                </a>
+                <a href="https://facebook.com" class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-500 transition-all transform hover:scale-110">
+                    <i class="fab fa-facebook text-sm"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <nav class="morphismeVerre sticky top-0 z-50 border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center">
+                    <div class="p-1 sm:p-4">
+                        <img src="assets/img/log.jpeg" class="w-14 h-14 rounded-lg" alt="">
+                    </div>
+                    <div class="">
+                        <span class="sm:text-2xl font-black texteGradient">FLASH SERVICE</span>
+                        <div class="text-xs text-gray-300 font-medium tracking-wide">Votre partenaire de confiance</div>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="#accueil" class="relative text-white/80 hover:text-white transition-all duration-300 font-medium group">
+                        Accueil
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-couleurPrincipale-400 to-couleurAccent-400 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#services" class="relative text-white/80 hover:text-white transition-all duration-300 font-medium group">
+                        Services
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-couleurPrincipale-400 to-couleurAccent-400 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#pronostics" class="relative text-white/80 hover:text-white transition-all duration-300 font-medium group">
+                        Pronostics
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-couleurPrincipale-400 to-couleurAccent-400 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#bookmakers" class="relative text-white/80 hover:text-white transition-all duration-300 font-medium group">
+                        Bookmakers
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-couleurPrincipale-400 to-couleurAccent-400 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#contact" class="relative text-white/80 hover:text-white transition-all duration-300 font-medium group">
+                        Contact
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-couleurPrincipale-400 to-couleurAccent-400 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <button class="hidden sm:block bg-gradient-to-r from-couleurPrincipale-600 to-purple-600 text-white px-6 py-2.5 rounded-full font-semibold text-sm hover:shadow-xl transform hover:scale-105 transition-all duration-300 lueurNeon">
+                        <i class="fas fa-user mr-2"></i>
+                        Se connecter
+                    </button>
+                    <button class="md:hidden text-white transform hover:scale-110 transition-all duration-300" onclick="afficherMenuMobile()">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section id="accueil" class="relative min-h-screen flex items-center overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-slate-900/95 via-couleurPrincipale-900/90 to-purple-900/95"></div>
+        <div class="absolute inset-0" style="background-image: url('/assets/img/hero.jpeg'); background-size: cover; background-position: center; opacity: 0.1;"></div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="text-center max-w-4xl mx-auto">
+                <div class="">
+                    <h1 class="text-5xl sm:text-6xl lg:text-7xl font-black text-white mb-8 leading-tight">
+                        Flash <span class="texteGradient animeGradient">Service</span>
+                    </h1>
+                    <p class="text-xl sm:text-2xl text-gray-300 mb-4 font-light">
+                        <span class="text-couleurAccent-400 font-bold text-3xl">87%</span> de réussite sur nos pronostics VIP
+                    </p>
+                    <p class="text-lg text-gray-400 mb-12 max-w-2xl mx-auto">
+                        Rejoignez plus de 10,000 parieurs qui nous font confiance pour maximiser leurs gains
+                    </p>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                    <button class="bg-gradient-to-r from-couleurPrincipale-600 via-purple-600 to-pink-600 text-white px-10 py-4 rounded-full font-bold text-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 lueurNeon animePulsationLumineuse">
+                        <i class="fas fa-rocket mr-3"></i>
+                        Commencer Maintenant
+                    </button>
+                    <a href="#pronostics" class="morphismeVerre text-white px-10 py-4 rounded-full font-semibold text-lg hover:bg-white/10 transition-all duration-300 border border-couleurAccent-400/50">
+                        <i class="fas fa-chart-line mr-3"></i>
+                        Voir les Pronostics
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute top-20 left-10 w-20 h-20 bg-gradient-to-r from-couleurPrincipale-500 to-purple-500 rounded-full opacity-20 animeFlottante"></div>
+        <div class="absolute bottom-20 right-10 w-32 h-32 bg-gradient-to-r from-couleurAccent-500 to-pink-500 rounded-full opacity-20 animeFlottante" style="animation-delay: 1s;"></div>
+    </section>
+
+    <section id="services" class="py-20 bg-gradient-to-br from-slate-800 via-slate-900 to-couleurPrincipale-900 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-couleurPrincipale-900/20 to-purple-900/20"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animeApparitionBas">
+                <div class="inline-flex items-center morphismeVerre text-white px-6 py-3 rounded-full mb-6 border border-couleurAccent-400/30">
+                    <i class="fas fa-cogs mr-2 text-couleurAccent-400"></i>
+                    <span class="font-semibold">Nos Services</span>
+                </div>
+                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-6">
+                    Services <span class="texteGradient">d'Excellence</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto font-light">
+                    Une gamme complète de services pour optimiser votre expérience de paris sportifs
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="morphismeVerre rounded-3xl p-8 border border-white/10 survoleElevation group">
+                    <div class="w-20 h-20 bg-gradient-to-br from-couleurPrincipale-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-credit-card text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Recharge Express</h3>
+                    <p class="text-gray-300 mb-6 leading-relaxed">Rechargez votre compte bookmaker en moins de 2 minutes avec Mobile Money, Visa ou Mastercard</p>
+                    <button class="w-full bg-gradient-to-r from-couleurPrincipale-600 to-blue-600 text-white py-3 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                        Recharger Maintenant
+                    </button>
+                </div>
+
+                <div class="morphismeVerre rounded-3xl p-8 border border-white/10 survoleElevation group">
+                    <div class="w-20 h-20 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-money-bill-wave text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Retrait Rapide</h3>
+                    <p class="text-gray-300 mb-6 leading-relaxed">Retirez vos gains instantanément vers Mobile Money ou votre compte bancaire en toute sécurité</p>
+                    <button class="w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white py-3 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                        Effectuer un Retrait
+                    </button>
+                </div>
+
+                <div class="morphismeVerre rounded-3xl p-8 border border-white/10 survoleElevation group">
+                    <div class="w-20 h-20 bg-gradient-to-br from-couleurAccent-500 to-orange-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-chart-line text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Pronostics VIP</h3>
+                    <p class="text-gray-300 mb-6 leading-relaxed">Accédez aux analyses expertes et pronostics exclusifs avec un taux de réussite exceptionnel</p>
+                    <button class="w-full bg-gradient-to-r from-couleurAccent-500 to-orange-500 text-white py-3 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                        Découvrir les Pronostics
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pronostics" class="py-20 bg-gradient-to-br from-couleurPrincipale-950 via-slate-900 to-purple-950 relative overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute top-0 left-0 w-96 h-96 bg-gradient-to-r from-couleurPrincipale-500/10 to-purple-500/10 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-r from-couleurAccent-500/10 to-pink-500/10 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center morphismeVerre text-white px-6 py-3 rounded-full mb-6 border border-couleurAccent-400/30">
+                    <i class="fas fa-trophy mr-2 text-couleurAccent-400"></i>
+                    <span class="font-semibold">Pronostics</span>
+                </div>
+                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-6">
+                    <i class="fas fa-futbol mr-4 text-couleurAccent-400"></i>
+                    Pronostics du <span class="texteGradient">Jour</span>
+                </h2>
+                <p class="text-xl text-gray-300 font-light">Nos experts analysent chaque match pour maximiser vos chances de gain</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="morphismeVerre rounded-3xl overflow-hidden border border-white/10 survoleElevation group">
+                    <div class="bg-gradient-to-r from-couleurPrincipale-600 to-purple-600 p-6 relative">
+                        <div class="absolute top-2 right-2 w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                        <div class="text-white/80 text-sm font-medium mb-2 flex items-center">
+                            <i class="fas fa-shield-alt mr-2"></i>
+                            Premier League
+                        </div>
+                        <div class="text-white text-xl font-bold mb-2">Manchester City vs Arsenal</div>
+                        <div class="text-white/80 text-sm flex items-center">
+                            <i class="fas fa-clock mr-2"></i>
+                            Aujourd'hui 18:00
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <div class="bg-gradient-to-r from-couleurAccent-500/20 to-orange-500/20 rounded-2xl p-4 mb-4 border border-couleurAccent-400/20">
+                            <div class="text-center">
+                                <div class="text-white font-bold text-lg mb-1">1X (Victoire ou Nul Manchester City)</div>
+                                <div class="text-couleurAccent-400 text-3xl font-black">1.85</div>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-400">Confiance</span>
+                                <div class="flex items-center">
+                                    <div class="w-16 h-2 bg-gray-700 rounded-full mr-2">
+                                        <div class="w-4/5 h-full bg-gradient-to-r from-green-400 to-green-500 rounded-full"></div>
+                                    </div>
+                                    <span class="text-green-400 font-bold">85%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="morphismeVerre rounded-3xl overflow-hidden border border-white/10 survoleElevation group">
+                    <div class="bg-gradient-to-r from-purple-600 to-pink-600 p-6 relative">
+                        <div class="absolute top-2 right-2 w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                        <div class="text-white/80 text-sm font-medium mb-2 flex items-center">
+                            <i class="fas fa-crown mr-2"></i>
+                            La Liga
+                        </div>
+                        <div class="text-white text-xl font-bold mb-2">Real Madrid vs FC Barcelona</div>
+                        <div class="text-white/80 text-sm flex items-center">
+                            <i class="fas fa-clock mr-2"></i>
+                            Aujourd'hui 21:00
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <div class="bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-2xl p-4 mb-4 border border-green-400/20">
+                            <div class="text-center">
+                                <div class="text-white font-bold text-lg mb-1">Plus de 2.5 buts</div>
+                                <div class="text-green-400 text-3xl font-black">1.65</div>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-400">Confiance</span>
+                                <div class="flex items-center">
+                                    <div class="w-16 h-2 bg-gray-700 rounded-full mr-2">
+                                        <div class="w-full h-full bg-gradient-to-r from-green-400 to-green-500 rounded-full"></div>
+                                    </div>
+                                    <span class="text-green-400 font-bold">90%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="morphismeVerre rounded-3xl overflow-hidden border border-white/10 survoleElevation group">
+                    <div class="bg-gradient-to-r from-indigo-600 to-blue-600 p-6 relative">
+                        <div class="absolute top-2 right-2 w-3 h-3 bg-yellow-400 rounded-full animate-pulse"></div>
+                        <div class="text-white/80 text-sm font-medium mb-2 flex items-center">
+                            <i class="fas fa-star mr-2"></i>
+                            Champions League
+                        </div>
+                        <div class="text-white text-xl font-bold mb-2">PSG vs Bayern Munich</div>
+                        <div class="text-white/80 text-sm flex items-center">
+                            <i class="fas fa-clock mr-2"></i>
+                            Demain 20:00
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <div class="bg-gradient-to-r from-couleurAccent-500/20 to-yellow-500/20 rounded-2xl p-4 mb-4 border border-couleurAccent-400/20">
+                            <div class="text-center">
+                                <div class="text-white font-bold text-lg mb-1">BTTS (Les deux équipes marquent)</div>
+                                <div class="text-couleurAccent-400 text-3xl font-black">1.75</div>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-400">Confiance</span>
+                                <div class="flex items-center">
+                                    <div class="w-16 h-2 bg-gray-700 rounded-full mr-2">
+                                        <div class="w-3/5 h-full bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full"></div>
+                                    </div>
+                                    <span class="text-yellow-400 font-bold">75%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-16">
+                <button class="bg-gradient-to-r from-couleurPrincipale-600 via-purple-600 to-pink-600 text-white px-10 py-4 rounded-full font-bold text-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 lueurNeon animePulsationLumineuse">
+                    Accéder à nos Pronostics
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="bonus" class="py-20 bg-gradient-to-br from-couleurPrincipale-950 via-slate-900 to-purple-950 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center morphismeVerre text-white px-6 py-3 rounded-full mb-6 border border-couleurAccent-400/30">
+                    <i class="fas fa-gift mr-2 text-jaune-accent"></i>
+                    <span class="font-semibold">Offres Exclusives</span>
+                </div>
+                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-6">
+                    Bonus <span class="texteGradient">Incroyables</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto font-light">
+                    Profitez des meilleurs bonus du marché pour maximiser vos gains
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+                <!-- Bonus 1XBET -->
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 transform hover:scale-105 transition-all duration-300 text-center">
+                    <div class="w-16 h-16 bg-gradient-to-r from-red-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-white font-bold text-lg">1X</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">1XBET</h3>
+                    <div class="text-3xl font-bold text-jaune-accent mb-2">200%</div>
+                    <p class="text-white/80 mb-4">Bonus de bienvenue jusqu'à 200,000 FCFA</p>
+                    <button class="w-full bg-gradient-to-r from-red-500 to-red-600 text-white py-3 rounded-lg font-bold hover:shadow-lg transition-all">
+                        Obtenir le Bonus
+                    </button>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 transform hover:scale-105 transition-all duration-300 text-center">
+                    <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-white font-bold text-lg">M</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">MELBET</h3>
+                    <div class="text-3xl font-bold text-jaune-accent mb-2">130%</div>
+                    <p class="text-white/80 mb-4">Bonus sport jusqu'à 130,000 FCFA</p>
+                    <button class="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-3 rounded-lg font-bold hover:shadow-lg transition-all">
+                        Obtenir le Bonus
+                    </button>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 transform hover:scale-105 transition-all duration-300 text-center">
+                    <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-white font-bold text-lg">L</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">LINEBET</h3>
+                    <div class="text-3xl font-bold text-jaune-accent mb-2">100%</div>
+                    <p class="text-white/80 mb-4">Bonus de premier dépôt 100,000 FCFA</p>
+                    <button class="w-full bg-gradient-to-r from-green-500 to-green-600 text-white py-3 rounded-lg font-bold hover:shadow-lg transition-all">
+                        Obtenir le Bonus
+                    </button>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 transform hover:scale-105 transition-all duration-300 text-center">
+                    <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-white font-bold text-lg">1W</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">1WIN</h3>
+                    <div class="text-3xl font-bold text-jaune-accent mb-2">500%</div>
+                    <p class="text-white/80 mb-4">Bonus incroyable jusqu'à 500,000 FCFA</p>
+                    <button class="w-full bg-gradient-to-r from-purple-500 to-purple-600 text-white py-3 rounded-lg font-bold hover:shadow-lg transition-all">
+                        Obtenir le Bonus
+                    </button>
+                </div>
+            </div>
+
+            <div class="mt-12 bg-gradient-to-r from-jaune-accent to-jaune-clair rounded-2xl p-6 sm:p-8 text-center">
+                <h3 class="text-2xl sm:text-3xl font-bold text-bleu-fonce mb-4">🎁 Promotion Spéciale Flash Service</h3>
+                <p class="text-bleu-fonce/80 text-lg mb-6">
+                    En plus du bonus bookmaker, recevez 10% de bonus supplémentaire sur votre première recharge !
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-bleu-fonce" id="compteur-temps">00:02:47</div>
+                        <div class="text-bleu-fonce/70">Temps restant</div>
+                    </div>
+                    <button class="bg-bleu-principal text-white px-8 py-4 rounded-full font-bold hover:bg-bleu-fonce transition-all duration-300">
+                        <i class="fas fa-bolt mr-2"></i>
+                        Profiter Maintenant
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="bookmakers" class="py-20 bg-gradient-to-br from-slate-900 via-couleurPrincipale-950 to-slate-800 relative overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute top-10 right-10 w-64 h-64 bg-gradient-to-r from-couleurPrincipale-500/10 to-blue-500/10 rounded-full blur-2xl"></div>
+            <div class="absolute bottom-10 left-10 w-64 h-64 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-2xl"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center morphismeVerre text-white px-6 py-3 rounded-full mb-6 border border-couleurAccent-400/30">
+                    <i class="fas fa-handshake mr-2 text-couleurAccent-400"></i>
+                    <span class="font-semibold">Nos Partenaires</span>
+                </div>
+                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-6">
+                    Bookmakers <span class="texteGradient">Partenaires</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto font-light">
+                    Nous travaillons avec les meilleurs bookmakers pour vous offrir les meilleures cotes
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="morphismeVerre rounded-2xl p-6 border border-white/10 text-center survoleElevation group">
+                    <div class="w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-xl mx-auto mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-dice text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">1xBet</h3>
+                    <p class="text-gray-400 text-sm mb-4">Bonus de bienvenue 100%</p>
+                    <button class="w-full bg-gradient-to-r from-red-500 to-red-600 text-white py-2 rounded-lg font-semibold hover:shadow-lg transition-all duration-300">
+                        Recharger
+                    </button>
+                </div>
+
+                <div class="morphismeVerre rounded-2xl p-6 border border-white/10 text-center survoleElevation group">
+                    <div class="w-16 h-16 bg-gradient-to-br from-couleurPrincipale-500 to-blue-600 rounded-xl mx-auto mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-trophy text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">MELBET</h3>
+                    <p class="text-gray-400 text-sm mb-4">Cashout instantané</p>
+                    <button class="w-full bg-gradient-to-r from-couleurPrincipale-500 to-blue-600 text-white py-2 rounded-lg font-semibold hover:shadow-lg transition-all duration-300">
+                        Recharger
+                    </button>
+                </div>
+                
+                <div class="morphismeVerre rounded-2xl p-6 border border-white/10 text-center survoleElevation group">
+                    <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-xl mx-auto mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-football-ball text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">LINEBET</h3>
+                    <p class="text-gray-400 text-sm mb-4">Meilleures cotes live</p>
+                    <button class="w-full bg-gradient-to-r from-green-500 to-green-600 text-white py-2 rounded-lg font-semibold hover:shadow-lg transition-all duration-300">
+                        Recharger
+                    </button>
+                </div>
+
+                <div class="morphismeVerre rounded-2xl p-6 border border-white/10 text-center survoleElevation group">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl mx-auto mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-star text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">1WIN</h3>
+                    <p class="text-gray-400 text-sm mb-4">Plus de 1000 événements</p>
+                    <button class="w-full bg-gradient-to-r from-purple-500 to-purple-600 text-white py-2 rounded-lg font-semibold hover:shadow-lg transition-all duration-300">
+                        Recharger
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="temoignage" class="py-20 bg-gradient-to-br from-slate-900 via-couleurPrincipale-950 to-slate-800 relative overflow-hidden">
+        <div class="relative z-10 max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center morphismeVerre text-white px-6 py-3 rounded-full mb-6 border border-couleurAccent-400/30">
+                    <i class="fas fa-handshake mr-2 text-couleurAccent-400"></i>
+                    <span class="font-semibold">Nos Temoignages</span>
+                </div>
+                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-6">
+                    Ce que disent <span class="texteGradient">nos clients</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto font-light">
+                    Plus de 10,000 clients satisfaits nous font confiance
+                </p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="morphismeVerre rounded-3xl p-8 border border-white/10 survoleElevation group">
+                    <div class="etoiles mb-4">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="texte-temoignage text-white mb-4">"Service ultra rapide ! Mon compte 1xBet a été rechargé en moins de 3 minutes. Je recommande vivement Flash Service."</p>
+                    <div class="auteur-temoignage font-bold text-bleu-principal">- Kouassi Jean</div>
+                </div>
+
+                <div class="morphismeVerre rounded-3xl p-8 border border-white/10 survoleElevation group">
+                    <div class="etoiles mb-4">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="texte-temoignage text-white mb-4">"Les pronostics sont excellents ! J'ai doublé mes gains grâce à leurs analyses. Équipe très professionnelle."</p>
+                    <div class="auteur-temoignage font-bold text-bleu-principal">- Aminata Traoré</div>
+                </div>
+
+                <div class="morphismeVerre rounded-3xl p-8 border border-white/10 survoleElevation group">
+                    <div class="etoiles mb-4">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="texte-temoignage text-white mb-4">"Support client réactif, transactions sécurisées. C'est le meilleur service de la région. Continuez comme ça !"</p>
+                    <div class="auteur-temoignage font-bold text-bleu-principal">- Ibrahim Diabaté</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 bg-gradient-to-br from-couleurPrincipale-950 via-slate-900 to-purple-950 relative overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-couleurPrincipale-900/10 to-purple-900/10"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center morphismeVerre text-white px-6 py-3 rounded-full mb-6 border border-couleurAccent-400/30">
+                    <i class="fas fa-comments mr-2 text-couleurAccent-400"></i>
+                    <span class="font-semibold">Nous Contacter</span>
+                </div>
+                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-6">
+                    Support <span class="texteGradient">24/7</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto font-light">
+                    Notre équipe est disponible 24h/24 pour vous accompagner dans vos paris
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center">
+                            <i class="fab fa-whatsapp text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white mb-1">WhatsApp</h3>
+                            <p class="text-gray-400">+225 05 76 46 42 41</p>
+                            <a href="https://wa.me/+22505764642" class="text-green-400 hover:text-green-300 transition-colors">Chatter maintenant</a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center space-x-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-couleurPrincipale-500 to-blue-600 rounded-2xl flex items-center justify-center">
+                            <i class="fas fa-envelope text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white mb-1">Email</h3>
+                            <p class="text-gray-400">flashservice436@gmail.com</p>
+                            <a href="mailto:flashservice436@gmail.com" class="text-couleurPrincipale-400 hover:text-couleurPrincipale-300 transition-colors">Envoyer un email</a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center space-x-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center">
+                            <i class="fas fa-clock text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white mb-1">Disponibilité</h3>
+                            <p class="text-gray-400">24h/24 - 7j/7</p>
+                            <p class="text-couleurAccent-400">Réponse garantie en moins de 5 minutes</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="morphismeVerre rounded-3xl p-8 border border-white/10">
+                    <h3 class="text-2xl font-bold text-white mb-6">Envoyez-nous un message</h3>
+                    <form class="space-y-6">
+                        <div>
+                            <input type="text" placeholder="Votre nom" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-400 focus:border-couleurPrincipale-400 focus:outline-none transition-colors">
+                        </div>
+                        <div>
+                            <input type="email" placeholder="Votre email" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-400 focus:border-couleurPrincipale-400 focus:outline-none transition-colors">
+                        </div>
+                        <div>
+                            <input type="tel" placeholder="Votre téléphone" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-400 focus:border-couleurPrincipale-400 focus:outline-none transition-colors">
+                        </div>
+                        <div>
+                            <textarea rows="4" placeholder="Votre message" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-400 focus:border-couleurPrincipale-400 focus:outline-none transition-colors resize-none"></textarea>
+                        </div>
+                        <button class="w-full bg-gradient-to-r from-couleurPrincipale-600 via-purple-600 to-pink-600 text-white py-3 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Envoyer le message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="menuMobile" class="hidden fixed inset-0 z-50 bg-black/90 backdrop-blur-lg">
+        <div class="flex flex-col h-full">
+            <div class="flex justify-between items-center p-6 border-b border-white/10">
+                <span class="text-2xl font-black texteGradient">FLASH SERVICE</span>
+                <button onclick="afficherMenuMobile()" class="text-white text-2xl">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <nav class="flex-1 px-6 py-8">
+                <div class="space-y-6">
+                    <a href="#accueil" onclick="afficherMenuMobile()" class="block text-white text-xl font-semibold hover:text-couleurAccent-400 transition-colors">
+                        <i class="fas fa-home mr-3"></i>Accueil
+                    </a>
+                    <a href="#services" onclick="afficherMenuMobile()" class="block text-white text-xl font-semibold hover:text-couleurAccent-400 transition-colors">
+                        <i class="fas fa-cogs mr-3"></i>Services
+                    </a>
+                    <a href="#pronostics" onclick="afficherMenuMobile()" class="block text-white text-xl font-semibold hover:text-couleurAccent-400 transition-colors">
+                        <i class="fas fa-chart-line mr-3"></i>Pronostics
+                    </a>
+                    <a href="#bookmakers" onclick="afficherMenuMobile()" class="block text-white text-xl font-semibold hover:text-couleurAccent-400 transition-colors">
+                        <i class="fas fa-handshake mr-3"></i>Bookmakers
+                    </a>
+                    <a href="#contact" onclick="afficherMenuMobile()" class="block text-white text-xl font-semibold hover:text-couleurAccent-400 transition-colors">
+                        <i class="fas fa-phone mr-3"></i>Contact
+                    </a>
+                </div>
+                <div class="mt-8">
+                    <button onclick="afficherMenuMobile();" class="w-full bg-gradient-to-r from-couleurPrincipale-600 to-purple-600 text-white px-6 py-3 rounded-full font-semibold">
+                        <i class="fas fa-user mr-2"></i>Se connecter
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <footer class="bg-gradient-to-r from-slate-950 to-couleurPrincipale-950 border-t border-white/10 py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-6">
+                        <span class="text-2xl font-black texteGradient">FLASH SERVICE</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Votre partenaire de confiance pour maximiser vos gains aux paris sportifs.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://wa.me/+22505764642" class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center hover:bg-green-400 transition-all transform hover:scale-110">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-500 transition-all transform hover:scale-110">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-couleurAccent-400 transition-colors">Recharge Express</a></li>
+                        <li><a href="#" class="hover:text-couleurAccent-400 transition-colors">Retrait Rapide</a></li>
+                        <li><a href="#" class="hover:text-couleurAccent-400 transition-colors">Pronostics VIP</a></li>
+                        <li><a href="#" class="hover:text-couleurAccent-400 transition-colors">Support 24/7</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-4">Bookmakers</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-couleurAccent-400 transition-colors">1xBet</a></li>
+                        <li><a href="#" class="hover:text-couleurAccent-400 transition-colors">Bet365</a></li>
+                        <li><a href="#" class="hover:text-couleurAccent-400 transition-colors">Betway</a></li>
+                        <li><a href="#" class="hover:text-couleurAccent-400 transition-colors">22Bet</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-2 text-couleurAccent-400"></i>
+                            +225 05 76 46 42 41
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2 text-couleurAccent-400"></i>
+                            flashservice436@gmail.com
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-clock mr-2 text-couleurAccent-400"></i>
+                            24h/24 - 7j/7
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 mt-8 pt-8 text-center">
+                <p class="text-gray-400">
+                    © 2024 Flash Service. Tous droits réservés. | 
+                    <span class="text-couleurAccent-400">Pariez avec modération</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script/script.js"></script>
+</body>
+</html>

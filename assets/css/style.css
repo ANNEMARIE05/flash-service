@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+* {
+    font-family: 'Inter', sans-serif;
+}
+
+@keyframes animationFlottante {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+@keyframes glissementGauche {
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+@keyframes glissementDroite {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+@keyframes glissementHaut {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+@keyframes apparitionBas {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+@keyframes apparitionHaut {
+    from { transform: translateY(-30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+@keyframes apparitionDroite {
+    from { transform: translateX(30px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+@keyframes pulsationLumineuse {
+    0%, 100% { box-shadow: 0 0 20px rgba(14, 165, 233, 0.3); }
+    50% { box-shadow: 0 0 30px rgba(14, 165, 233, 0.6); }
+}
+@keyframes deplacementGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.animeFlottante { animation: animationFlottante 3s ease-in-out infinite; }
+.animeGlissementGauche { animation: glissementGauche 1s ease-out; }
+.animeGlissementDroite { animation: glissementDroite 1s ease-out; }
+.animeGlissementHaut { animation: glissementHaut 0.8s ease-out; }
+.animeApparitionBas { animation: apparitionBas 0.8s ease-out; }
+.animeApparitionHaut { animation: apparitionHaut 0.8s ease-out; }
+.animeApparitionDroite { animation: apparitionDroite 0.8s ease-out; }
+.animePulsationLumineuse { animation: pulsationLumineuse 2s ease-in-out infinite; }
+.animeGradient { animation: deplacementGradient 3s ease infinite; background-size: 200% 200%; }
+
+.morphismeVerre {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.survoleElevation {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.survoleElevation:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+.texteGradient {
+    background: linear-gradient(135deg, #0ea5e9, #fbbf24, #f59e0b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.lueurNeon {
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.4), 0 0 40px rgba(14, 165, 233, 0.2);
+}
+
+.etoiles{
+    color: #f59e0b;
+}
+
+.auteur-temoignage{
+    color: #fbbf24;
+}
+
+.text-jaune-accent{
+    color: #fbbf24;
+}
