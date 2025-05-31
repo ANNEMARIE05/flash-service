@@ -1,0 +1,34 @@
+@keyframes animationFlottante {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes pulsationLumineuseJaune {
+    0%, 100% { box-shadow: 0 0 20px rgba(251, 191, 36, 0.5); }
+    50% { box-shadow: 0 0 40px rgba(251, 191, 36, 0.8); }
+}
+
+@keyframes mouvementDegradeFond {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.elementFlottant { animation: animationFlottante 6s ease-in-out infinite; }
+.pulsationJaune { animation: pulsationLumineuseJaune 2s ease-in-out infinite; }
+.fondDegradeAnime {
+    background: linear-gradient(-45deg, #1e3a8a, #1e40af, #3730a3, #1e3a8a);
+    background-size: 400% 400%;
+    animation: mouvementDegradeFond 15s ease infinite;
+}
+
+.effetVerre {
+    backdrop-filter: blur(16px);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.champSaisieFocus:focus {
+    transform: scale(1.02);
+    transition: all 0.3s ease;
+}

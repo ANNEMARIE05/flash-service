@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flash Services - Inscription</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/assets/css/register.css">
+</head>
+<body class="min-h-screen gradient-bg flex items-center justify-center p-4">
+    <div class="absolute inset-0 overflow-hidden">
+        <div class="absolute -top-40 -right-40 w-80 h-80 bg-blue-800 rounded-full mix-blend-multiply filter blur-xl opacity-70 float-animation"></div>
+        <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-900 rounded-full mix-blend-multiply filter blur-xl opacity-70 float-animation" style="animation-delay: 2s;"></div>
+        <div class="absolute top-40 left-40 w-80 h-80 bg-blue-700 rounded-full mix-blend-multiply filter blur-xl opacity-60 float-animation" style="animation-delay: 4s;"></div>
+    </div>
+
+    <div class="relative w-full max-w-lg">
+        <div class="glass-effect rounded-2xl shadow-2xl p-6">
+            <div class="flex items-center justify-between mb-6">
+                <button class="flex items-center text-blue-200 hover:text-white transition-colors duration-200">
+                    <a href="/index.html" class="flex">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                        </svg>
+                        Accueil
+                    </a>
+                </button>
+                <img src="/assets/img/logo.png" class="inline-flex items-center justify-center w-12 h-12 rounded-xl" alt="">
+            </div>
+            
+            <div class="text-center mb-6">
+                <h1 class="text-2xl font-bold text-white mb-1">Inscription</h1>
+                <p class="text-blue-100 text-sm">Créez votre compte Flash Services</p>
+            </div>
+
+            <form id="formulaireInscription" class="space-y-4">
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <input 
+                            type="text" 
+                            id="prenomUtilisateur" 
+                            name="prenomUtilisateur"
+                            class="input-focus w-full px-3 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all duration-300"
+                            placeholder="Prénom"
+                            required
+                        >
+                    </div>
+                    <div>
+                        <input 
+                            type="text" 
+                            id="nomUtilisateur" 
+                            name="nomUtilisateur"
+                            class="input-focus w-full px-3 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all duration-300"
+                            placeholder="Nom"
+                            required
+                        >
+                    </div>
+                </div>
+
+                <div>
+                    <input 
+                        type="email" 
+                        id="adresseEmailUtilisateur" 
+                        name="adresseEmailUtilisateur"
+                        class="input-focus w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all duration-300"
+                        placeholder="Adresse e-mail"
+                        required
+                    >
+                </div>
+
+                <div>
+                    <input 
+                        type="tel" 
+                        id="numeroTelephoneUtilisateur" 
+                        name="numeroTelephoneUtilisateur"
+                        class="input-focus w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all duration-300"
+                        placeholder="Numéro de téléphone"
+                        required
+                    >
+                </div>
+
+                <div>
+                    <input 
+                        type="date" 
+                        id="dateNaissanceUtilisateur" 
+                        name="dateNaissanceUtilisateur"
+                        class="input-focus w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all duration-300"
+                        required
+                    >
+                </div>
+
+                <div>
+                    <input 
+                        type="text"
+                        id="adresseCompleteUtilisateur" 
+                        name="adresseCompleteUtilisateur"
+                        class="input-focus w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all duration-300 resize-none"
+                        placeholder="Adresse complète"
+                        required
+                    >
+                </div>
+
+                <div>
+                    <input 
+                        type="text" 
+                        id="codeParrainUtilisateur" 
+                        name="codeParrainUtilisateur"
+                        class="input-focus w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all duration-300"
+                        placeholder="Code parrain (facultatif)"
+                    >
+                </div>
+
+                <div class="relative">
+                    <input 
+                        type="password" 
+                        id="motDePasseUtilisateur" 
+                        name="motDePasseUtilisateur"
+                        class="input-focus w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all duration-300"
+                        placeholder="Mot de passe"
+                        required
+                    >
+                    <button 
+                        type="button" 
+                        id="boutonAfficherMotDePasse"
+                        class="absolute right-3 top-1/2 transform -translate-y-1/2 text-blue-200 hover:text-white transition-colors duration-200"
+                    >
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <p class="text-blue-200 text-xs px-1">Le mot de passe doit être 8 chiffres</p>
+                
+                <div class="relative">
+                    <input 
+                        type="password" 
+                        id="confirmationMotDePasseUtilisateur" 
+                        name="confirmationMotDePasseUtilisateur"
+                        class="input-focus w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all duration-300"
+                        placeholder="Confirmer le mot de passe"
+                        required
+                    >
+                </div>
+
+                <div class="space-y-3">
+                    <label class="flex items-start">
+                        <input 
+                            type="checkbox" 
+                            id="acceptationConditionsGenerales"
+                            name="acceptationConditionsGenerales"
+                            class="mt-1 rounded border-white/20 bg-white/10 text-yellow-500 focus:ring-yellow-400 focus:ring-offset-0"
+                            required
+                        >
+                        <span class="ml-2 text-blue-100 text-sm">
+                            J'accepte les 
+                            <a href="#" class="text-yellow-300 hover:text-yellow-100 transition-colors duration-200">conditions générales d'utilisation</a>
+                        </span>
+                    </label>
+                </div>
+
+                <button 
+                    type="submit" 
+                    id="boutonSoumissionInscription"
+                    class="w-full bg-gradient-to-r from-blue-800 to-yellow-500 text-white font-bold py-3 px-4 rounded-xl hover:from-blue-900 hover:to-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-400 transform hover:scale-105 transition-all duration-300 shadow-lg"
+                >
+                    <span id="texteInscription">Créer mon compte</span>
+                    <div id="chargementInscription" class="hidden flex items-center justify-center">
+                        <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Création en cours...
+                    </div>
+                </button>
+            </form>
+
+            <div class="mt-6 text-center">
+                <p class="text-blue-100 text-sm">
+                    Déjà inscrit ?
+                    <a href="login.html" class="text-yellow-300 hover:text-yellow-100 font-medium transition-colors duration-200">
+                        Se connecter
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="/script/register.js"></script>
+</body>
+</html>

@@ -2,7 +2,7 @@ tailwind.config = {
     theme: {
         extend: {
             colors: {
-                'couleurPrincipale': {
+                'primary': {
                     50: '#eff6ff',
                     100: '#dbeafe',
                     200: '#bfdbfe',
@@ -14,7 +14,7 @@ tailwind.config = {
                     800: '#1e40af',
                     900: '#1e3a8a',
                 },
-                'couleurAccent': {
+                'accent': {
                     50: '#fefce8',
                     100: '#fef9c3',
                     200: '#fef08a',
@@ -26,6 +26,9 @@ tailwind.config = {
                     800: '#854d0e',
                     900: '#713f12',
                 },
+                'gradient-start': '#0f172a',
+                'gradient-middle': '#1e293b',
+                'gradient-end': '#334155',
                 'gradientDebut': '#0f172a',
                 'gradientMilieu': '#1e293b',
                 'gradientFin': '#334155',
@@ -37,41 +40,29 @@ tailwind.config = {
                 'jaune-clair': '#fcd34d'
             },
             backgroundImage: {
-                'gradientRadial': 'radial-gradient(var(--tw-gradient-stops))',
-                'gradientConique': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-                'gradientMaille': 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+                'mesh-gradient': 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
             }
         }
     }
 }
 
-function afficherMenuMobile() {
-    const menuMobile = document.getElementById('menuMobile');
-    menuMobile.classList.toggle('hidden');
+function basculerMenu() {
+    const menu = document.querySelector('.menu-mobile');
+    const overlay = document.querySelector('.overlay-menu');
+    
+    menu.classList.add('ouvert');
+    overlay.classList.add('actif');
 }
 
-window.addEventListener('scroll', () => {
-    const elements = document.querySelectorAll('.animeApparitionBas, .animeApparitionHaut, .animeApparitionDroite');
-    elements.forEach(element => {
-        const elementTop = element.getBoundingClientRect().top;
-        const elementVisible = 150;
-        
-        if (elementTop < window.innerHeight - elementVisible) {
-            element.style.opacity = '1';
-            element.style.transform = 'translateY(0)';
-        } else {
-            element.style.opacity = '0';
-            element.style.transform = 'translateY(20px)';
-        }
-    });
-});
-
-
-document.querySelectorAll('.animeApparitionBas, .animeApparitionHaut, .animeApparitionDroite').forEach(element => {
-    element.style.opacity = '0';
-    element.style.transform = 'translateY(20px)';
-    element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-});
+function fermerMenu() {
+    const menu = document.querySelector('.menu-mobile');
+    const overlay = document.querySelector('.overlay-menu');
+    
+    menu.classList.remove('ouvert');
+    overlay.classList.remove('actif');
+}
 
 document.addEventListener('DOMContentLoaded', function() {
     demarrerCompteur();
