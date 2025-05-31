@@ -131,6 +131,10 @@
     visibility: visible;
 }
 
+.text-jaune-accent{
+    color: #fbbf24;
+}
+
 @media (max-width: 768px) {
     .menu-mobile {
         width: 280px;
