@@ -16,8 +16,8 @@ let champEmailUtilisateur = document.getElementById('champAdresseEmailUtilisateu
             champMotDePasseUtilisateur.type = estMotDePasseVisible ? 'text' : 'password';
         });
 
-        formulaireConnexion.addEventListener('submit', function(evenementSoumission) {
-            evenementSoumission.preventDefault();
+        formulaireConnexion.addEventListener('submit', function(e) {
+            e.preventDefault();
             
             let emailSaisi = champEmailUtilisateur.value;
             let motDePasseSaisi = champMotDePasseUtilisateur.value;

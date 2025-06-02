@@ -69,6 +69,14 @@
 .animation-pulsation { animation: pulsationLumineuse 2s ease-in-out infinite; }
 .animation-gradient { animation: changementGradient 3s ease infinite; background-size: 200% 200%; }
 
+.logo-club {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    border-radius: 50%;
+    background: white;
+    padding: 5px;
+}
 .carte-pronostic {
     background: var(--couleur-fond-carte);
     border: 1px solid var(--couleur-bordure-carte);
