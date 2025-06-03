@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flash Service - Dépôt</title>
+    <link rel="shortcut icon" href="/assets/img/log.jpeg" type="image/jpeg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-900 text-white min-h-screen">
+    <div id="arrierPlanMenu" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden lg:hidden"></div>
+    
+    <div class="flex">
+        <div id="sidebar" class="w-64 bg-gray-800 min-h-screen p-6 fixed left-0 top-0 z-50 transform -translate-x-full lg:translate-x-0 transition-transform duration-300">
+            <div class="flex items-center space-x-3 mb-8">
+                <img 
+                    src="/assets/img/log.jpeg" 
+                    class="w-10 h-10 rounded-lg"
+                    alt=""
+                >
+                <h1 class="text-xl font-bold text-white">Flash Service</h1>
+            </div>
+            
+            <nav class="space-y-2">
+                <a href="dashboardUser.html" class="lien flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-chart-pie w-5 h-5"></i>
+                    <span class="font-medium">Dashboard</span>
+                </a>
+                <a href="dashboardDepot.html" class="lien actif flex items-center space-x-3 p-3 rounded-xl bg-gradient-to-r from-blue-600 to-blue-800 text-white">
+                    <i class="fas fa-plus-circle w-5 h-5"></i>
+                    <span class="font-medium">Dépôt</span>
+                </a>
+                <a href="dashboardRetrait.html" class="lien flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-minus-circle w-5 h-5"></i>
+                    <span class="font-medium">Retrait</span>
+                </a>
+                <a href="dashboardTransaction.html" class="lien flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-list-alt w-5 h-5"></i>
+                    <span class="font-medium">Mes Transactions</span>
+                </a>
+                <a href="dashboardPronostic.html" class="lien flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-futbol w-5 h-5"></i>
+                    <span class="font-medium">Pronostic</span>
+                </a>
+                <a href="dashboardVideo.html" class="lien flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-video w-5 h-5"></i>
+                    <span class="font-medium">Vidéo</span>
+                </a>
+                <a href="dashboardBonus.html" class="lien flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-gift w-5 h-5"></i>
+                    <span class="font-medium">Bonus</span>
+                </a>
+                <a href="dashboardProfile.html" class="lien flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-user w-5 h-5"></i>
+                    <span class="font-medium">Profile</span>
+                </a>
+                <a href="#" id="btnDeco" class="flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-sign-out-alt w-5 h-5"></i>
+                    <span class="font-medium">Déconnexion</span>
+                </a>
+            </nav>
+        </div>
+
+        <div class="flex-1 lg:ml-64">
+            <div class="p-6">
+                <div class="flex items-center justify-between mb-8">
+                    <div>
+                        <h2 class="text-3xl font-bold text-white mb-2">Effectuer un Dépôt</h2>
+                        <p class="text-gray-400">Rechargez votre compte rapidement et en toute sécurité</p>
+                    </div>
+                    <button id="btnMenu" class="lg:hidden p-2 rounded-lg bg-gray-800 text-white">
+                        <span class="block w-6 h-0.5 bg-white mb-1"></span>
+                        <span class="block w-6 h-0.5 bg-white mb-1"></span>
+                        <span class="block w-6 h-0.5 bg-white"></span>
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <div class="lg:col-span-2">
+                        <div class="bg-gray-800 rounded-2xl p-8 shadow-2xl border border-gray-700">
+                            <div class="flex items-center space-x-4 mb-8">
+                                <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-plus-circle text-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-bold text-white">Formulaire de Dépôt</h3>
+                                    <p class="text-gray-400">Remplissez les informations nécessaires</p>
+                                </div>
+                            </div>
+
+                            <form id="form" class="space-y-6">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div>
+                                        <label class="block text-sm font-semibold text-gray-300 mb-3">Identifiant du Compte</label>
+                                        <input type="text" id="id" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all" placeholder="Entrez votre identifiant">
+                                    </div>
+
+                                    <div>
+                                        <label class="block text-sm font-semibold text-gray-300 mb-3">Numéro de Téléphone</label>
+                                        <input type="tel" id="tel" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all" placeholder="Ex: +225 XX XX XX XX">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-semibold text-gray-300 mb-3">Montant du Dépôt (FCFA)</label>
+                                    <div class="relative">
+                                        <input type="number" id="montant" min="500" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all" placeholder="Montant minimum: 1000 FCFA">
+                                        <span class="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 font-medium">FCFA</span>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-300 mb-2">Méthode de Paiement</label>
+                                    <select id="methode" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all">
+                                        <option value="">Sélectionnez une méthode</option>
+                                        <option value="orange-money">Orange Money</option>
+                                        <option value="mtn-money">MTN Money</option>
+                                        <option value="moov-money">Moov Money</option>
+                                        <option value="wave">Wave</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-semibold text-gray-300 mb-3">Plateforme de Destination</label>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <label class="choixPronostic cursor-pointer">
+                                            <input type="radio" name="plateforme" value="1xbet" class="sr-only">
+                                            <div class="p-4 border-2 border-gray-600 rounded-xl hover:border-yellow-400 transition-all bg-gray-700 hover:bg-gray-600 flex items-center space-x-3">
+                                                <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+                                                    <span class="text-white font-bold text-sm">1X</span>
+                                                </div>
+                                                <span class="font-medium text-white">1XBET</span>
+                                            </div>
+                                        </label>
+
+                                        <label class="choixPronostic cursor-pointer">
+                                            <input type="radio" name="plateforme" value="melbet" class="sr-only">
+                                            <div class="p-4 border-2 border-gray-600 rounded-xl hover:border-yellow-400 transition-all bg-gray-700 hover:bg-gray-600 flex items-center space-x-3">
+                                                <div class="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center">
+                                                    <span class="text-white font-bold text-sm">M</span>
+                                                </div>
+                                                <span class="font-medium text-white">MELBET</span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-4 px-6 rounded-xl transition-all transform hover:scale-105 shadow-lg hover:shadow-xl">
+                                    <i class="fas fa-plus-circle mr-2"></i>
+                                    Effectuer le Dépôt
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-6 border border-gray-700 shadow-2xl">
+                            <div class="flex items-center space-x-3 mb-6">
+                                <div class="w-10 h-10 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-info-circle text-white"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-white">Informations Importantes</h3>
+                            </div>
+
+                            <div class="space-y-4">
+                                <div class="flex items-start space-x-3">
+                                    <i class="fas fa-clock text-yellow-400 mt-1"></i>
+                                    <div>
+                                        <h4 class="font-semibold text-white mb-1">Traitement Instantané</h4>
+                                        <p class="text-sm text-gray-400">Les dépôts sont crédités immédiatement</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start space-x-3">
+                                    <i class="fas fa-coins text-yellow-400 mt-1"></i>
+                                    <div>
+                                        <h4 class="font-semibold text-white mb-1">Montant Minimum</h4>
+                                        <p class="text-sm text-gray-400">Dépôt minimum: 500 FCFA</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start space-x-3">
+                                    <i class="fas fa-gift text-yellow-400 mt-1"></i>
+                                    <div>
+                                        <h4 class="font-semibold text-white mb-1">Bonus de Bienvenue</h4>
+                                        <p class="text-sm text-gray-400">100% de bonus sur votre premier dépôt</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start space-x-3">
+                                    <i class="fas fa-headset text-yellow-400 mt-1"></i>
+                                    <div>
+                                        <h4 class="font-semibold text-white mb-1">Support</h4>
+                                        <p class="text-sm text-gray-400">Assistance 24h/24 et 7j/7</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-2xl p-6 border border-green-500/20">
+                            <div class="flex items-center space-x-3 mb-3">
+                                <div class="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-shield-alt text-white"></i>
+                                </div>
+                                <h4 class="text-lg font-bold text-green-400">Sécurité Garantie</h4>
+                            </div>
+                            <p class="text-sm text-gray-300">Toutes vos transactions sont cryptées et sécurisées. Vos données personnelles sont protégées selon les standards internationaux.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-gray-800 rounded-2xl p-8 max-w-md w-full mx-4 border border-gray-700">
+            <div class="text-center">
+                <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="fas fa-check text-white text-2xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-4">Dépôt Confirmé</h3>
+                <p class="text-gray-400 mb-6">Votre dépôt a été effectué avec succès. Les fonds ont été crédités sur votre compte.</p>
+                <div class="flex space-x-4">
+                    <button id="fermerModal" class="flex-1 bg-gray-700 hover:bg-gray-600 text-white font-medium py-3 px-4 rounded-xl transition-all">
+                        FermerModal
+                    </button>
+                    <button class="flex-1 bg-gradient-to-r from-blue-600 to-blue-800 text-white font-medium py-3 px-4 rounded-xl hover:shadow-lg transition-all">
+                        Voir Transactions
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/script/dashboardDepot.js"></script>
+</body>
+</html>

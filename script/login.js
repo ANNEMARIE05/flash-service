@@ -1,54 +1,54 @@
-let champEmailUtilisateur = document.getElementById('champAdresseEmailUtilisateur');
-        let champMotDePasseUtilisateur = document.getElementById('champMotDePasseUtilisateur');
-        let boutonAffichageMotDePasse = document.getElementById('boutonAffichageMasquerMotDePasse');
-        let formulaireConnexion = document.getElementById('formulaireDeConnexion');
-        let boutonConnexion = document.getElementById('boutonValidationConnexion');
-        let texteConnexion = document.getElementById('texteActionConnexion');
-        let chargementConnexion = document.getElementById('indicateurChargementConnexion');
-        let zoneMessageResultat = document.getElementById('messageResultatConnexion');
-        let messageSucces = document.getElementById('messageSuccesConnexion');
-        let messageErreur = document.getElementById('messageErreurConnexion');
+let numeroTelephone = document.getElementById('numeroTelephone');
+let Password = document.getElementById('Password');
+let btnAfficherPassword = document.getElementById('btnAfficherPassword');
+let formulaireConnexion = document.getElementById('formulaireConnexion');
+let boutonValidation = document.getElementById('boutonValidation');
+let texteConnexion = document.getElementById('texteConnexion');
+let chargementConnexion = document.getElementById('chargementConnexion');
+let zoneAffichageMessages = document.getElementById('zoneAffichageMessages');
+let messageSucces = document.getElementById('messageSucces');
+let messageErreur = document.getElementById('messageErreur');
 
-        let estMotDePasseVisible = false;
+let PasswordVisible = false;
 
-        boutonAffichageMotDePasse.addEventListener('click', function() {
-            estMotDePasseVisible = !estMotDePasseVisible;
-            champMotDePasseUtilisateur.type = estMotDePasseVisible ? 'text' : 'password';
-        });
+btnAfficherPassword.addEventListener('click', function() {
+    PasswordVisible = !PasswordVisible;
+    Password.type = PasswordVisible ? 'text' : 'password';
+});
 
-        formulaireConnexion.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            let emailSaisi = champEmailUtilisateur.value;
-            let motDePasseSaisi = champMotDePasseUtilisateur.value;
-            
-            zoneMessageResultat.classList.add('hidden');
-            messageSucces.classList.add('hidden');
-            messageErreur.classList.add('hidden');
-            
-            texteConnexion.classList.add('hidden');
-            chargementConnexion.classList.remove('hidden');
-            boutonConnexion.disabled = true;
-            
+formulaireConnexion.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    let numeroSaisi = numeroTelephone.value;
+    let PasswordSaisi = Password.value;
+    
+    zoneAffichageMessages.classList.add('hidden');
+    messageSucces.classList.add('hidden');
+    messageErreur.classList.add('hidden');
+    
+    texteConnexion.classList.add('hidden');
+    chargementConnexion.classList.remove('hidden');
+    boutonValidation.disabled = true;
+    
+    setTimeout(function() {
+        chargementConnexion.classList.add('hidden');
+        texteConnexion.classList.remove('hidden');
+        boutonValidation.disabled = false;
+        
+        zoneAffichageMessages.classList.remove('hidden');
+        
+        if (numeroSaisi === '0172317983' && PasswordSaisi === 'adminpass') {
+            messageSucces.classList.remove('hidden');
             setTimeout(function() {
-                chargementConnexion.classList.add('hidden');
-                texteConnexion.classList.remove('hidden');
-                boutonConnexion.disabled = false;
-                
-                zoneMessageResultat.classList.remove('hidden');
-                
-                if (emailSaisi === 'admin@flash.com' && motDePasseSaisi === 'admin123') {
-                    messageSucces.classList.remove('hidden');
-                    setTimeout(function() {
-                        window.location.href = '/admin/dashboardAdmin.html';
-                    }, 2000);
-                } else if (emailSaisi === 'user@flash.com' && motDePasseSaisi === 'user123') {
-                    messageSucces.classList.remove('hidden');
-                    setTimeout(function() {
-                        window.location.href = '/users/dashboardUser.html';
-                    }, 2000);
-                } else {
-                    messageErreur.classList.remove('hidden');
-                }
+                window.location.href = '/admin/dashboardAdmin.html';
             }, 2000);
-        });
+        } else if (numeroSaisi === '0769144813' && PasswordSaisi === 'userpass') {
+            messageSucces.classList.remove('hidden');
+            setTimeout(function() {
+                window.location.href = '/users/dashboardUser.html';
+            }, 2000);
+        } else {
+            messageErreur.classList.remove('hidden');
+        }
+    }, 2000);
+});

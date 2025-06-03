@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flash Service - Profil</title>
+    <link rel="shortcut icon" href="/assets/img/log.jpeg" type="image/jpeg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-900 text-white min-h-screen">
+    <div id="arrierePlanMenu" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden lg:hidden"></div>
+    
+    <div class="flex">
+        <div id="sideBar" class="w-64 bg-gray-800 min-h-screen p-6 fixed left-0 top-0 z-50 transform -translate-x-full lg:translate-x-0 transition-transform duration-300">
+            <div class="flex items-center space-x-3 mb-8">
+                <img 
+                    src="/assets/img/log.jpeg" 
+                    class="w-10 h-10 rounded-lg"
+                    alt=""
+                >
+                <h1 class="text-xl font-bold text-white">Flash Service</h1>
+            </div>
+            
+            <nav class="space-y-2">
+                <a href="dashboardUser.html" class="lienNav flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-chart-pie w-5 h-5"></i>
+                    <span class="font-medium">Dashboard</span>
+                </a>
+                <a href="dashboardDepot.html" class="lienNav flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-plus-circle w-5 h-5"></i>
+                    <span class="font-medium">Dépôt</span>
+                </a>
+                <a href="dashboardRetrait.html" class="lienNav flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-minus-circle w-5 h-5"></i>
+                    <span class="font-medium">Retrait</span>
+                </a>
+                <a href="dashboardTransaction.html" class="lienNav flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-list-alt w-5 h-5"></i>
+                    <span class="font-medium">Mes Transactions</span>
+                </a>
+                <a href="dashboardPronostic.html" class="lienNav flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-futbol w-5 h-5"></i>
+                    <span class="font-medium">Pronostic</span>
+                </a>
+                <a href="dashboardVideo.html" class="lienNav flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-video w-5 h-5"></i>
+                    <span class="font-medium">Vidéo</span>
+                </a>
+                <a href="dashboardBonus.html" class="lienNav flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-gift w-5 h-5"></i>
+                    <span class="font-medium">Bonus</span>
+                </a>
+                <a href="dashboardProfile.html" class="lienNav lienActif flex items-center space-x-3 p-3 rounded-xl bg-gradient-to-r from-bleu-principal to-bleu-fonce text-white">
+                    <i class="fas fa-user w-5 h-5"></i>
+                    <span class="font-medium">Profile</span>
+                </a>
+                <a href="#" id="btnDeco" class="flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-sign-out-alt w-5 h-5"></i>
+                    <span class="font-medium">Déconnexion</span>
+                </a>
+            </nav>
+        </div>
+
+        <div class="flex-1 lg:ml-64">
+            <div class="p-6">
+                <div class="flex items-center justify-between mb-8">
+                    <div>
+                        <h2 class="text-3xl font-bold text-white mb-2">Mon Profil</h2>
+                        <p class="text-gray-400">Gérez vos informations personnelles et votre sécurité</p>
+                    </div>
+                    <button id="btnMenu" class="lg:hidden p-2 rounded-lg bg-gray-800 text-white">
+                        <span class="block w-6 h-0.5 bg-white mb-1"></span>
+                        <span class="block w-6 h-0.5 bg-white mb-1"></span>
+                        <span class="block w-6 h-0.5 bg-white"></span>
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-1 xl:grid-cols-2 gap-8">
+                    <div class="bg-gray-800 rounded-2xl p-8 shadow-xl">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-r from-bleu-principal to-jaune-accent rounded-xl flex items-center justify-center mr-4">
+                                <i class="fas fa-user text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white">Informations Personnelles</h3>
+                        </div>
+
+                        <form id="formulaireInformationsPersonnelles" class="space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="champSaisiePrenom" class="block text-sm font-medium text-gray-300 mb-2">Prénom</label>
+                                    <input type="text" id="champSaisiePrenom" name="prenomUtilisateur" value="user" 
+                                           class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-bleu-principal focus:border-transparent transition-all">
+                                </div>
+                                <div>
+                                    <label for="champSaisieNom" class="block text-sm font-medium text-gray-300 mb-2">Nom</label>
+                                    <input type="text" id="champSaisieNom" name="nomUtilisateur" value="user" 
+                                           class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-bleu-principal focus:border-transparent transition-all">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="champSaisieAdresseEmail" class="block text-sm font-medium text-gray-300 mb-2">Adresse Email</label>
+                                <input type="email" id="champSaisieAdresseEmail" name="adresseEmailUtilisateur" value="user@email.com" 
+                                       class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-bleu-principal focus:border-transparent transition-all">
+                            </div>
+
+                            <div>
+                                <label for="champSaisieNumeroTelephone" class="block text-sm font-medium text-gray-300 mb-2">Numéro de Téléphone</label>
+                                <input type="tel" id="champSaisieNumeroTelephone" name="numeroTelephoneUtilisateur" value="+225 07 12 34 56 78" 
+                                       class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-bleu-principal focus:border-transparent transition-all">
+                            </div>
+
+                            <div>
+                                <label for="champSaisieDateNaissance" class="block text-sm font-medium text-gray-300 mb-2">Date de Naissance</label>
+                                <input type="date" id="champSaisieDateNaissance" name="dateNaissanceUtilisateur" value="1990-05-15" 
+                                       class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-bleu-principal focus:border-transparent transition-all">
+                            </div>
+
+                            <div>
+                                <label for="champSaisieAdresseComplete" class="block text-sm font-medium text-gray-300 mb-2">Adresse Complète</label>
+                                <textarea id="champSaisieAdresseComplete" name="adresseCompleteUtilisateur" rows="3" 
+                                          class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-bleu-principal focus:border-transparent transition-all resize-none">Cocody, Riviera 3, Abidjan, Côte d'Ivoire</textarea>
+                            </div>
+
+                            <button type="submit" id="boutonMettreAJourInformations" 
+                                    class="w-full bg-gradient-to-r from-bleu-principal to-bleu-fonce hover:from-bleu-fonce hover:to-bleu-principal text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-[1.02] focus:outline-none focus:ring-4 focus:ring-bleu-principal/50">
+                                <i class="fas fa-save mr-2"></i>
+                                Mettre à Jour les Informations
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="bg-gray-800 rounded-2xl p-8 shadow-xl">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-r from-red-500 to-orange-500 rounded-xl flex items-center justify-center mr-4">
+                                <i class="fas fa-lock text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white">Modifier le Mot de Passe</h3>
+                        </div>
+
+                        <form id="formulaireModificationMotDePasse" class="space-y-6">
+                            <div>
+                                <label for="password" class="block text-sm font-medium text-gray-300 mb-2">Mot de Passe Actuel</label>
+                                <div class="relative">
+                                    <input type="password" id="password" name="motDePasseActuelUtilisateur" 
+                                           class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-bleu-principal focus:border-transparent transition-all pr-12"
+                                           placeholder="Entrez votre mot de passe actuel">
+                                    <button type="button" id="btnPassword" class="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white transition-colors">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="newPassword" class="block text-sm font-medium text-gray-300 mb-2">Nouveau Mot de Passe</label>
+                                <div class="relative">
+                                    <input type="password" id="newPassword" name="nouveauMotDePasseUtilisateur" 
+                                           class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-bleu-principal focus:border-transparent transition-all pr-12"
+                                           placeholder="Entrez votre nouveau mot de passe">
+                                    <button type="button" id="btnNewPassword" class="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white transition-colors">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                                <div class="mt-2 text-sm text-gray-400">
+                                    <p>Le mot de passe doit être 8 caractères</p>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="confirmPassword" class="block text-sm font-medium text-gray-300 mb-2">Confirmer le Nouveau Mot de Passe</label>
+                                <div class="relative">
+                                    <input type="password" id="confirmPassword" name="confirmationNouveauMotDePasseUtilisateur" 
+                                           class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-bleu-principal focus:border-transparent transition-all pr-12"
+                                           placeholder="Confirmez votre nouveau mot de passe">
+                                    <button type="button" id="btnAffichePassword" class="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white transition-colors">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <button type="submit" id="boutonModifierMotDePasse" 
+                                    class="w-full bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-[1.02] focus:outline-none focus:ring-4 focus:ring-red-500/50">
+                                <i class="fas fa-key mr-2"></i>
+                                Modifier le Mot de Passe
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="mt-8 bg-gray-800 rounded-2xl p-8 shadow-xl">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mr-4">
+                            <i class="fas fa-shield-alt text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white">Informations de Sécurité</h3>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-gray-700 rounded-xl p-6 text-center">
+                            <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-check text-white text-2xl"></i>
+                            </div>
+                            <h4 class="font-bold text-white mb-2">Email Vérifié</h4>
+                            <p class="text-sm text-gray-300">Votre adresse email a été vérifiée avec succès</p>
+                        </div>
+
+                        <div class="bg-gray-700 rounded-xl p-6 text-center">
+                            <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-mobile-alt text-white text-2xl"></i>
+                            </div>
+                            <h4 class="font-bold text-white mb-2">Téléphone Vérifié</h4>
+                            <p class="text-sm text-gray-300">Votre numéro de téléphone a été confirmé</p>
+                        </div>
+
+                        <div class="bg-gray-700 rounded-xl p-6 text-center">
+                            <div class="w-16 h-16 bg-jaune-accent rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-id-card text-white text-2xl"></i>
+                            </div>
+                            <h4 class="font-bold text-white mb-2">Identité</h4>
+                            <p class="text-sm text-gray-300">Compte vérifié et sécurisé</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/script/dashboardProfile.js"></script>
+</body>
+</html>

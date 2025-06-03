@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flash Service - Vidéos</title>
+    <link rel="shortcut icon" href="/assets/img/log.jpeg" type="image/jpeg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-900 text-white min-h-screen">
+    <div id="arrierPlanMenu" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden lg:hidden"></div>
+    
+    <div class="flex">
+        <div id="sidebar" class="w-64 bg-gray-800 min-h-screen p-6 fixed left-0 top-0 z-50 transform -translate-x-full lg:translate-x-0 transition-transform duration-300">
+            <div class="flex items-center space-x-3 mb-8">
+                <img 
+                    src="/assets/img/log.jpeg" 
+                    class="w-10 h-10 rounded-lg"
+                    alt=""
+                >
+                <h1 class="text-xl font-bold text-white">Flash Service</h1>
+            </div>
+            
+            <nav class="space-y-2">
+                <a href="dashboardUser.html" class="menuLien flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-chart-pie w-5 h-5"></i>
+                    <span class="font-medium">Dashboard</span>
+                </a>
+                <a href="dashboardDepot.html" class="menuLien flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-plus-circle w-5 h-5"></i>
+                    <span class="font-medium">Dépôt</span>
+                </a>
+                <a href="dashboardRetrait.html" class="menuLien flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-minus-circle w-5 h-5"></i>
+                    <span class="font-medium">Retrait</span>
+                </a>
+                <a href="dashboardTransaction.html" class="menuLien flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-list-alt w-5 h-5"></i>
+                    <span class="font-medium">Mes Transactions</span>
+                </a>
+                <a href="dashboardPronostic.html" class="menuLien flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-futbol w-5 h-5"></i>
+                    <span class="font-medium">Pronostic</span>
+                </a>
+                <a href="dashboardVideo.html" class="menuLien menuLienActif flex items-center space-x-3 p-3 rounded-xl bg-gradient-to-r from-bleu-principal to-bleu-fonce text-white">
+                    <i class="fas fa-video w-5 h-5"></i>
+                    <span class="font-medium">Vidéo</span>
+                </a>
+                <a href="dashboardBonus.html" class="menuLien flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-gift w-5 h-5"></i>
+                    <span class="font-medium">Bonus</span>
+                </a>
+                <a href="dashboardProfile.html" class="menuLien flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-user w-5 h-5"></i>
+                    <span class="font-medium">Profile</span>
+                </a>
+                <a href="#" id="btnDeco" class="flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-sign-out-alt w-5 h-5"></i>
+                    <span class="font-medium">Déconnexion</span>
+                </a>
+            </nav>
+        </div>
+
+        <div class="flex-1 lg:ml-64">
+            <div class="p-6">
+                <div class="flex items-center justify-between mb-8">
+                    <div>
+                        <h2 class="text-3xl font-bold text-white mb-2">Tutoriels Vidéo</h2>
+                        <p class="text-gray-400">Apprenez à utiliser nos services avec nos guides vidéo</p>
+                    </div>
+                    <button id="btnMenu" class="lg:hidden p-2 rounded-lg bg-gray-800 text-white">
+                        <span class="block w-6 h-0.5 bg-white mb-1"></span>
+                        <span class="block w-6 h-0.5 bg-white mb-1"></span>
+                        <span class="block w-6 h-0.5 bg-white"></span>
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+                    <div class="bg-gray-800 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
+                        <div class="relative">
+                            <img src="/assets/img/1xbet-icon.png"
+                                class="w-full h-48 bg-gradient-to-br from-bleu-principal to-bleu-fonce flex items-center justify-center"
+                                alt=""
+                            >
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Comment faire un pari sur 1XBET</h3>
+                            <p class="text-gray-400 mb-4">Guide complet pour placer vos premiers paris sportifs sur la plateforme 1XBET</p>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-sm text-jaune-accent font-semibold">Durée: 8 min</span>
+                                <div class="flex items-center text-sm text-gray-400">
+                                    <i class="fas fa-eye mr-1"></i>
+                                    <span>2.4K vues</span>
+                                </div>
+                            </div>
+                            <button class="boutonRegarderVideo w-full bg-gradient-to-r from-bleu-principal to-bleu-fonce hover:from-bleu-fonce hover:to-bleu-principal text-white font-bold py-3 px-4 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2">
+                                <i class="fas fa-play"></i>
+                                <span>Regarder</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-800 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
+                        <img src="/assets/img/melbet.jpg"
+                            class="w-full h-48 bg-gradient-to-br from-bleu-principal to-bleu-fonce flex items-center justify-center"
+                            alt=""
+                        >
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Comment faire un pari sur MELBET</h3>
+                            <p class="text-gray-400 mb-4">Tutoriel détaillé pour maîtriser les paris sportifs sur MelBet</p>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-sm text-jaune-accent font-semibold">Durée: 6 min</span>
+                                <div class="flex items-center text-sm text-gray-400">
+                                    <i class="fas fa-eye mr-1"></i>
+                                    <span>1.8K vues</span>
+                                </div>
+                            </div>
+                            <button class="boutonRegarderVideo w-full bg-gradient-to-r from-bleu-principal to-bleu-fonce hover:from-bleu-fonce hover:to-bleu-principal text-white font-bold py-3 px-4 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2">
+                                <i class="fas fa-play"></i>
+                                <span>Regarder</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-800 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
+                        <div class="relative">
+                            <img src="/assets/img/logo.png"
+                                class="w-full h-48 bg-gradient-to-br from-bleu-principal to-bleu-fonce flex items-center justify-center"
+                                alt=""
+                            >
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Comment effectuer un dépôt</h3>
+                            <p class="text-gray-400 mb-4">Guide pas à pas pour alimenter votre compte en toute sécurité</p>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-sm text-jaune-accent font-semibold">Durée: 5 min</span>
+                                <div class="flex items-center text-sm text-gray-400">
+                                    <i class="fas fa-eye mr-1"></i>
+                                    <span>3.2K vues</span>
+                                </div>
+                            </div>
+                            <button class="boutonRegarderVideo w-full bg-gradient-to-r from-bleu-principal to-bleu-fonce hover:from-bleu-fonce hover:to-bleu-principal text-white font-bold py-3 px-4 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2">
+                                <i class="fas fa-play"></i>
+                                <span>Regarder</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-800 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
+                        <div class="relative">
+                            <img src="/assets/img/logo.png"
+                                class="w-full h-48 bg-gradient-to-br from-bleu-principal to-bleu-fonce flex items-center justify-center"
+                                alt=""
+                            >
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Comment effectuer un retrait</h3>
+                            <p class="text-gray-400 mb-4">Apprenez à retirer vos gains rapidement et facilement</p>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-sm text-jaune-accent font-semibold">Durée: 7 min</span>
+                                <div class="flex items-center text-sm text-gray-400">
+                                    <i class="fas fa-eye mr-1"></i>
+                                    <span>2.7K vues</span>
+                                </div>
+                            </div>
+                            <button class="boutonRegarderVideo w-full bg-gradient-to-r from-bleu-principal to-bleu-fonce hover:from-bleu-fonce hover:to-bleu-principal text-white font-bold py-3 px-4 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2">
+                                <i class="fas fa-play"></i>
+                                <span>Regarder</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-800 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
+                        <div class="relative">
+                            <img src="/assets/img/logo.png"
+                                class="w-full h-48 bg-gradient-to-br from-bleu-principal to-bleu-fonce flex items-center justify-center"
+                                alt=""
+                            >
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Comment récupérer des bonus</h3>
+                            <p class="text-gray-400 mb-4">Maximisez vos gains avec nos bonus et promotions exclusives</p>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-sm text-jaune-accent font-semibold">Durée: 9 min</span>
+                                <div class="flex items-center text-sm text-gray-400">
+                                    <i class="fas fa-eye mr-1"></i>
+                                    <span>4.1K vues</span>
+                                </div>
+                            </div>
+                            <button class="boutonRegarderVideo w-full bg-gradient-to-r from-bleu-principal to-bleu-fonce hover:from-bleu-fonce hover:to-bleu-principal text-white font-bold py-3 px-4 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2">
+                                <i class="fas fa-play"></i>
+                                <span>Regarder</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-800 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
+                        <div class="relative">
+                            <img src="/assets/img/logo.png"
+                                class="w-full h-48 bg-gradient-to-br from-bleu-principal to-bleu-fonce flex items-center justify-center"
+                                alt=""
+                            >
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Conseils et astuces pour débutants</h3>
+                            <p class="text-gray-400 mb-4">Les meilleures stratégies pour optimiser vos paris sportifs</p>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-sm text-jaune-accent font-semibold">Durée: 12 min</span>
+                                <div class="flex items-center text-sm text-gray-400">
+                                    <i class="fas fa-eye mr-1"></i>
+                                    <span>1.5K vues</span>
+                                </div>
+                            </div>
+                            <button class="boutonRegarderVideo w-full bg-gradient-to-r from-bleu-principal to-bleu-fonce hover:from-bleu-fonce hover:to-bleu-principal text-white font-bold py-3 px-4 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2">
+                                <i class="fas fa-play"></i>
+                                <span>Regarder</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-12 bg-gradient-to-r from-bleu-principal/20 to-jaune-accent/20 rounded-xl p-8 border border-jaune-accent/30">
+                    <div class="text-center">
+                        <h3 class="text-2xl font-bold text-white mb-4">Besoin d'aide personnalisée ?</h3>
+                        <p class="text-gray-300 mb-6">Notre équipe d'experts est disponible pour vous accompagner</p>
+                        <button class="bg-gradient-to-r from-jaune-accent to-yellow-500 hover:from-yellow-500 hover:to-jaune-accent text-gray-900 font-bold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105">
+                            <i class="fas fa-headset mr-2"></i>
+                            Contacter le support
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modaleVideo" class="fixed inset-0 bg-black bg-opacity-75 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-gray-800 rounded-xl max-w-4xl w-full max-h-full overflow-y-auto">
+            <div class="flex items-center justify-between p-6 border-b border-gray-700">
+                <h3 id="titreVideoModale" class="text-xl font-bold text-white">Titre de la vidéo</h3>
+                <button id="btnFermerModale" class="text-gray-400 hover:text-white transition-colors">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <div class="p-6">
+                <div class="aspect-w-16 aspect-h-9 mb-6">
+                    <div class="w-full h-96 bg-black rounded-lg flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <i class="fas fa-play-circle text-6xl mb-4 text-jaune-accent"></i>
+                            <p class="text-lg">Lecteur vidéo</p>
+                            <p class="text-sm text-gray-400 mt-2">La vidéo sera affichée ici</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-4">
+                        <button class="flex items-center space-x-2 text-gray-400 hover:text-white transition-colors">
+                            <i class="fas fa-thumbs-up"></i>
+                            <span>J'aime</span>
+                        </button>
+                        <button class="flex items-center space-x-2 text-gray-400 hover:text-white transition-colors">
+                            <i class="fas fa-share"></i>
+                            <span>Partager</span>
+                        </button>
+                    </div>
+                    <div class="flex items-center space-x-2 text-sm text-gray-400">
+                        <i class="fas fa-calendar"></i>
+                        <span>Publié le 15/05/2025</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/script/dashboardVideo.js"></script>
+</body>
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flash Service - Mes Transactions</title>
+    <link rel="shortcut icon" href="/assets/img/log.jpeg" type="image/jpeg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-900 text-white min-h-screen">
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden lg:hidden"></div>
+    
+    <div class="flex">
+        <div id="sidebar" class="w-64 bg-gray-800 min-h-screen p-6 fixed left-0 top-0 z-50 transform -translate-x-full lg:translate-x-0 transition-transform duration-300">
+            <div class="flex items-center space-x-3 mb-8">
+                <img 
+                    src="/assets/img/log.jpeg" 
+                    class="w-10 h-10 rounded-lg"
+                    alt=""
+                >
+                <h1 class="text-xl font-bold text-white">Flash Service</h1>
+            </div>
+            
+            <nav class="space-y-2">
+                <a href="dashboardUser.html" class="lienMenuNavigation flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-chart-pie w-5 h-5"></i>
+                    <span class="font-medium">Dashboard</span>
+                </a>
+                <a href="dashboardDepot.html" class="lienMenuNavigation flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-plus-circle w-5 h-5"></i>
+                    <span class="font-medium">Dépôt</span>
+                </a>
+                <a href="dashboardRetrait.html" class="lienMenuNavigation flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-minus-circle w-5 h-5"></i>
+                    <span class="font-medium">Retrait</span>
+                </a>
+                <a href="dashboardTransaction.html" class="lienMenuNavigation menuActif flex items-center space-x-3 p-3 rounded-xl bg-gradient-to-r from-bleu-principal to-bleu-fonce text-white">
+                    <i class="fas fa-list-alt w-5 h-5"></i>
+                    <span class="font-medium">Mes Transactions</span>
+                </a>
+                <a href="dashboardPronostic.html" class="lienMenuNavigation flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-futbol w-5 h-5"></i>
+                    <span class="font-medium">Pronostic</span>
+                </a>
+                <a href="dashboardVideo.html" class="lienMenuNavigation flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-video w-5 h-5"></i>
+                    <span class="font-medium">Vidéo</span>
+                </a>
+                <a href="dashboardBonus.html" class="lienMenuNavigation flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-gift w-5 h-5"></i>
+                    <span class="font-medium">Bonus</span>
+                </a>
+                <a href="dashboardProfile.html" class="lienMenuNavigation flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-user w-5 h-5"></i>
+                    <span class="font-medium">Profile</span>
+                </a>
+                <a href="#" id="btnDeco" class="flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-sign-out-alt w-5 h-5"></i>
+                    <span class="font-medium">Déconnexion</span>
+                </a>
+            </nav>
+        </div>
+
+        <div class="flex-1 lg:ml-64">
+            <div class="p-6">
+                <div class="flex items-center justify-between mb-8">
+                    <div>
+                        <h2 class="text-3xl font-bold text-white mb-2">Mes Transactions</h2>
+                        <p class="text-gray-400">Consultez l'historique de toutes vos transactions</p>
+                    </div>
+                    <button id="btnMenu" class="lg:hidden p-2 rounded-lg bg-gray-800 text-white">
+                        <span class="block w-6 h-0.5 bg-white mb-1"></span>
+                        <span class="block w-6 h-0.5 bg-white mb-1"></span>
+                        <span class="block w-6 h-0.5 bg-white"></span>
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-gray-800 rounded-xl p-6">
+                        <div class="flex items-center space-x-3 mb-3">
+                            <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-plus-circle text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-green-400 font-bold">Total Dépôts</h3>
+                                <p class="text-2xl font-bold text-white">125,000 FCFA</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-800 rounded-xl p-6">
+                        <div class="flex items-center space-x-3 mb-3">
+                            <div class="w-12 h-12 bg-orange-600 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-minus-circle text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-orange-400 font-bold">Total Retraits</h3>
+                                <p class="text-2xl font-bold text-white">80,000 FCFA</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-800 rounded-xl p-6">
+                        <div class="flex items-center space-x-3 mb-3">
+                            <div class="w-12 h-12 bg-jaune-accent rounded-lg flex items-center justify-center">
+                                <i class="fas fa-gift text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-jaune-accent font-bold">Total Bonus</h3>
+                                <p class="text-2xl font-bold text-white">35,000 FCFA</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 rounded-xl p-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-xl font-bold text-white">Historique des Transactions</h3>
+                        <div class="flex space-x-3">
+                            <select id="selectPeriode" class="bg-gray-700 text-white px-4 py-2 rounded-lg border border-gray-600 focus:border-bleu-principal focus:outline-none">
+                                <option value="tous">Toutes les périodes</option>
+                                <option value="7jours">7 derniers jours</option>
+                                <option value="30jours">30 derniers jours</option>
+                                <option value="3mois">3 derniers mois</option>
+                            </select>
+                            <select id="selectTypeTransaction" class="bg-gray-700 text-white px-4 py-2 rounded-lg border border-gray-600 focus:border-bleu-principal focus:outline-none">
+                                <option value="tous">Tous les types</option>
+                                <option value="depot">Dépôts</option>
+                                <option value="retrait">Retraits</option>
+                                <option value="bonus">Bonus</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead>
+                                <tr class="text-gray-400 text-sm border-b border-gray-700">
+                                    <th class="text-left pb-3">Date</th>
+                                    <th class="text-left pb-3">Type</th>
+                                    <th class="text-left pb-3">Montant</th>
+                                    <th class="text-left pb-3">Méthode</th>
+                                    <th class="text-left pb-3">Statut</th>
+                                    <th class="text-left pb-3">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-white" id="tableauTransactions">
+                                <tr class="ligneTransaction border-b border-gray-700 hover:bg-gray-700 transition-colors">
+                                    <td class="py-3">01/06/2025</td>
+                                    <td class="py-3">
+                                        <span class="flex items-center">
+                                            <i class="fas fa-plus-circle text-green-400 mr-2"></i>
+                                            Dépôt
+                                        </span>
+                                    </td>
+                                    <td class="py-3 text-green-400 font-medium">+50,000 FCFA</td>
+                                    <td class="py-3 text-gray-300">Orange Money</td>
+                                    <td class="py-3">
+                                        <span class="bg-green-600 text-green-100 px-2 py-1 rounded-full text-xs">Validé</span>
+                                    </td>
+                                    <td class="py-3">
+                                        <button class="btnVoirDetail bg-bleu-principal hover:bg-bleu-fonce text-white px-3 py-1 rounded text-xs font-medium transition-all" data-transaction-id="1">
+                                            Voir détail
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr class="ligneTransaction border-b border-gray-700 hover:bg-gray-700 transition-colors">
+                                    <td class="py-3">30/05/2025</td>
+                                    <td class="py-3">
+                                        <span class="flex items-center">
+                                            <i class="fas fa-gift text-jaune-accent mr-2"></i>
+                                            Bonus
+                                        </span>
+                                    </td>
+                                    <td class="py-3 text-jaune-accent font-medium">+25,000 FCFA</td>
+                                    <td class="py-3 text-gray-300">Bonus Premier Dépôt</td>
+                                    <td class="py-3">
+                                        <span class="bg-yellow-600 text-yellow-100 px-2 py-1 rounded-full text-xs">Activé</span>
+                                    </td>
+                                    <td class="py-3">
+                                        <button class="btnVoirDetail bg-bleu-principal hover:bg-bleu-fonce text-white px-3 py-1 rounded text-xs font-medium transition-all" data-transaction-id="2">
+                                            Voir détail
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr class="ligneTransaction border-b border-gray-700 hover:bg-gray-700 transition-colors">
+                                    <td class="py-3">29/05/2025</td>
+                                    <td class="py-3">
+                                        <span class="flex items-center">
+                                            <i class="fas fa-minus-circle text-orange-400 mr-2"></i>
+                                            Retrait
+                                        </span>
+                                    </td>
+                                    <td class="py-3 text-orange-400 font-medium">-30,000 FCFA</td>
+                                    <td class="py-3 text-gray-300">MTN Money</td>
+                                    <td class="py-3">
+                                        <span class="bg-blue-600 text-blue-100 px-2 py-1 rounded-full text-xs">En cours</span>
+                                    </td>
+                                    <td class="py-3">
+                                        <button class="btnVoirDetail bg-bleu-principal hover:bg-bleu-fonce text-white px-3 py-1 rounded text-xs font-medium transition-all" data-transaction-id="3">
+                                            Voir détail
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr class="ligneTransaction border-b border-gray-700 hover:bg-gray-700 transition-colors">
+                                    <td class="py-3">28/05/2025</td>
+                                    <td class="py-3">
+                                        <span class="flex items-center">
+                                            <i class="fas fa-plus-circle text-green-400 mr-2"></i>
+                                            Dépôt
+                                        </span>
+                                    </td>
+                                    <td class="py-3 text-green-400 font-medium">+75,000 FCFA</td>
+                                    <td class="py-3 text-gray-300">Wave</td>
+                                    <td class="py-3">
+                                        <span class="bg-green-600 text-green-100 px-2 py-1 rounded-full text-xs">Validé</span>
+                                    </td>
+                                    <td class="py-3">
+                                        <button class="btnVoirDetail bg-bleu-principal hover:bg-bleu-fonce text-white px-3 py-1 rounded text-xs font-medium transition-all" data-transaction-id="4">
+                                            Voir détail
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr class="ligneTransaction border-b border-gray-700 hover:bg-gray-700 transition-colors">
+                                    <td class="py-3">27/05/2025</td>
+                                    <td class="py-3">
+                                        <span class="flex items-center">
+                                            <i class="fas fa-minus-circle text-orange-400 mr-2"></i>
+                                            Retrait
+                                        </span>
+                                    </td>
+                                    <td class="py-3 text-orange-400 font-medium">-50,000 FCFA</td>
+                                    <td class="py-3 text-gray-300">Orange Money</td>
+                                    <td class="py-3">
+                                        <span class="bg-green-600 text-green-100 px-2 py-1 rounded-full text-xs">Validé</span>
+                                    </td>
+                                    <td class="py-3">
+                                        <button class="btnVoirDetail bg-bleu-principal hover:bg-bleu-fonce text-white px-3 py-1 rounded text-xs font-medium transition-all" data-transaction-id="5">
+                                            Voir détail
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr class="ligneTransaction border-b border-gray-700 hover:bg-gray-700 transition-colors">
+                                    <td class="py-3">25/05/2025</td>
+                                    <td class="py-3">
+                                        <span class="flex items-center">
+                                            <i class="fas fa-gift text-jaune-accent mr-2"></i>
+                                            Bonus
+                                        </span>
+                                    </td>
+                                    <td class="py-3 text-jaune-accent font-medium">+10,000 FCFA</td>
+                                    <td class="py-3 text-gray-300">Bonus Fidélité</td>
+                                    <td class="py-3">
+                                        <span class="bg-yellow-600 text-yellow-100 px-2 py-1 rounded-full text-xs">Activé</span>
+                                    </td>
+                                    <td class="py-3">
+                                        <button class="btnVoirDetail bg-bleu-principal hover:bg-bleu-fonce text-white px-3 py-1 rounded text-xs font-medium transition-all" data-transaction-id="6">
+                                            Voir détail
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="flex items-center justify-between mt-6">
+                        <p class="text-gray-400 text-sm">Affichage de 6 transactions sur 24 au total</p>
+                        <div class="flex space-x-2">
+                            <button id="boutonPagePrecedente" class="px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+                                Précédent
+                            </button>
+                            <button class="px-4 py-2 bg-bleu-principal text-white rounded-lg">1</button>
+                            <button class="px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-colors">2</button>
+                            <button class="px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-colors">3</button>
+                            <button id="boutonPageSuivante" class="px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-colors">
+                                Suivant
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/script/dashboardTransaction.js"></script>
+</body>
+</html>
