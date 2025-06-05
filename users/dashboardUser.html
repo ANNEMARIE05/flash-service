@@ -7,168 +7,151 @@
     <link rel="shortcut icon" href="/assets/img/log.jpeg" type="image/jpeg">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'bleu-principal': '#1e40af',
-                        'bleu-fonce': '#1e3a8a',
-                        'jaune-accent': '#fbbf24',
-                        'jaune-clair': '#fef3c7'
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        .logo-club {
-            width: 40px;
-            height: 40px;
-            object-fit: contain;
-            border-radius: 50%;
-            background: white;
-            padding: 1px;
-        }
-        .anim-carte {
-            transition: all 0.3s ease;
-        }
-        .anim-carte:hover {
-            transform: translateY(-5px) scale(1.02);
-        }
-    </style>
+    <link rel="stylesheet" href="/assets/css/dashboardUser.css">
 </head>
 <body class="bg-gray-900 text-white min-h-screen">
     <div class="flex">
-        <div id="arrierPlanMenu" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden lg:hidden"></div>
+        <div id="fondMenu" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden lg:hidden"></div>
         
-        <div id="menu" class="w-64 bg-gray-800 min-h-screen p-6 fixed left-0 top-0 z-50 transform -translate-x-full lg:translate-x-0 transition-transform duration-300">
-            <div class="flex items-center space-x-3 mb-8">
-                <img 
-                    src="/assets/img/log.jpeg" 
-                    class="w-10 h-10 rounded-lg"
-                    alt=""
-                >
-                <h1 class="text-xl font-bold text-white">Flash Service</h1>
+        <div id="menu" class="w-64 bg-gray-800 min-h-screen fixed left-0 top-0 z-50 transform -translate-x-full lg:translate-x-0 transition-transform duration-300">
+            <button id="fermerMenu" class="lg:hidden absolute top-4 right-4 text-white text-xl p-2 hover:bg-gray-700 rounded-lg transition-colors">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <div class="box text-center">
+                <div class="my-1">
+                    <span class="text-2xl mr-1">👋</span>
+                    <span class="text-white font-bold text-md">Bienvenue, YAO</span>
+                </div>
+                <div class="mb-4">
+                    <div class="text-white text-base mb-4 font-medium text-md">Solde : 12 000 XOF</div>
+                    <div class="flex gap-2 flex-row">
+                        <button id="depot" class="bg-green-600 text-xs hover:bg-green-700 text-white px-4 py-2 rounded-lg flex items-center justify-center space-x-2 transition-all flex-1">
+                            <i class="fas fa-dollar-sign"></i>
+                            <span>Dépôt</span>
+                        </button>
+                        <button id="retrait" class="bg-red-600 text-xs hover:bg-red-700 text-white px-4 py-2 rounded-lg flex items-center justify-center space-x-2 transition-all flex-1">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <span>Retrait</span>
+                        </button>
+                    </div>
+                </div>
             </div>
             
-            <nav class="space-y-2">
-                <a href="dashboardUser.html" class="lien-nav actif flex items-center space-x-3 p-3 rounded-xl bg-gradient-to-r from-bleu-principal to-bleu-fonce text-white">
-                    <i class="fas fa-chart-pie w-5 h-5"></i>
+            <nav class="space-y-2 px-4 py-1">
+                <a href="dashboardUser.html" class="lien-nav actif flex items-center space-x-3 py-2 px-3 rounded-xl bg-gradient-to-r from-bleu-principal to-bleu-fonce text-white">
+                    <i class="fas fa-chart-pie"></i>
                     <span class="font-medium">Dashboard</span>
                 </a>
-                <a href="dashboardDepot.html" class="lien-nav flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
-                    <i class="fas fa-plus-circle w-5 h-5"></i>
+                <a href="dashboardDepot.html" class="lien-nav flex items-center space-x-3 py-2 px-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-plus-circle"></i>
                     <span class="font-medium">Dépôt</span>
                 </a>
-                <a href="dashboardRetrait.html" class="lien-nav flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
-                    <i class="fas fa-minus-circle w-5 h-5"></i>
+                <a href="dashboardRetrait.html" class="lien-nav flex items-center space-x-3 py-2 px-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-minus-circle"></i>
                     <span class="font-medium">Retrait</span>
                 </a>
-                <a href="dashboardTransaction.html" class="lien-nav flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
-                    <i class="fas fa-list-alt w-5 h-5"></i>
+                <a href="dashboardTransaction.html" class="lien-nav flex items-center space-x-3 py-2 px-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-list-alt"></i>
                     <span class="font-medium">Mes Transactions</span>
                 </a>
-                <a href="dashboardPronostic.html" class="lien-nav flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
-                    <i class="fas fa-futbol w-5 h-5"></i>
+                <a href="dashboardPronostic.html" class="lien-nav flex items-center space-x-3 py-2 px-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-futbol"></i>
                     <span class="font-medium">Pronostic</span>
                 </a>
-                <a href="dashboardVideo.html" class="lien-nav flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
-                    <i class="fas fa-video w-5 h-5"></i>
+                <a href="dashboardVideo.html" class="lien-nav flex items-center space-x-3 py-2 px-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-video"></i>
                     <span class="font-medium">Vidéo</span>
                 </a>
-                <a href="dashboardBonus.html" class="lien-nav flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
-                    <i class="fas fa-gift w-5 h-5"></i>
+                <a href="dashboardBonus.html" class="lien-nav flex items-center space-x-3 py-2 px-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-gift"></i>
                     <span class="font-medium">Bonus</span>
                 </a>
-                <a href="dashboardProfile.html" class="lien-nav flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
-                    <i class="fas fa-user w-5 h-5"></i>
+                <a href="dashboardProfile.html" class="lien-nav flex items-center space-x-3 py-2 px-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-user"></i>
                     <span class="font-medium">Profile</span>
                 </a>
-                <a href="#" id="btnDeco" class="flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
-                    <i class="fas fa-sign-out-alt w-5 h-5"></i>
+                <a href="#" id="btnDeco" class="flex items-center space-x-3 py-2 px-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-sign-out-alt"></i>
                     <span class="font-medium">Déconnexion</span>
                 </a>
             </nav>
         </div>
 
         <div class="flex-1 lg:ml-64">
+            <nav class="bg-gray-800 border-b border-gray-700 p-4 lg:p-6">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-4">
+                        <button id="btnMenu" class="lg:hidden p-2 rounded-lg bg-gray-700 text-white">
+                            <span class="block w-6 h-0.5 bg-white mb-1"></span>
+                            <span class="block w-6 h-0.5 bg-white mb-1"></span>
+                            <span class="block w-6 h-0.5 bg-white"></span>
+                        </button>
+                        <div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-chart-pie"></i>
+                                <h1 class="text-xl lg:text-2xl font-bold text-white">Dashboard</h1>
+                            </div>
+                            <p class="text-gray-400 text-sm">Tableau de bord principal</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="hidden sm:block text-right">
+                            <p class="text-sm text-white font-medium">YAO</p>
+                            <p class="text-xs text-gray-400">En ligne</p>
+                        </div>
+                        <div class="w-8 h-8 bg-gradient-to-r from-bleu-principal to-bleu-fonce rounded-full flex items-center justify-center">
+                            <a href="/users/dashboardProfile.html"><i class="fas fa-user text-white text-sm"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
             <div class="p-4 lg:p-6">
-                <div class="flex items-center justify-between mb-8">
-                    <div>
-                        <h2 class="text-2xl lg:text-3xl font-bold text-white mb-2">Dashboard</h2>
-                        <p class="text-gray-400">Bienvenue sur votre tableau de bord</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-gray-800 rounded-lg p-6 text-center">
+                        <i class="fas fa-wallet text-blue-400 text-3xl mb-3 hidden sm:block"></i>
+                        <h3 class="text-white font-medium mb-2">Solde bonus</h3>
+                        <p class="text-2xl font-bold text-blue-400">12000 XOF</p>
                     </div>
-                    <button id="btnMenu" class="lg:hidden p-2 rounded-lg bg-gray-800 text-white">
-                        <span class="block w-6 h-0.5 bg-white mb-1"></span>
-                        <span class="block w-6 h-0.5 bg-white mb-1"></span>
-                        <span class="block w-6 h-0.5 bg-white"></span>
-                    </button>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-                    <div class="carte-stat bg-gradient-to-r from-bleu-principal to-bleu-fonce p-6 rounded-2xl">
-                        <div class="flex items-center justify-between">
-                            <div>
-                                <p class="text-blue-200 text-sm font-medium">Solde Actuel</p>
-                                <p class="text-3xl font-bold text-white">1,225,000 FCFA</p>
-                            </div>
-                            <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
-                                <i class="fas fa-credit-card text-2xl"></i>
-                            </div>
-                        </div>
+                    <div class="bg-gray-800 rounded-lg p-6 text-center">
+                        <i class="fas fa-chart-line text-green-400 text-3xl mb-3 hidden sm:block"></i>
+                        <h3 class="text-white font-medium mb-2">Pronostics Réussis</h3>
+                        <p class="text-2xl font-bold text-green-400">92%</p>
                     </div>
-
-                    <div class="carte-stat bg-gradient-to-r from-green-600 to-green-700 p-6 rounded-2xl">
-                        <div class="flex items-center justify-between">
-                            <div>
-                                <p class="text-green-200 text-sm font-medium">Pronostics Réussis</p>
-                                <p class="text-3xl font-bold text-white">92%</p>
-                            </div>
-                            <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
-                                <i class="fas fa-chart-line text-2xl"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="carte-stat bg-gradient-to-r from-orange-500 to-red-500 p-6 rounded-2xl">
-                        <div class="flex items-center justify-between">
-                            <div>
-                                <p class="text-orange-200 text-sm font-medium">Bonus Récoltés</p>
-                                <p class="text-3xl font-bold text-white">285,000 FCFA</p>
-                            </div>
-                            <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
-                                <i class="fas fa-gift text-2xl"></i>
-                            </div>
-                        </div>
+                    <div class="bg-gray-800 rounded-lg p-6 text-center">
+                        <i class="fas fa-gift text-red-400 text-3xl mb-3 hidden sm:block"></i>
+                        <h3 class="text-white font-medium mb-2">Bonus Récoltés</h3>
+                        <p class="text-2xl font-bold text-red-400">4000 XOF</p>
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
                     <div class="lg:col-span-2">
-                        <div class="bg-gray-800 rounded-2xl p-6">
-                            <div class="flex items-center justify-between mb-6">
-                                <h3 class="text-xl font-bold text-white">Pronostics d'Aujourd'hui</h3>
-                                <button id="voirProno" class="bg-gradient-to-r from-bleu-principal to-bleu-fonce text-white px-4 py-2 rounded-lg font-medium hover:shadow-lg hover:shadow-bleu-principal/30 transition-all">
-                                    Voir tous les pronostics
+                        <div class="bg-gray-800 rounded-xl p-4 lg:p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="text-xs sm:text-lg font-bold text-white">Pronostics d'Aujourd'hui</h3>
+                                <button id="voirProno" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded-lg text-xs sm:w-auto">
+                                    Voir tous
                                 </button>
+                                
                             </div>
                             
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                                <div class="carte-prono anim-carte rounded-2xl p-4 border border-gray-700 hover:border-bleu-principal transition-all duration-300 hover:shadow-lg hover:shadow-bleu-principal/20">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="carte-prono anim-carte rounded-xl p-4 border border-gray-700 hover:border-bleu-principal transition-all duration-300 hover:shadow-lg hover:shadow-bleu-principal/20">
                                     <div class="flex justify-between items-center mb-3">
                                         <span class="text-xs text-gray-400">Champions League</span>
                                         <span class="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded-full">Aujourd'hui</span>
                                     </div>
                                     
-                                    <div class="flex items-center justify-between mb-4">
-                                        <div class="flex items-center space-x-3">
+                                    <div class="flex items-center justify-between mb-3">
+                                        <div class="flex items-center space-x-2">
                                             <img src="/assets/img/PSG-Logo.png" alt="PSG" class="logo-club">
-                                            <span class="text-white font-medium sm:text-sm text-xs">PSG</span>
+                                            <span class="text-white font-medium text-sm">PSG</span>
                                         </div>
                                         <span class="text-gray-400 text-sm">vs</span>
-                                        <div class="flex items-center space-x-3">
-                                            <span class="text-white font-medium sm:text-sm text-xs">Bayern</span>
+                                        <div class="flex items-center space-x-2">
+                                            <span class="text-white font-medium text-sm">Bayern</span>
                                             <img src="/assets/img/FC-Bayern-Munchen-Logo.png" alt="Bayern Munich" class="logo-club">
                                         </div>
                                     </div>
@@ -186,20 +169,20 @@
                                     </div>
                                 </div>
 
-                                <div class="carte-prono anim-carte rounded-2xl p-4 border border-gray-700 hover:border-bleu-principal transition-all duration-300 hover:shadow-lg hover:shadow-bleu-principal/20">
+                                <div class="carte-prono anim-carte rounded-xl p-4 border border-gray-700 hover:border-bleu-principal transition-all duration-300 hover:shadow-lg hover:shadow-bleu-principal/20">
                                     <div class="flex justify-between items-center mb-3">
                                         <span class="text-xs text-gray-400">Premier League</span>
                                         <span class="text-xs bg-blue-500/20 text-blue-400 px-2 py-1 rounded-full">Aujourd'hui</span>
                                     </div>
                                     
-                                    <div class="flex items-center justify-between mb-4">
-                                        <div class="flex items-center space-x-3">
+                                    <div class="flex items-center justify-between mb-3">
+                                        <div class="flex items-center space-x-2">
                                             <img src="/assets/img/Manchester-City-Logo.png" alt="Manchester City" class="logo-club">
-                                            <span class="text-white font-medium sm:text-sm text-xs">Man City</span>
+                                            <span class="text-white font-medium text-sm">Man City</span>
                                         </div>
                                         <span class="text-gray-400 text-sm">vs</span>
-                                        <div class="flex items-center space-x-3">
-                                            <span class="text-white font-medium sm:text-sm text-xs">Arsenal</span>
+                                        <div class="flex items-center space-x-2">
+                                            <span class="text-white font-medium text-sm">Arsenal</span>
                                             <img src="/assets/img/Arsenal-Logo.png" alt="Arsenal" class="logo-club">
                                         </div>
                                     </div>
@@ -275,119 +258,70 @@
                     </div>
                 </div>
 
-                <div class="bg-gray-800 rounded-2xl p-6">
-                    <div class="flex items-center justify-between mb-6">
-                        <h3 class="text-xl font-bold text-white">Dernières Transactions</h3>
-                        <a href="dashboardTransaction.html" class="text-bleu-principal text-sm hover:underline">Voir Toutes</a>
-                    </div>
-                    
-                    <div class="space-y-6">
-                        <div class="bg-gray-700 rounded-2xl overflow-hidden shadow-xl">
-                            <div class="bg-gradient-to-r from-bleu-principal to-bleu-fonce p-4">
-                                <h4 class="text-lg font-bold text-white flex items-center">
-                                    <i class="fas fa-plus-circle mr-3"></i>
-                                    Transaction #1
-                                </h4>
-                            </div>
-                            
-                            <div class="p-6">
-                                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                                    <div class="flex justify-between items-center p-3 bg-gray-800 rounded-lg">
-                                        <span class="text-gray-300 font-medium">Type :</span>
-                                        <div class="flex items-center space-x-2">
-                                            <i class="fas fa-plus-circle text-green-400"></i>
-                                            <span class="text-white font-bold">Dépôt</span>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="flex justify-between items-center p-3 bg-gray-800 rounded-lg">
-                                        <span class="text-gray-300 font-medium">Montant :</span>
-                                        <span class="text-green-400 font-bold">1000.00 FCFA</span>
-                                    </div>
-                                    
-                                    <div class="flex justify-between items-center p-3 bg-gray-800 rounded-lg">
-                                        <span class="text-gray-300 font-medium">Paiement :</span>
-                                        <span class="text-white font-bold">Wave</span>
-                                    </div>
-                                    
-                                    <div class="flex justify-between items-center p-3 bg-gray-800 rounded-lg">
-                                        <span class="text-gray-300 font-medium">Numéro :</span>
-                                        <span class="text-white font-mono">0576464241</span>
-                                    </div>
-                                    
-                                    <div class="flex justify-between items-center p-3 bg-gray-800 rounded-lg">
-                                        <span class="text-gray-300 font-medium">Statut :</span>
-                                        <span class="bg-red-600 text-red-100 px-3 py-1 rounded-full text-sm font-bold">
-                                            Rejeté
-                                        </span>
-                                    </div>
-                                    
-                                    <div class="flex justify-between items-center p-3 bg-gray-800 rounded-lg">
-                                        <span class="text-gray-300 font-medium">Date :</span>
-                                        <span class="text-white font-medium">06/05/2025 12:53</span>
-                                    </div>
-                                </div>
-                                
-                                <div class="mt-4 text-center">
-                                    <button class="btn-detail bg-gradient-to-r from-bleu-principal to-bleu-fonce text-white px-4 py-2 rounded-lg font-medium hover:shadow-lg hover:shadow-bleu-principal/30 transition-all" data-id="1">
-                                        <i class="fas fa-eye mr-2"></i>
-                                        Voir Détail
-                                    </button>
-                                </div>
-                            </div>
+                <div class="bg-gray-800 rounded-xl p-2">
+                    <div class="date">
+                        <div class="p-4 border-b border-gray-600 flex items-center justify-between">
+                            <h3 class="text-white font-medium text-xs sm:text-lg">Dernières Transactions</h3>
+                            <button onclick="window.location.href='detailTransaction.html'" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded-lg text-xs sm:w-auto">
+                                Voir Toutes
+                            </button>
                         </div>
-
-                        <div class="bg-gray-700 rounded-2xl overflow-hidden shadow-xl">
-                            <div class="bg-gradient-to-r from-bleu-principal to-bleu-fonce p-4">
-                                <h4 class="text-lg font-bold text-white flex items-center">
-                                    <i class="fas fa-plus-circle mr-3"></i>
-                                    Transaction #2
-                                </h4>
-                            </div>
-                            
-                            <div class="p-6">
-                                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                                    <div class="flex justify-between items-center p-3 bg-gray-800 rounded-lg">
-                                        <span class="text-gray-300 font-medium">Type :</span>
-                                        <div class="flex items-center space-x-2">
-                                            <i class="fas fa-plus-circle text-green-400"></i>
-                                            <span class="text-white font-bold">Dépôt</span>
+                        <div class="p-2 sm:p-4 space-y-2">
+                            <div class="transaction retrait p-2 rounded-lg carte">
+                                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                                    <div class="flex items-center space-x-4">
+                                        <div class="hidden w-7 h-7 bg-red-500 rounded-full sm:flex items-center justify-center flex-shrink-0">
+                                            <i class="fas fa-minus text-white text-lg"></i>
+                                        </div>
+                                        <div class="min-w-0">
+                                            <p class="text-white font-medium text-xs sm:text-sm">Retrait d'un montant de 1500.00 XOF</p>
+                                            <p class="text-gray-400 text-sm">18:22 - Confirmé</p>
                                         </div>
                                     </div>
-                                    
-                                    <div class="flex justify-between items-center p-3 bg-gray-800 rounded-lg">
-                                        <span class="text-gray-300 font-medium">Montant :</span>
-                                        <span class="text-green-400 font-bold">1000.00 FCFA</span>
-                                    </div>
-                                    
-                                    <div class="flex justify-between items-center p-3 bg-gray-800 rounded-lg">
-                                        <span class="text-gray-300 font-medium">Paiement :</span>
-                                        <span class="text-white font-bold">MTN</span>
-                                    </div>
-                                    
-                                    <div class="flex justify-between items-center p-3 bg-gray-800 rounded-lg">
-                                        <span class="text-gray-300 font-medium">Numéro :</span>
-                                        <span class="text-white font-mono">0576464241</span>
-                                    </div>
-                                    
-                                    <div class="flex justify-between items-center p-3 bg-gray-800 rounded-lg">
-                                        <span class="text-gray-300 font-medium">Statut :</span>
-                                        <span class="bg-green-600 text-green-100 px-3 py-1 rounded-full text-sm font-bold">
-                                            Validé
-                                        </span>
-                                    </div>
-                                    
-                                    <div class="flex justify-between items-center p-3 bg-gray-800 rounded-lg">
-                                        <span class="text-gray-300 font-medium">Date :</span>
-                                        <span class="text-white font-medium">06/05/2025 15:38</span>
+                                    <div class="flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-3">
+                                        <span class="text-red-400 font-bold text-xs sm:text-sm">-1500 F</span>
+                                        <button onclick="window.location.href='detailTransaction.html'" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded-lg text-xs w-full sm:w-auto">
+                                            <i class="fas fa-eye mr-1"></i>Détail
+                                        </button>
                                     </div>
                                 </div>
-                                
-                                <div class="mt-4 text-center">
-                                    <button class="btn-detail bg-gradient-to-r from-bleu-principal to-bleu-fonce text-white px-4 py-2 rounded-lg font-medium hover:shadow-lg hover:shadow-bleu-principal/30 transition-all" data-id="2">
-                                        <i class="fas fa-eye mr-2"></i>
-                                        Voir Détail
-                                    </button>
+                            </div>
+                            <div class="transaction bonus p-2 rounded-lg carte">
+                                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                                    <div class="flex items-center space-x-4">
+                                        <div class="hidden w-7 h-7 bg-yellow-500 rounded-full sm:flex items-center justify-center flex-shrink-0">
+                                            <i class="fas fa-gift text-white text-md"></i>
+                                        </div>
+                                        <div class="min-w-0">
+                                            <p class="text-white font-medium text-xs sm:text-sm">Réclamation bonus de 2500.00 XOF</p>
+                                            <p class="text-gray-400 text-sm">16:48 - Confirmé</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-3">
+                                        <span class="text-yellow-500 font-bold text-xs sm:text-sm">+2500 F</span>
+                                        <button onclick="window.location.href='detailTransaction.html'" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded-lg text-xs w-full sm:w-auto">
+                                            <i class="fas fa-eye mr-1"></i>Détail
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="transaction depot p-2 rounded-lg carte">
+                                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                                    <div class="flex items-center space-x-4">
+                                        <div class="hidden w-7 h-7 bg-green-500 rounded-full sm:flex items-center justify-center flex-shrink-0">
+                                            <i class="fas fa-plus text-white text-lg"></i>
+                                        </div>
+                                        <div class="min-w-0">
+                                            <p class="text-white font-medium text-xs sm:text-sm">Dépôt d'un montant de 3500.00 XOF</p>
+                                            <p class="text-gray-400 text-sm">09:28 - Confirmé</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-3">
+                                        <span class="text-green-400 font-bold text-xs sm:text-sm">+3500 F</span>
+                                        <button onclick="window.location.href='detailTransaction.html'" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded-lg text-xs w-full sm:w-auto">
+                                            <i class="fas fa-eye mr-1"></i>Détail
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>

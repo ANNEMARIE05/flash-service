@@ -13,33 +13,35 @@ tailwind.config = {
 
 const btnMenu = document.getElementById('btnMenu');
 const menu = document.getElementById('menu');
-const arrierPlanMenu = document.getElementById('arrierPlanMenu');
+const fondMenu = document.getElementById('fondMenu');
+const fermerMenu = document.getElementById('fermerMenu');
 
-function ouvrirMenu() {
+function ouvrir() {
     menu.classList.remove('-translate-x-full');
-    arrierPlanMenu.classList.remove('hidden');
+    fondMenu.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
 }
 
-function fermerMenu() {
+function fermer() {
     menu.classList.add('-translate-x-full');
-    arrierPlanMenu.classList.add('hidden');
+    fondMenu.classList.add('hidden');
     document.body.style.overflow = 'auto';
 }
 
 btnMenu.addEventListener('click', function() {
     if (menu.classList.contains('-translate-x-full')) {
-        ouvrirMenu();
+        ouvrir();
     } else {
-        fermerMenu();
+        fermer();
     }
 });
 
-arrierPlanMenu.addEventListener('click', fermerMenu);
+fermerMenu.addEventListener('click', fermer);
+fondMenu.addEventListener('click', fermer);
 
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
-        fermerMenu();
+        fermer();
     }
 });
 
@@ -76,46 +78,99 @@ btnsBonus.forEach(btn => {
     });
 });
 
-const btnsDetail = document.querySelectorAll('.btn-detail');
-btnsDetail.forEach(btn => {
+const btnDetails = document.querySelectorAll('.btn-detail');
+btnDetails.forEach(btn => {
     btn.addEventListener('click', function() {
-        window.location.href = 'dashboardTransaction.html';
+        const transactionId = this.getAttribute('data-id');
+        const transactionCard = this.closest('.bg-gray-700');
+        const details = transactionCard.querySelectorAll('.bg-gray-800');
+        
+        transactionCard.classList.add('ring-2', 'ring-bleu-principal');
+        setTimeout(() => {
+            transactionCard.classList.remove('ring-2', 'ring-bleu-principal');
+        }, 2000);
+        
+        console.log(`Affichage des détails de la transaction #${transactionId}`);
     });
 });
 
+const btnDepot = document.getElementById('depot');
+const btnRetrait = document.getElementById('retrait');
+
+btnDepot.addEventListener('click', function() {
+    window.location.href = 'dashboardDepot.html';
+});
+
+btnRetrait.addEventListener('click', function() {
+    window.location.href = 'dashboardRetrait.html';
+});
+
 const voirProno = document.getElementById('voirProno');
-if (voirProno) {
-    voirProno.addEventListener('click', function() {
-        window.location.href = 'dashboardPronostic.html';
-    });
-}
+voirProno.addEventListener('click', function() {
+    window.location.href = 'dashboardPronostic.html';
+});
 
 const voirBonus = document.getElementById('voirBonus');
-if (voirBonus) {
-    voirBonus.addEventListener('click', function() {
-        window.location.href = 'dashboardBonus.html';
-    });
-}
+voirBonus.addEventListener('click', function() {
+    window.location.href = 'dashboardBonus.html';
+});
 
 const btnDeco = document.getElementById('btnDeco');
-if (btnDeco) {
-    btnDeco.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        if (confirm('Êtes-vous sûr de vouloir vous déconnecter ?')) {            
-            window.location.href = '/auth/login.html';
-        }
+btnDeco.addEventListener('click', function(e) {
+    e.preventDefault();
+    if (confirm('Êtes-vous sûr de vouloir vous déconnecter ?')) {
+        localStorage.removeItem('userToken');
+        window.location.href = 'index.html';
+    }
+});
+
+const cartesProno = document.querySelectorAll('.carte-prono');
+cartesProno.forEach(carte => {
+    carte.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-5px) scale(1.02)';
     });
+    
+    carte.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0) scale(1)';
+    });
+});
+
+function updateTime() {
+    const now = new Date();
+    const timeString = now.toLocaleTimeString('fr-FR');
+    const timeElement = document.querySelector('.current-time');
+    if (timeElement) {
+        timeElement.textContent = timeString;
+    }
 }
 
-const cartesStats = document.querySelectorAll('.carte-stat');
-cartesStats.forEach((carte, index) => {
-    carte.style.opacity = '0';
-    carte.style.transform = 'translateY(20px)';
+setInterval(updateTime, 1000);
+
+window.addEventListener('load', function() {
+    document.body.classList.add('loaded');
     
+    const cartesStat = document.querySelectorAll('.carte-stat');
+    cartesStat.forEach((carte, index) => {
+        setTimeout(() => {
+            carte.style.opacity = '0';
+            carte.style.transform = 'translateY(20px)';
+            carte.style.transition = 'all 0.5s ease';
+            
+            setTimeout(() => {
+                carte.style.opacity = '1';
+                carte.style.transform = 'translateY(0)';
+            }, 100);
+        }, index * 200);
+    });
+});
+
+const notifications = document.querySelectorAll('.notification');
+notifications.forEach(notification => {
     setTimeout(() => {
-        carte.style.transition = 'all 0.5s ease';
-        carte.style.opacity = '1';
-        carte.style.transform = 'translateY(0)';
-    }, index * 200);
+        notification.style.opacity = '0';
+        notification.style.transform = 'translateX(100%)';
+        setTimeout(() => {
+            notification.remove();
+        }, 300);
+    }, 5000);
 });

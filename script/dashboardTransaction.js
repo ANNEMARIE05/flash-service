@@ -11,46 +11,76 @@ tailwind.config = {
     }
 }
 
-const btnMenu = document.getElementById('btnMenu');
-const sidebar = document.getElementById('sidebar');
-const overlay = document.getElementById('overlay');
+const boutonOuvrir = document.getElementById('ouvrir');
+const boutonFermer = document.getElementById('fermer');
+const menu = document.getElementById('menu');
+const fond = document.getElementById('fond');
 
-function ouvrirMenu() {
-    sidebar.classList.remove('-translate-x-full');
-    overlay.classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
-}
+boutonOuvrir.addEventListener('click', function() {
+    menu.classList.remove('-translate-x-full');
+    fond.classList.remove('hidden');
+});
 
-function fermerMenu() {
-    sidebar.classList.add('-translate-x-full');
-    overlay.classList.add('hidden');
-    document.body.style.overflow = 'auto';
-}
+boutonFermer.addEventListener('click', function() {
+    menu.classList.add('-translate-x-full');
+    fond.classList.add('hidden');
+});
 
-btnMenu.addEventListener('click', ouvrirMenu);
-overlay.addEventListener('click', fermerMenu);
+fond.addEventListener('click', function() {
+    menu.classList.add('-translate-x-full');
+    fond.classList.add('hidden');
+});
 
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-        fermerMenu();
+const filtreSelect = document.getElementById('filtre');
+
+filtreSelect.addEventListener('change', function() {
+    const typeFiltre = this.value;
+    const transactions = document.querySelectorAll('.transaction');
+    
+    transactions.forEach(function(transaction) {
+        const estDepot = transaction.querySelector('.fa-plus');
+        const estRetrait = transaction.classList.contains('retrait');
+        const estBonus = transaction.classList.contains('bonus');
+        
+        let afficher = true;
+        
+        switch(typeFiltre) {
+            case 'depot':
+                afficher = estDepot && !estBonus;
+                break;
+            case 'retrait':
+                afficher = estRetrait;
+                break;
+            case 'bonus':
+                afficher = estBonus;
+                break;
+            case 'tous':
+            default:
+                afficher = true;
+                break;
+        }
+        
+        if (afficher) {
+            transaction.style.display = 'block';
+        } else {
+            transaction.style.display = 'none';
+        }
+    });
+});
+
+document.getElementById('deco').addEventListener('click', function(e) {
+    e.preventDefault();
+    if (confirm('Êtes-vous sûr de vouloir vous déconnecter ?')) {
+        window.location.href = 'index.html';
     }
 });
 
-const btnVoirDetail = document.querySelectorAll('.btnVoirDetail');
-btnVoirDetail.forEach(btnDetail => {
-    btnDetail.addEventListener('click', function() {
-        const identifiantTransaction = this.getAttribute('data-transaction-id');
-        window.location.href = `detailTransaction.html`;
+document.querySelectorAll('.carte').forEach(function(carte) {
+    carte.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-2px) scale(1.01)';
+    });
+    
+    carte.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0) scale(1)';
     });
 });
-
-const btnDeco = document.getElementById('btnDeco');
-if (btnDeco) {
-    btnDeco.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        if (confirm('Êtes-vous sûr de vouloir vous déconnecter ?')) {            
-            window.location.href = '/auth/login.html';
-        }
-    });
-}

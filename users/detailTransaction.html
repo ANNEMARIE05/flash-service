@@ -3,179 +3,207 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flash Service - Détails Transaction</title>
+    <title>Flash Service - Dashboard</title>
     <link rel="shortcut icon" href="/assets/img/log.jpeg" type="image/jpeg">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/detailTransation.css">
 </head>
 <body class="bg-gray-900 text-white min-h-screen">
     <div class="flex">
-        <div id="sidebar" class="w-64 bg-gray-800 min-h-screen p-6 fixed left-0 top-0 z-50 transform -translate-x-full lg:translate-x-0 transition-transform duration-300">
-            <div class="flex items-center space-x-3 mb-8">
-                <img 
-                    src="/assets/img/log.jpeg" 
-                    class="w-10 h-10 rounded-lg"
-                    alt=""
-                >
-                <h1 class="text-xl font-bold text-white">Flash Service</h1>
+        <div id="fondEcran" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden lg:hidden"></div>
+        
+        <div id="menuLateral" class="w-64 bg-gray-800 min-h-screen fixed left-0 top-0 z-50 transform -translate-x-full lg:translate-x-0 transition-transform duration-300">
+            <button id="btnFermer" class="lg:hidden absolute top-4 right-4 text-white text-xl p-2 hover:bg-gray-700 rounded-lg transition-colors">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <div class="box text-center">
+                <div class="my-2">
+                    <span class="text-2xl mr-2">👋</span>
+                    <span class="text-white font-bold text-lg">Bienvenue, YAO</span>
+                </div>
+                <div class="mb-6">
+                    <div class="text-white text-lg mb-4 font-medium">Solde : 12 000 XOF</div>
+                    <div class="flex gap-2">
+                        <a href="dashboardDepot.html" class="bg-green-600 text-sm hover:bg-green-700 text-white px-4 py-2 rounded-lg flex items-center justify-center space-x-2 transition-all flex-1">
+                            <i class="fas fa-dollar-sign"></i>
+                            <span>Dépôt</span>
+                        </a>
+                        <a href="dashboardRetrait.html" class="bg-red-600 text-sm hover:bg-red-700 text-white px-4 py-2 rounded-lg flex items-center justify-center space-x-2 transition-all flex-1">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <span>Retrait</span>
+                        </a>
+                    </div>
+                </div>
             </div>
             
-            <nav class="space-y-2">
-                <a href="dashboardUser.html" class="lienMenuNav flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
-                    <i class="fas fa-chart-pie w-5 h-5"></i>
+            <nav class="space-y-2 px-4 py-2">
+                <a href="dashboardUser.html" class="lien flex items-center space-x-3 py-3 px-4 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-chart-pie"></i>
                     <span class="font-medium">Dashboard</span>
                 </a>
-                <a href="dashboardDepot.html" class="lienMenuNav flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
-                    <i class="fas fa-plus-circle w-5 h-5"></i>
+                <a href="dashboardDepot.html" class="lien flex items-center space-x-3 py-3 px-4 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-plus-circle"></i>
                     <span class="font-medium">Dépôt</span>
                 </a>
-                <a href="dashboardRetrait.html" class="lienMenuNav flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
-                    <i class="fas fa-minus-circle w-5 h-5"></i>
+                <a href="dashboardRetrait.html" class="lien flex items-center space-x-3 py-3 px-4 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-minus-circle"></i>
                     <span class="font-medium">Retrait</span>
                 </a>
-                <a href="dashboardTransaction.html" class="lienMenuNav elementMenuActif flex items-center space-x-3 p-3 rounded-xl bg-gradient-to-r from-bleu-principal to-bleu-fonce text-white">
-                    <i class="fas fa-list-alt w-5 h-5"></i>
+                <a href="dashboardTransaction.html" class="lien actif flex items-center space-x-3 py-3 px-4 rounded-xl bg-gradient-to-r from-bleu-principal to-bleu-fonce text-white">
+                    <i class="fas fa-list-alt"></i>
                     <span class="font-medium">Mes Transactions</span>
                 </a>
-                <a href="dashboardPronostic.html" class="lienMenuNav flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
-                    <i class="fas fa-futbol w-5 h-5"></i>
+                <a href="dashboardPronostic.html" class="lien flex items-center space-x-3 py-3 px-4 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-futbol"></i>
                     <span class="font-medium">Pronostic</span>
                 </a>
-                <a href="dashboardVideo.html" class="lienMenuNav flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
-                    <i class="fas fa-video w-5 h-5"></i>
+                <a href="dashboardVideo.html" class="lien flex items-center space-x-3 py-3 px-4 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-video"></i>
                     <span class="font-medium">Vidéo</span>
                 </a>
-                <a href="dashboardBonus.html" class="lienMenuNav flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
-                    <i class="fas fa-gift w-5 h-5"></i>
+                <a href="dashboardBonus.html" class="lien flex items-center space-x-3 py-3 px-4 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-gift"></i>
                     <span class="font-medium">Bonus</span>
                 </a>
-                <a href="dashboardProfile.html" class="lienMenuNav flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
-                    <i class="fas fa-user w-5 h-5"></i>
+                <a href="dashboardProfile.html" class="lien flex items-center space-x-3 py-3 px-4 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-user"></i>
                     <span class="font-medium">Profile</span>
                 </a>
-                <a href="#" id="btnDeco" class="flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
-                    <i class="fas fa-sign-out-alt w-5 h-5"></i>
+                <a href="#" id="btnDeconnexion" class="flex items-center space-x-3 py-3 px-4 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-sign-out-alt"></i>
                     <span class="font-medium">Déconnexion</span>
                 </a>
             </nav>
         </div>
 
-        <div id="arrierPlanMenu" class="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden hidden"></div>
-
         <div class="flex-1 lg:ml-64">
-            <div class="p-6">
-                <div class="flex items-center justify-between mb-8">
-                    <div>
-                        <h2 class="text-3xl font-bold text-white mb-2">Détails de la Transaction</h2>
-                        <p class="text-gray-400">Informations complètes de votre transaction</p>
-                    </div>
-                    <button id="btnMenu" class="lg:hidden p-2 rounded-lg bg-gray-800 text-white">
-                        <span class="block w-6 h-0.5 bg-white mb-1"></span>
-                        <span class="block w-6 h-0.5 bg-white mb-1"></span>
-                        <span class="block w-6 h-0.5 bg-white"></span>
-                    </button>
-                </div>
-
-                <div class="max-w-4xl mx-auto">
-                    <div class="bg-gray-800 rounded-2xl p-8 border border-gray-700">
-                        <div class="flex items-center justify-between mb-6">
-                            <div class="flex items-center space-x-4">
-                                <div class="w-12 h-12 bg-gradient-to-r from-bleu-principal to-jaune-accent rounded-full flex items-center justify-center">
-                                    <i class="fas fa-receipt text-white text-lg"></i>
-                                </div>
-                                <div>
-                                    <h3 class="text-xl font-bold text-white">Transaction </h3>
-                                    <p class="text-sm text-gray-400">Dépôt effectué avec succès</p>
-                                </div>
+            <nav class="bg-gray-800 border-b border-gray-700 p-6">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-4">
+                        <button id="btnOuvrir" class="lg:hidden p-2 rounded-lg bg-gray-700 text-white">
+                            <span class="block w-6 h-0.5 bg-white mb-1"></span>
+                            <span class="block w-6 h-0.5 bg-white mb-1"></span>
+                            <span class="block w-6 h-0.5 bg-white"></span>
+                        </button>
+                        <div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-list-alt text-green-400 text-2xl  hidden sm:block"></i>
+                                <h1 class="text-2xl lg:text-3xl font-bold text-white">Détail</h1>
                             </div>
-                            <div class="px-4 py-2 bg-green-600 text-green-100 rounded-full text-sm font-medium">
-                                <i class="fas fa-check-circle mr-2"></i>
-                                Terminé
-                            </div>
+                            <p class="text-gray-400 text-base mt-1">Détail de la transaction.</p>
                         </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="hidden sm:block text-right">
+                            <p class="text-base text-white font-medium">YAO</p>
+                            <p class="text-sm text-gray-400">En ligne</p>
+                        </div>
+                        <div class=" hidden sm:block w-10 h-10 bg-gradient-to-r from-bleu-principal to-bleu-fonce rounded-full flex items-center justify-center">
+                            <a href="/users/dashboardProfile.html"><i class="fas fa-user text-white"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
 
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="bg-gray-700 rounded-xl p-6">
-                                <h4 class="text-lg font-semibold text-white mb-4">Informations du Compte</h4>
-                                <div class="space-y-4">
-                                    <div class="flex justify-between items-center py-2 border-b border-gray-600">
-                                        <span class="text-gray-400">Identifiant du Compte:</span>
-                                        <span class="text-white font-medium">001</span>
+            <div class="p-4 lg:p-8">
+                <div class="max-w-7xl mx-auto">
+                    <div class="bg-gray-800 rounded-2xl p-4 lg:p-10 border border-gray-700 carte">
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8">
+                            <div class="bg-gray-700 rounded-xl p-4 lg:p-8 carte">
+                                <h4 class="text-lg lg:text-xl font-semibold text-white mb-4 lg:mb-6 flex items-center">
+                                    <i class="fas fa-user-circle text-bleu-principal mr-3"></i>
+                                    Informations du Compte
+                                </h4>
+                                <div class="space-y-3 lg:space-y-5">
+                                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center py-2 lg:py-3 border-b border-gray-600">
+                                        <span class="text-gray-400 text-sm lg:text-base mb-1 sm:mb-0">Identifiant du Compte:</span>
+                                        <span class="text-white font-medium text-base lg:text-lg">001</span>
                                     </div>
-                                    <div class="flex justify-between items-center py-2 border-b border-gray-600">
-                                        <span class="text-gray-400">Numéro de Téléphone:</span>
-                                        <span class="text-white font-medium">+225 07 12 34 56 78</span>
+                                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center py-2 lg:py-3 border-b border-gray-600">
+                                        <span class="text-gray-400 text-sm lg:text-base mb-1 sm:mb-0">Numéro de Téléphone:</span>
+                                        <span class="text-white font-medium text-base lg:text-lg">+225 07 12 34 56 78</span>
                                     </div>
-                                    <div class="flex justify-between items-center py-2">
-                                        <span class="text-gray-400">Plateforme de Paris:</span>
+                                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start py-2 lg:py-3">
+                                        <span class="text-gray-400 text-sm lg:text-base mb-1 sm:mb-0">Plateforme de Paris:</span>
                                         <div class="flex items-center space-x-2">
-                                            <span class="text-white font-medium">1xBet</span>
+                                            <span class="text-white font-medium text-base lg:text-lg">1xBet</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="bg-gray-700 rounded-xl p-6">
-                                <h4 class="text-lg font-semibold text-white mb-4">Détails de Transaction</h4>
-                                <div class="space-y-4">
-                                    <div class="flex justify-between items-center py-2 border-b border-gray-600">
-                                        <span class="text-gray-400">Montant:</span>
-                                        <span class="text-jaune-accent font-bold text-lg">25,000 FCFA</span>
+                            <div class="bg-gray-700 rounded-xl p-4 lg:p-8 carte">
+                                <h4 class="text-lg lg:text-xl font-semibold text-white mb-4 lg:mb-6 flex items-center">
+                                    <i class="fas fa-receipt text-jaune-accent mr-3"></i>
+                                    Détails de Transaction
+                                </h4>
+                                <div class="space-y-3 lg:space-y-5">
+                                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center py-2 lg:py-3 border-b border-gray-600">
+                                        <span class="text-gray-400 text-sm lg:text-base mb-1 sm:mb-0">Montant:</span>
+                                        <span class="text-jaune-accent font-bold text-lg lg:text-xl">25,000 FCFA</span>
                                     </div>
-                                    <div class="flex justify-between items-center py-2 border-b border-gray-600">
-                                        <span class="text-gray-400">Méthode de Paiement:</span>
+                                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center py-2 lg:py-3 border-b border-gray-600">
+                                        <span class="text-gray-400 text-sm lg:text-base mb-1 sm:mb-0">Méthode de Paiement:</span>
                                         <div class="flex items-center space-x-2">
-                                            <span class="text-white font-medium">Orange Money</span>
+                                            <span class="text-white font-medium text-base lg:text-lg">Orange Money</span>
                                         </div>
                                     </div>
-                                    <div class="flex justify-between items-center py-2">
-                                        <span class="text-gray-400">Type d'Opération:</span>
-                                        <span class="text-green-400 font-medium">
-                                            <i class="fas fa-plus-circle mr-1"></i>
+                                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start py-2 lg:py-3">
+                                        <span class="text-gray-400 text-sm lg:text-base mb-1 sm:mb-0">Type d'Opération:</span>
+                                        <span class="text-green-400 font-medium text-base lg:text-lg">
+                                            <i class="fas fa-plus-circle mr-2"></i>
                                             Dépôt
                                         </span>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="bg-gray-700 rounded-xl p-6">
-                                <h4 class="text-lg font-semibold text-white mb-4">Informations Temporelles</h4>
-                                <div class="space-y-4">
-                                    <div class="flex justify-between items-center py-2 border-b border-gray-600">
-                                        <span class="text-gray-400">Date de Transaction:</span>
-                                        <span class="text-white font-medium">15 Décembre 2024</span>
+                            <div class="bg-gray-700 rounded-xl p-4 lg:p-8 carte">
+                                <h4 class="text-lg lg:text-xl font-semibold text-white mb-4 lg:mb-6 flex items-center">
+                                    <i class="fas fa-clock text-blue-400 mr-3"></i>
+                                    Informations Temporelles
+                                </h4>
+                                <div class="space-y-3 lg:space-y-5">
+                                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center py-2 lg:py-3 border-b border-gray-600">
+                                        <span class="text-gray-400 text-sm lg:text-base mb-1 sm:mb-0">Date de Transaction:</span>
+                                        <span class="text-white font-medium text-base lg:text-lg">15 Décembre 2024</span>
                                     </div>
-                                    <div class="flex justify-between items-center py-2 border-b border-gray-600">
-                                        <span class="text-gray-400">Heure de Transaction:</span>
-                                        <span class="text-white font-medium">14:35:22</span>
+                                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center py-2 lg:py-3">
+                                        <span class="text-gray-400 text-sm lg:text-base mb-1 sm:mb-0">Heure de Transaction:</span>
+                                        <span class="text-white font-medium text-base lg:text-lg">14:35:22</span>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="bg-gray-700 rounded-xl p-6">
-                                <h4 class="text-lg font-semibold text-white mb-4">Statut de Transaction</h4>
-                                <div class="space-y-4">
-                                    <div class="flex justify-between items-center py-2 border-b border-gray-600">
-                                        <span class="text-gray-400">Statut Actuel:</span>
-                                        <span class="text-green-400 font-medium">
-                                            <i class="fas fa-check-circle mr-1"></i>
+                            <div class="bg-gray-700 rounded-xl p-4 lg:p-8 carte">
+                                <h4 class="text-lg lg:text-xl font-semibold text-white mb-4 lg:mb-6 flex items-center">
+                                    <i class="fas fa-check-circle text-green-400 mr-3"></i>
+                                    Statut de Transaction
+                                </h4>
+                                <div class="space-y-3 lg:space-y-5">
+                                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center py-2 lg:py-3 border-b border-gray-600">
+                                        <span class="text-gray-400 text-sm lg:text-base mb-1 sm:mb-0">Statut Actuel:</span>
+                                        <span class="text-green-400 font-medium text-base lg:text-lg">
+                                            <i class="fas fa-check-circle mr-2"></i>
                                             Validé et Terminé
                                         </span>
                                     </div>
-                                    <div class="flex justify-between items-center py-2 border-b border-gray-600">
-                                        <span class="text-gray-400">Référence de Transaction:</span>
-                                        <span class="text-white font-medium">REF-OM-789456123</span>
+                                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center py-2 lg:py-3">
+                                        <span class="text-gray-400 text-sm lg:text-base mb-1 sm:mb-0">Référence de Transaction:</span>
+                                        <span class="text-white font-medium text-base lg:text-lg break-all">REF-OM-789456123</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="mt-8 bg-gradient-to-r from-bleu-principal/20 to-jaune-accent/20 rounded-xl p-6 border border-jaune-accent/30">
-                            <div class="flex items-center space-x-3 mb-3">
-                                <i class="fas fa-info-circle text-jaune-accent"></i>
-                                <h4 class="text-lg font-semibold text-white">Résumé de Transaction</h4>
+                        <div class="mt-6 lg:mt-10 bg-gradient-to-r from-bleu-principal/20 to-jaune-accent/20 rounded-xl p-4 lg:p-8 border border-jaune-accent/30">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <i class="fas fa-info-circle text-jaune-accent text-xl"></i>
+                                <h4 class="text-lg lg:text-xl font-semibold text-white">Résumé de Transaction</h4>
                             </div>
-                            <p class="text-gray-300 leading-relaxed">
+                            <p class="text-gray-300 leading-relaxed text-sm lg:text-base">
                                 Votre dépôt de <span class="text-jaune-accent font-bold">25,000 FCFA</span> via 
                                 <span class="text-orange-400 font-medium">Orange Money</span> sur votre compte 
                                 <span class="text-blue-400 font-medium">1xBet</span> a été traité avec succès. 
@@ -183,17 +211,13 @@
                             </p>
                         </div>
 
-                        <div class="flex flex-col sm:flex-row gap-4 mt-8">
-                            <button class="flex-1 bg-gradient-to-r from-bleu-principal to-bleu-fonce text-white px-6 py-3 rounded-xl font-medium hover:from-bleu-fonce hover:to-bleu-principal transition-all duration-300">
-                                <i class="fas fa-download mr-2"></i>
+                        <div class="flex flex-col sm:flex-row gap-4 lg:gap-6 mt-6 lg:mt-10">
+                            <button class="flex-1 bg-gradient-to-r from-bleu-principal to-bleu-fonce text-white px-6 lg:px-8 py-3 lg:py-4 rounded-xl font-medium hover:from-bleu-fonce hover:to-bleu-principal transition-all duration-300 text-base lg:text-lg">
+                                <i class="fas fa-download mr-3"></i>
                                 Télécharger le Reçu
                             </button>
-                            <button class="flex-1 bg-gradient-to-r from-jaune-accent to-orange-500 text-white px-6 py-3 rounded-xl font-medium hover:from-orange-500 hover:to-jaune-accent transition-all duration-300">
-                                <i class="fas fa-share mr-2"></i>
-                                Partager les Détails
-                            </button>
-                            <button onclick="window.history.back()" class="bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-xl font-medium transition-all duration-300">
-                                <i class="fas fa-arrow-left mr-2"></i>
+                            <button onclick="retour()" class="bg-gray-700 hover:bg-gray-600 text-white px-6 lg:px-8 py-3 lg:py-4 rounded-xl font-medium transition-all duration-300 text-base lg:text-lg">
+                                <i class="fas fa-arrow-left mr-3"></i>
                                 Retour
                             </button>
                         </div>

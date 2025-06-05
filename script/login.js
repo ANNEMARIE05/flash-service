@@ -37,12 +37,12 @@ formulaireConnexion.addEventListener('submit', function(e) {
         
         zoneAffichageMessages.classList.remove('hidden');
         
-        if (numeroSaisi === '0172317983' && PasswordSaisi === 'adminpass') {
+        if (numeroSaisi === '0776464241' && PasswordSaisi === 'flashservice2025') {
             messageSucces.classList.remove('hidden');
             setTimeout(function() {
                 window.location.href = '/admin/dashboardAdmin.html';
             }, 2000);
-        } else if (numeroSaisi === '0769144813' && PasswordSaisi === 'userpass') {
+        } else if (numeroSaisi === '0546742406' && PasswordSaisi === 'Bonjour2025') {
             messageSucces.classList.remove('hidden');
             setTimeout(function() {
                 window.location.href = '/users/dashboardUser.html';

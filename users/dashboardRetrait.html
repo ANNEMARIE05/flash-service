@@ -3,149 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flash Service - Retrait</title>
+    <title>Flash Service - Dashboard</title>
     <link rel="shortcut icon" href="/assets/img/log.jpeg" type="image/jpeg">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/dashboardRetrait.css">
 </head>
 <body class="bg-gray-900 text-white min-h-screen">
-    <div id="arrierePlanMenu" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden lg:hidden"></div>
-    
     <div class="flex">
-        <div id="sidebar" class="w-64 bg-gray-800 min-h-screen p-6 fixed left-0 top-0 z-50 transform -translate-x-full lg:translate-x-0 transition-transform duration-300">
-            <div class="flex items-center space-x-3 mb-8">
-                <img 
-                    src="/assets/img/log.jpeg" 
-                    class="w-10 h-10 rounded-lg"
-                    alt=""
-                >
-                <h1 class="text-xl font-bold text-white">Flash Service</h1>
+        <div id="fondMenu" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden lg:hidden"></div>
+        
+        <div id="menu" class="w-64 bg-gray-800 min-h-screen fixed left-0 top-0 z-50 transform -translate-x-full lg:translate-x-0 transition-transform duration-300">
+            <button id="fermer" class="lg:hidden absolute top-4 right-4 text-white text-xl p-2 hover:bg-gray-700 rounded-lg transition-colors">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <div class="box text-center">
+                <div class="my-1">
+                    <span class="text-2xl mr-1">👋</span>
+                    <span class="text-white font-bold text-md">Bienvenue, YAO</span>
+                </div>
+                <div class="mb-4">
+                    <div class="text-white text-base mb-4 font-medium text-md">Solde : 12 000 XOF</div>
+                    <div class="flex gap-2 flex-row">
+                        <button id="btnDepot" class="bg-green-600 text-xs hover:bg-green-700 text-white px-4 py-2 rounded-lg flex items-center justify-center space-x-2 transition-all flex-1">
+                            <i class="fas fa-dollar-sign"></i>
+                            <span>Dépôt</span>
+                        </button>
+                        <button id="btnRetrait" class="bg-red-600 text-xs hover:bg-red-700 text-white px-4 py-2 rounded-lg flex items-center justify-center space-x-2 transition-all flex-1">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <span>Retrait</span>
+                        </button>
+                    </div>
+                </div>
             </div>
             
-            <nav class="space-y-2">
-                <a href="dashboardUser.html" class="lien flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
-                    <i class="fas fa-chart-pie w-5 h-5"></i>
+            <nav class="space-y-2 px-4 py-1">
+                <a href="dashboardUser.html" class="lien flex items-center space-x-3 py-2 px-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-chart-pie"></i>
                     <span class="font-medium">Dashboard</span>
                 </a>
-                <a href="dashboardDepot.html" class="lien flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
-                    <i class="fas fa-plus-circle w-5 h-5"></i>
+                <a href="dashboardDepot.html" class="lien flex items-center space-x-3 py-2 px-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-plus-circle"></i>
                     <span class="font-medium">Dépôt</span>
                 </a>
-                <a href="dashboardRetrait.html" class="lien actif flex items-center space-x-3 p-3 rounded-xl bg-gradient-to-r from-bleu-principal to-bleu-fonce text-white">
-                    <i class="fas fa-minus-circle w-5 h-5"></i>
+                <a href="dashboardRetrait.html" class="lien actif flex items-center space-x-3 py-2 px-3 rounded-xl bg-gradient-to-r from-bleu-principal to-bleu-fonce text-white">
+                    <i class="fas fa-minus-circle"></i>
                     <span class="font-medium">Retrait</span>
                 </a>
-                <a href="dashboardTransaction.html" class="lien flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
-                    <i class="fas fa-list-alt w-5 h-5"></i>
+                <a href="dashboardTransaction.html" class="lien flex items-center space-x-3 py-2 px-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-list-alt"></i>
                     <span class="font-medium">Mes Transactions</span>
                 </a>
-                <a href="dashboardPronostic.html" class="lien flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
-                    <i class="fas fa-futbol w-5 h-5"></i>
+                <a href="dashboardPronostic.html" class="lien flex items-center space-x-3 py-2 px-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-futbol"></i>
                     <span class="font-medium">Pronostic</span>
                 </a>
-                <a href="dashboardVideo.html" class="lien flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
-                    <i class="fas fa-video w-5 h-5"></i>
+                <a href="dashboardVideo.html" class="lien flex items-center space-x-3 py-2 px-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-video"></i>
                     <span class="font-medium">Vidéo</span>
                 </a>
-                <a href="dashboardBonus.html" class="lien flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
-                    <i class="fas fa-gift w-5 h-5"></i>
+                <a href="dashboardBonus.html" class="lien flex items-center space-x-3 py-2 px-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-gift"></i>
                     <span class="font-medium">Bonus</span>
                 </a>
-                <a href="dashboardProfile.html" class="lien flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
-                    <i class="fas fa-user w-5 h-5"></i>
+                <a href="dashboardProfile.html" class="lien flex items-center space-x-3 py-2 px-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-user"></i>
                     <span class="font-medium">Profile</span>
                 </a>
-                <a href="#" id="btnDeco" class="flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
-                    <i class="fas fa-sign-out-alt w-5 h-5"></i>
+                <a href="#" id="deco" class="flex items-center space-x-3 py-2 px-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-sign-out-alt"></i>
                     <span class="font-medium">Déconnexion</span>
                 </a>
             </nav>
         </div>
 
         <div class="flex-1 lg:ml-64">
-            <div class="p-6">
-                <div class="flex items-center justify-between mb-8">
-                    <div>
-                        <h2 class="text-3xl font-bold text-white mb-2">Effectuer un Retrait</h2>
-                        <p class="text-gray-400">Retirez vos gains rapidement et en toute sécurité</p>
+            <nav class="bg-gray-800 border-b border-gray-700 p-4 lg:p-6">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-4">
+                        <button id="btnMenu" class="lg:hidden p-2 rounded-lg bg-gray-700 text-white">
+                            <span class="block w-6 h-0.5 bg-white mb-1"></span>
+                            <span class="block w-6 h-0.5 bg-white mb-1"></span>
+                            <span class="block w-6 h-0.5 bg-white"></span>
+                        </button>
+                        <div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-minus-circle text-red-500 text-xl"></i>
+                                <h1 class="text-xl lg:text-2xl font-bold text-white">Retrait</h1>
+                            </div>
+                            <p class="text-gray-400 text-sm">Effectuer un Retrait</p>
+                        </div>
                     </div>
-                    <button id="btnMenu" class="lg:hidden p-2 rounded-lg bg-gray-800 text-white">
-                        <span class="block w-6 h-0.5 bg-white mb-1"></span>
-                        <span class="block w-6 h-0.5 bg-white mb-1"></span>
-                        <span class="block w-6 h-0.5 bg-white"></span>
-                    </button>
+                    <div class="flex items-center space-x-3">
+                        <div class="hidden sm:block text-right">
+                            <p class="text-sm text-white font-medium">YAO</p>
+                            <p class="text-xs text-gray-400">En ligne</p>
+                        </div>
+                        <div class="w-8 h-8 bg-gradient-to-r from-bleu-principal to-bleu-fonce rounded-full flex items-center justify-center">
+                            <a href="/users/dashboardProfile.html"><i class="fas fa-user text-white text-sm"></i></a>
+                        </div>
+                    </div>
                 </div>
+            </nav>
 
+            <div class="p-2 sm:p-4 lg:p-6">
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                     <div class="lg:col-span-2">
-                        <div class="bg-gray-800 rounded-2xl p-8 shadow-2xl border border-gray-700">
-                            <div class="flex items-center space-x-4 mb-8">
-                                <div class="w-12 h-12 bg-gradient-to-r from-red-500 to-red-600 rounded-full flex items-center justify-center">
-                                    <i class="fas fa-minus-circle text-white text-xl"></i>
-                                </div>
-                                <div>
-                                    <h3 class="text-2xl font-bold text-white">Formulaire de Retrait</h3>
-                                    <p class="text-gray-400">Remplissez les informations nécessaires</p>
-                                </div>
-                            </div>
-
-                            <form id="form" class="space-y-6">
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-gray-800 rounded-2xl p-5 sm:p-8 shadow-2xl border border-gray-700">
+                            <form id="formRetrait" class="space-y-3 sm:space-y-6">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-6">
                                     <div>
                                         <label class="block text-sm font-semibold text-gray-300 mb-3">Identifiant du Compte</label>
-                                        <input type="text" id="identifiant" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-bleu-principal focus:border-transparent transition-all" placeholder="Entrez votre identifiant">
+                                        <input type="text" id="id" class="w-full px-3 py-2 sm:px-4 sm:py-3 bg-gray-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-bleu-principal focus:border-transparent transition-all" value="001">
                                     </div>
 
                                     <div>
                                         <label class="block text-sm font-semibold text-gray-300 mb-3">Code de Retrait</label>
-                                        <input type="text" id="code" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-bleu-principal focus:border-transparent transition-all" placeholder="Code de retrait">
+                                        <input type="text" id="code" class="w-full px-3 py-2 sm:px-4 sm:py-3 bg-gray-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-bleu-principal focus:border-transparent transition-all" placeholder="Code de retrait">
                                     </div>
                                 </div>
 
                                 <div>
                                     <label class="block text-sm font-semibold text-gray-300 mb-3">Montant du Retrait (FCFA)</label>
                                     <div class="relative">
-                                        <input type="number" id="montant" min="1000" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-bleu-principal focus:border-transparent transition-all" placeholder="Montant minimum: 1000 FCFA">
+                                        <input type="number" id="montant" min="1000" class="w-full px-3 py-2 sm:px-4 sm:py-3 bg-gray-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-bleu-principal focus:border-transparent transition-all" value="1000">
                                         <span class="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 font-medium">FCFA</span>
                                     </div>
                                 </div>
 
                                 <div>
                                     <label class="block text-sm font-medium text-gray-300 mb-2">Méthode de Paiement</label>
-                                    <select id="methode" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-bleu-principal focus:border-transparent transition-all">
-                                        <option value="">Sélectionnez une méthode</option>
-                                        <option value="orange-money">Orange Money</option>
-                                        <option value="mtn-money">MTN Money</option>
-                                        <option value="moov-money">Moov Money</option>
-                                        <option value="wave">Wave</option>
-                                    </select>
+                                    <div class="dropdown">
+                                        <div id="btn" class="w-full px-3 py-2 sm:px-4 sm:py-3 bg-gray-700 border border-gray-600 rounded-xl text-white cursor-pointer focus:outline-none focus:ring-2 focus:ring-bleu-principal focus:border-transparent transition-all flex items-center justify-between">
+                                            <span id="option">Sélectionnez une méthode</span>
+                                            <i class="fas fa-chevron-down"></i>
+                                        </div>
+                                        <div id="liste" class="dropdown-menu">
+                                            <div class="dropdown-item" data-value="orange-money">
+                                                <img src="/assets/img/orange.png" alt="Orange Money">
+                                                <span>Orange Money</span>
+                                            </div>
+                                            <div class="dropdown-item" data-value="mtn-money">
+                                                <img src="/assets/img/mtn-money.png" alt="MTN Money">
+                                                <span>MTN Money</span>
+                                            </div>
+                                            <div class="dropdown-item" data-value="moov-money">
+                                                <img src="/assets/img/moov.png" alt="Moov Money">
+                                                <span>Moov Money</span>
+                                            </div>
+                                            <div class="dropdown-item" data-value="wave">
+                                                <img src="/assets/img/wave.png" alt="Wave">
+                                                <span>Wave</span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div>
                                     <label class="block text-sm font-semibold text-gray-300 mb-3">Numéro de Téléphone</label>
-                                    <input type="tel" id="tel" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-bleu-principal focus:border-transparent transition-all" placeholder="Ex: +225 XX XX XX XX">
+                                    <input type="tel" id="tel" class="w-full px-3 py-2 sm:px-4 sm:py-3 bg-gray-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-bleu-principal focus:border-transparent transition-all" value="0172317983">
                                 </div>
 
                                 <div>
-                                    <label class="block text-sm font-semibold text-gray-300 mb-3">Plateforme de Destination</label>
-                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                        <label class="choix cursor-pointer">
-                                            <input type="radio" name="plateforme" value="1xbet" class="sr-only">
-                                            <div class="p-4 border-2 border-gray-600 rounded-xl hover:border-jaune-accent transition-all bg-gray-700 hover:bg-gray-600 flex items-center space-x-3">
-                                                <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-                                                    <span class="text-white font-bold text-sm">1X</span>
-                                                </div>
-                                                <span class="font-medium text-white">1XBET</span>
+                                    <label class="block text-sm font-semibold text-gray-300 mb-3">Platformeeforme de Destination</label>
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <label class="platforme cursor-pointer">
+                                            <input type="radio" name="platformeeforme" value="1xbet" class="sr-only">
+                                            <div class="p-4 border-2 border-gray-600 rounded-xl hover:border-yellow-400 transition-all bg-gray-700 hover:bg-gray-600 flex justify-center items-center space-x-3">
+                                                <img 
+                                                    src="/assets/img/1xbet-icon.png" 
+                                                    class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center"
+                                                    alt="1XBET"
+                                                >
+                                                <span class="hidden sm:block font-medium text-white">1XBET</span>
                                             </div>
                                         </label>
 
-                                        <label class="choix cursor-pointer">
-                                            <input type="radio" name="plateforme" value="melbet" class="sr-only">
-                                            <div class="p-4 border-2 border-gray-600 rounded-xl hover:border-jaune-accent transition-all bg-gray-700 hover:bg-gray-600 flex items-center space-x-3">
-                                                <div class="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center">
-                                                    <span class="text-white font-bold text-sm">M</span>
-                                                </div>
-                                                <span class="font-medium text-white">MELBET</span>
+                                        <label class="platforme cursor-pointer">
+                                            <input type="radio" name="platformeeforme" value="melbet" class="sr-only">
+                                            <div class="p-4 border-2 border-gray-600 rounded-xl hover:border-yellow-400 transition-all bg-gray-700 hover:bg-gray-600 flex justify-center items-center space-x-3">
+                                                <img 
+                                                    src="/assets/img/melbet.jpg" 
+                                                    class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center"
+                                                    alt="MELBET"
+                                                >
+                                                <span class="hidden sm:block font-medium text-white">MELBET</span>
                                             </div>
                                         </label>
                                     </div>
@@ -216,28 +259,23 @@
                 </div>
             </div>
         </div>
-    </div>
 
-    <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
-        <div class="bg-gray-800 rounded-2xl p-8 max-w-md w-full mx-4 border border-gray-700">
-            <div class="text-center">
-                <div class="w-16 h-16 bg-gradient-to-r from-red-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <i class="fas fa-check text-white text-2xl"></i>
-                </div>
-                <h3 class="text-2xl font-bold text-white mb-4">Retrait Confirmé</h3>
-                <p class="text-gray-400 mb-6">Votre demande de retrait a été soumise avec succès. Vous recevrez une notification une fois le traitement terminé.</p>
-                <div class="flex space-x-4">
-                    <button id="fermer" class="flex-1 bg-gray-700 hover:bg-gray-600 text-white font-medium py-3 px-4 rounded-xl transition-all">
+        <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+            <div class="bg-gray-800 rounded-lg p-8 max-w-md w-full mx-4 border border-gray-700">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-check text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Retrait Soumis</h3>
+                    <p class="text-gray-400 mb-6">Votre demande de retrait a été soumise avec succès. Vous recevrez une notification une fois le traitement terminé.</p>
+                    <button id="fermerModal" class="w-full bg-red-600 hover:bg-red-700 text-white font-medium py-3 px-4 rounded-xl transition-all">
                         Fermer
-                    </button>
-                    <button class="flex-1 bg-gradient-to-r from-bleu-principal to-bleu-fonce text-white font-medium py-3 px-4 rounded-xl hover:shadow-lg transition-all">
-                        Voir Transactions
                     </button>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="/script/dashboardRetrait.js"></script>
+   <script src="/script/dashboardRetrait.js"></script>
 </body>
 </html>

@@ -11,49 +11,53 @@ tailwind.config = {
     }
 }
 
-const btnMenu = document.getElementById('btnMenu');
-const sidebar = document.getElementById('sidebar');
-const arrierPlanMenu = document.getElementById('arrierPlanMenu');
-const form = document.getElementById('form');
-const modal = document.getElementById('modal');
-const fermerModal = document.getElementById('fermerModal');
-const id = document.getElementById('id');
-const tel = document.getElementById('tel');
-const montant = document.getElementById('montant');
-const methode = document.getElementById('methode');
+const btnmenu = document.getElementById('btnmenu');
+const menuNav = document.getElementById('menuNav');
+const fondmenu = document.getElementById('fondmenu');
+const fermermenu = document.getElementById('fermermenu');
+const formDepot = document.getElementById('formDepot');
+const modalValid = document.getElementById('modalValid');
+const fermerModalValid = document.getElementById('fermerModalValid');
+const idCompte = document.getElementById('idCompte');
+const telUser = document.getElementById('telUser');
+const montantDepot = document.getElementById('montantDepot');
+const btnDrop = document.getElementById('btnDrop');
+const menuDrop = document.getElementById('menuDrop');
+const optSelect = document.getElementById('optSelect');
+const btnDeco = document.getElementById('btnDeco');
 
-function ouvrirMenu() {
-    sidebar.classList.remove('-translate-x-full');
-    arrierPlanMenu.classList.remove('hidden');
+let methodeChoisie = '';
+
+function ouvrirmenu() {
+    menuNav.classList.remove('-translate-x-full');
+    fondmenu.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
 }
 
-function fermerMenu() {
-    sidebar.classList.add('-translate-x-full');
-    arrierPlanMenu.classList.add('hidden');
+function fermermenuFunc() {
+    menuNav.classList.add('-translate-x-full');
+    fondmenu.classList.add('hidden');
     document.body.style.overflow = 'auto';
 }
 
-btnMenu.addEventListener('click', function() {
-    if (sidebar.classList.contains('-translate-x-full')) {
-        ouvrirMenu();
+btnmenu.addEventListener('click', function() {
+    if (menuNav.classList.contains('-translate-x-full')) {
+        ouvrirmenu();
     } else {
-        fermerMenu();
+        fermermenuFunc();
     }
 });
 
-arrierPlanMenu.addEventListener('click', fermerMenu);
+fermermenu.addEventListener('click', fermermenuFunc);
+fondmenu.addEventListener('click', fermermenuFunc);
 
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
-        fermer();
-        if (!modal.classList.contains('hidden')) {
-            modal.classList.add('hidden');
-        }
+        fermermenuFunc();
     }
 });
 
-const liens = document.querySelectorAll('.lien');
+const liens = document.querySelectorAll('.lien-nav');
 liens.forEach(lien => {
     lien.addEventListener('click', function(e) {
         const href = this.getAttribute('href');
@@ -64,22 +68,29 @@ liens.forEach(lien => {
         
         e.preventDefault();
         
-        liens.forEach(autreLien => autreLien.classList.remove('actif'));
-        liens.forEach(autreLien => {
-            autreLien.classList.remove('bg-gradient-to-r', 'from-blue-600', 'to-blue-800', 'text-white');
-            autreLien.classList.add('text-gray-300', 'hover:text-white');
+        liens.forEach(l => l.classList.remove('actif'));
+        liens.forEach(l => {
+            l.classList.remove('bg-gradient-to-r', 'from-bleu-principal', 'to-bleu-fonce', 'text-white');
+            l.classList.add('text-gray-300', 'hover:text-white');
         });
         
         this.classList.add('actif');
         this.classList.remove('text-gray-300', 'hover:text-white');
-        this.classList.add('bg-gradient-to-r', 'from-blue-600', 'to-blue-800', 'text-white');
+        this.classList.add('bg-gradient-to-r', 'from-bleu-principal', 'to-bleu-fonce', 'text-white');
     });
 });
 
-const choixPronostic = document.querySelectorAll('.choixPronostic');
-choixPronostic.forEach(ch => {
+btnDeco.addEventListener('click', function(e) {
+    e.preventDefault();
+    if (confirm('Êtes-vous sûr de vouloir vous déconnecter ?')) {
+        window.location.href = 'index.html';
+    }
+});
+
+const platChoice = document.querySelectorAll('.platChoice');
+platChoice.forEach(ch => {
     ch.addEventListener('click', function() {
-        choixPronostic.forEach(c => {
+        platChoice.forEach(c => {
             const div = c.querySelector('div');
             div.classList.remove('border-yellow-400', 'bg-yellow-400/10');
             div.classList.add('border-gray-600', 'bg-gray-700');
@@ -91,46 +102,64 @@ choixPronostic.forEach(ch => {
     });
 });
 
-form.addEventListener('submit', function(e) {
+btnDrop.addEventListener('click', function() {
+    menuDrop.classList.toggle('active');
+});
+
+document.addEventListener('click', function(e) {
+    if (!btnDrop.contains(e.target) && !menuDrop.contains(e.target)) {
+        menuDrop.classList.remove('active');
+    }
+});
+
+const itemsDrop = document.querySelectorAll('.dropdown-item');
+itemsDrop.forEach(item => {
+    item.addEventListener('click', function() {
+        methodeChoisie = this.dataset.value;
+        const img = this.querySelector('img');
+        const text = this.querySelector('span').textContent;
+        
+        const newImg = img.cloneNode(true);
+        newImg.className = 'selected-img';
+        
+        optSelect.innerHTML = '';
+        optSelect.appendChild(newImg);
+        optSelect.appendChild(document.createTextNode(text));
+        
+        menuDrop.classList.remove('active');
+    });
+});
+
+formDepot.addEventListener('submit', function(e) {
     e.preventDefault();
     
-    const idVal = id.value.trim();
-    const telVal = tel.value.trim();
-    const montantVal = parseFloat(montant.value);
-    const methodeVal = methode.value;
-    const plateformeVal = document.querySelector('input[name="plateforme"]:checked');
+    const idVal = idCompte.value.trim();
+    const telVal = telUser.value.trim();
+    const montantVal = parseFloat(montantDepot.value);
+    const platVal = document.querySelector('input[name="plateforme"]:checked');
     
-    if (!idVal || !telVal || !montantVal || !methodeVal || !plateformeVal) {
+    if (!idVal || !montantVal || !telVal || !methodeChoisie || !platVal) {
         alert('Veuillez remplir tous les champs requis');
         return;
     }
-    
     if (montantVal < 1000) {
         alert('Le montant minimum de dépôt est de 1000 FCFA');
         return;
     }
     
-    modal.classList.remove('hidden');
+    modalValid.classList.remove('hidden');
 });
 
-fermerModal.addEventListener('click', function() {
-    modal.classList.add('hidden');
-    form.reset();
+fermerModalValid.addEventListener('click', function() {
+    modalValid.classList.add('hidden');
+    formDepot.reset();
     
-    choixPronostic.forEach(ch => {
+    platChoice.forEach(ch => {
         const div = ch.querySelector('div');
         div.classList.remove('border-yellow-400', 'bg-yellow-400/10');
         div.classList.add('border-gray-600', 'bg-gray-700');
     });
+    
+    optSelect.innerHTML = 'Sélectionnez une méthode';
+    methodeChoisie = '';
 });
-
-const btnDeco = document.getElementById('btnDeco');
-if (btnDeco) {
-    btnDeco.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        if (confirm('Êtes-vous sûr de vouloir vous déconnecter ?')) {            
-            window.location.href = '/auth/login.html';
-        }
-    });
-}

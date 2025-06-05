@@ -10,68 +10,36 @@ tailwind.config = {
         }
     }
 }
-const btnMenu = document.getElementById('btnMenu');
-const sidebar = document.getElementById('sidebar');
-const arrierPlanMenu = document.getElementById('arrierPlanMenu');
 
-function ouvrirMenu() {
-    sidebar.classList.remove('-translate-x-full');
-    arrierPlanMenu.classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
+const btnOuvrir = document.getElementById('btnOuvrir');
+const btnFermer = document.getElementById('btnFermer');
+const menuLateral = document.getElementById('menuLateral');
+const fondEcran = document.getElementById('fondEcran');
+
+btnOuvrir.addEventListener('click', () => {
+    menuLateral.classList.remove('-translate-x-full');
+    fondEcran.classList.remove('hidden');
+});
+
+btnFermer.addEventListener('click', () => {
+    menuLateral.classList.add('-translate-x-full');
+    fondEcran.classList.add('hidden');
+});
+
+fondEcran.addEventListener('click', () => {
+    menuLateral.classList.add('-translate-x-full');
+    fondEcran.classList.add('hidden');
+});
+
+function retour() {
+    window.location="dashboardTransaction.html"
+    
 }
 
-function fermerMenu() {
-    sidebar.classList.add('-translate-x-full');
-    arrierPlanMenu.classList.add('hidden');
-    document.body.style.overflow = 'auto';
-}
-
-btnMenu.addEventListener('click', function() {
-    if (sidebar.classList.contains('-translate-x-full')) {
-        ouvrirMenu();
-    } else {
-        fermerMenu();
+const btnDeconnexion = document.getElementById('btnDeconnexion');
+btnDeconnexion.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (confirm('Êtes-vous sûr de vouloir vous déconnecter ?')) {
+        window.location.href = 'login.html';
     }
 });
-
-arrierPlanMenu.addEventListener('click', fermerMenu);
-
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-        fermerMenu();
-    }
-});
-
-const liensMenu = document.querySelectorAll('.lienMenuNav');
-liensMenu.forEach(lienMenu => {
-    lienMenu.addEventListener('click', function(e) {
-        const hrefLien = this.getAttribute('href');
-        if (hrefLien && hrefLien !== '#') {
-            window.location.href = hrefLien;
-            return;
-        }
-        
-        e.preventDefault();
-        
-        liensMenu.forEach(autreLien => autreLien.classList.remove('elementMenuActif'));
-        liensMenu.forEach(autreLien => {
-            autreLien.classList.remove('bg-gradient-to-r', 'from-bleu-principal', 'to-bleu-fonce', 'text-white');
-            autreLien.classList.add('text-gray-300', 'hover:text-white');
-        });
-        
-        this.classList.add('elementMenuActif');
-        this.classList.remove('text-gray-300', 'hover:text-white');
-        this.classList.add('bg-gradient-to-r', 'from-bleu-principal', 'to-bleu-fonce', 'text-white');
-    });
-});
-
-const btnDeco = document.getElementById('btnDeco');
-if (btnDeco) {
-    btnDeco.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        if (confirm('Êtes-vous sûr de vouloir vous déconnecter ?')) {            
-            window.location.href = '/auth/login.html';
-        }
-    });
-}

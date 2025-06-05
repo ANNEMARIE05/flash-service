@@ -3,122 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flash Service - Pronostics</title>
+    <title>Flash Service - Dashboard</title>
     <link rel="shortcut icon" href="/assets/img/log.jpeg" type="image/jpeg">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="/assets/css/dashboardPronostic.css">
 </head>
 <body class="bg-gray-900 text-white min-h-screen">
-    <div id="arrierePlanMenu" class="fixed inset-0 bg-black/50 z-40 lg:hidden hidden"></div>
-    
     <div class="flex">
-        <div id="sidebar" class="w-64 bg-gray-800 min-h-screen p-6 fixed left-0 top-0 z-50 transform -translate-x-full lg:translate-x-0 transition-transform duration-300">
-            <div class="flex items-center space-x-3 mb-8">
-                <img 
-                    src="/assets/img/log.jpeg" 
-                    class="w-10 h-10 rounded-lg"
-                    alt=""
-                >
-                <h1 class="text-xl font-bold text-white">Flash Service</h1>
+        <div id="fondEcran" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden lg:hidden"></div>
+        
+        <div id="menuNav" class="w-64 bg-gray-800 min-h-screen fixed left-0 top-0 z-50 transform -translate-x-full lg:translate-x-0 transition-transform duration-300">
+            <button id="btnFermer" class="lg:hidden absolute top-4 right-4 text-white text-xl p-2 hover:bg-gray-700 rounded-lg transition-colors">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <div class="box text-center">
+                <div class="my-1">
+                    <span class="text-2xl mr-1">👋</span>
+                    <span class="text-white font-bold text-md">Bienvenue, YAO</span>
+                </div>
+                <div class="mb-4">
+                    <div class="text-white text-base mb-4 font-medium text-md">Solde : 12 000 XOF</div>
+                    <div class="flex gap-2 flex-row">
+                        <button id="btnDepot" class="bg-green-600 text-xs hover:bg-green-700 text-white px-4 py-2 rounded-lg flex items-center justify-center space-x-2 transition-all flex-1">
+                            <i class="fas fa-dollar-sign"></i>
+                            <span>Dépôt</span>
+                        </button>
+                        <button id="btnRetrait" class="bg-red-600 text-xs hover:bg-red-700 text-white px-4 py-2 rounded-lg flex items-center justify-center space-x-2 transition-all flex-1">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <span>Retrait</span>
+                        </button>
+                    </div>
+                </div>
             </div>
             
-            <nav class="space-y-2">
-                <a href="dashboardUser.html" class="flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
-                    <i class="fas fa-chart-pie w-5 h-5"></i>
+            <nav class="space-y-2 px-4 py-1">
+                <a href="dashboardUser.html" class="lien flex items-center space-x-3 py-2 px-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-chart-pie"></i>
                     <span class="font-medium">Dashboard</span>
                 </a>
-                <a href="dashboardDepot.html" class="flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
-                    <i class="fas fa-plus-circle w-5 h-5"></i>
+                <a href="dashboardDepot.html" class="lien flex items-center space-x-3 py-2 px-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-plus-circle"></i>
                     <span class="font-medium">Dépôt</span>
                 </a>
-                <a href="dashboardRetrait.html" class="flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
-                    <i class="fas fa-minus-circle w-5 h-5"></i>
+                <a href="dashboardRetrait.html" class="lien flex items-center space-x-3 py-2 px-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-minus-circle"></i>
                     <span class="font-medium">Retrait</span>
                 </a>
-                <a href="dashboardTransaction.html" class="flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
-                    <i class="fas fa-list-alt w-5 h-5"></i>
+                <a href="dashboardTransaction.html" class="lien flex items-center space-x-3 py-2 px-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-list-alt"></i>
                     <span class="font-medium">Mes Transactions</span>
                 </a>
-                <a href="dashboardPronostic.html" class="flex items-center space-x-3 p-3 rounded-xl bg-gradient-to-r from-blue-600 to-blue-800 text-white">
-                    <i class="fas fa-futbol w-5 h-5"></i>
+                <a href="dashboardPronostic.html" class="lien actif flex items-center space-x-3 py-2 px-3 rounded-xl bg-gradient-to-r from-bleu-principal to-bleu-fonce text-white">
+                    <i class="fas fa-futbol"></i>
                     <span class="font-medium">Pronostic</span>
                 </a>
-                <a href="dashboardVideo.html" class="flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
-                    <i class="fas fa-video w-5 h-5"></i>
+                <a href="dashboardVideo.html" class="lien flex items-center space-x-3 py-2 px-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-video"></i>
                     <span class="font-medium">Vidéo</span>
                 </a>
-                <a href="dashboardBonus.html" class="flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
-                    <i class="fas fa-gift w-5 h-5"></i>
+                <a href="dashboardBonus.html" class="lien flex items-center space-x-3 py-2 px-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-gift"></i>
                     <span class="font-medium">Bonus</span>
                 </a>
-                <a href="dashboardProfile.html" class="flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
-                    <i class="fas fa-user w-5 h-5"></i>
+                <a href="dashboardProfile.html" class="lien flex items-center space-x-3 py-2 px-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-user"></i>
                     <span class="font-medium">Profile</span>
                 </a>
-                <a href="#" id="btnDeco" class="flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
-                    <i class="fas fa-sign-out-alt w-5 h-5"></i>
+                <a href="#" id="btnDeco" class="flex items-center space-x-3 py-2 px-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
+                    <i class="fas fa-sign-out-alt"></i>
                     <span class="font-medium">Déconnexion</span>
                 </a>
             </nav>
         </div>
 
         <div class="flex-1 lg:ml-64">
-            <div class="p-6">
-                <div class="flex items-center justify-between mb-8">
-                    <div>
-                        <h2 class="text-3xl font-bold text-white mb-2">Nos Pronostics Football</h2>
-                        <p class="text-gray-400">Découvrez nos prédictions d'experts pour vos paris sportifs</p>
+            <nav class="bg-gray-800 border-b border-gray-700 p-4 lg:p-6">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-4">
+                        <button id="btnOuvrir" class="lg:hidden p-2 rounded-lg bg-gray-700 text-white">
+                            <span class="block w-6 h-0.5 bg-white mb-1"></span>
+                            <span class="block w-6 h-0.5 bg-white mb-1"></span>
+                            <span class="block w-6 h-0.5 bg-white"></span>
+                        </button>
+                        <div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-futbol text-yellow-400 text-xl"></i>
+                                <h1 class="text-xl lg:text-2xl font-bold text-white">Pronostics</h1>
+                            </div>
+                            <p class="text-gray-400 text-sm">Nos Pronostics Football</p>
+                        </div>
                     </div>
-                    <button id="btnMenu" class="lg:hidden p-2 rounded-lg bg-gray-800 text-white">
-                        <span class="block w-6 h-0.5 bg-white mb-1"></span>
-                        <span class="block w-6 h-0.5 bg-white mb-1"></span>
-                        <span class="block w-6 h-0.5 bg-white"></span>
-                    </button>
+                    <div class="flex items-center space-x-3">
+                        <div class="hidden sm:block text-right">
+                            <p class="text-sm text-white font-medium">YAO</p>
+                            <p class="text-xs text-gray-400">En ligne</p>
+                        </div>
+                        <div class="w-8 h-8 bg-gradient-to-r from-bleu-principal to-bleu-fonce rounded-full flex items-center justify-center">
+                            <a href="/users/dashboardProfile.html"><i class="fas fa-user text-white text-sm"></i></a>
+                        </div>
+                    </div>
                 </div>
+            </nav>
 
-                <div class="mb-6">
-                    <div class="flex space-x-4 mb-6">
-                        <button id="tous" class="btn-filtre px-4 py-2 rounded-lg bg-blue-600 text-white font-medium transition-all">
+            <div class="p-3 sm:p-4 lg:p-6">
+                <div class="mb-4">
+                    <div class="flex space-x-3 mb-4">
+                        <button id="tous" class="btn-filtre px-3 py-2 rounded-lg bg-blue-600 text-white font-medium transition-all text-sm">
                             Tous
                         </button>
-                        <button id="aujourdhui" class="btn-filtre px-4 py-2 rounded-lg bg-gray-700 text-gray-300 hover:bg-gray-600 transition-all">
+                        <button id="aujourdhui" class="btn-filtre px-3 py-2 rounded-lg bg-gray-700 text-gray-300 hover:bg-gray-600 transition-all text-sm">
                             Aujourd'hui
                         </button>
-                        <button id="gagnes" class="btn-filtre px-4 py-2 rounded-lg bg-gray-700 text-gray-300 hover:bg-gray-600 transition-all">
+                        <button id="gagnes" class="btn-filtre px-3 py-2 rounded-lg bg-gray-700 text-gray-300 hover:bg-gray-600 transition-all text-sm">
                             Gagnés
-                        </button>
-                        <button id="perdus" class="btn-filtre px-4 py-2 rounded-lg bg-gray-700 text-gray-300 hover:bg-gray-600 transition-all">
-                            Perdus
                         </button>
                     </div>
                 </div>
 
-                <div id="cartes" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                <div id="cartes" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3">
                     
-                    <div class="carte rounded-2xl p-4 border border-gray-700 hover:border-blue-600 transition-all duration-300 hover:shadow-lg hover:shadow-blue-600/20" data-statut="aujourdhui" data-date="2025-06-01">
-                        <div class="flex justify-between items-center mb-3">
+                    <div class="carte rounded-xl p-3 border border-gray-700 hover:border-blue-600 transition-all duration-300 hover:shadow-lg hover:shadow-blue-600/20 bg-gray-800" data-statut="aujourdhui" data-date="2025-06-01">
+                        <div class="flex justify-between items-center mb-2">
                             <span class="text-xs text-gray-400">Champions League</span>
                             <span class="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded-full">Aujourd'hui</span>
                         </div>
                         
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="flex items-center space-x-3">
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="flex items-center space-x-2">
                                 <img src="/assets/img/PSG-Logo.png" alt="PSG" class="logo-equipe">
                                 <span class="text-white font-medium text-sm">PSG</span>
                             </div>
                             <span class="text-gray-400 text-sm">vs</span>
-                            <div class="flex items-center space-x-3">
+                            <div class="flex items-center space-x-2">
                                 <span class="text-white font-medium text-sm">Bayern</span>
                                 <img src="/assets/img/FC-Bayern-Munchen-Logo.png" alt="Bayern Munich" class="logo-equipe">
                             </div>
                         </div>
                         
-                        <p class="text-gray-400 text-xs mb-3 text-center">Aujourd'hui 20:00</p>
+                        <p class="text-gray-400 text-xs mb-2 text-center">Aujourd'hui 20:00</p>
                         
-                        <div class="bg-yellow-400/20 rounded-lg p-3 mb-3 text-center">
+                        <div class="bg-yellow-400/20 rounded-lg p-2 mb-2 text-center">
                             <div class="text-white font-bold text-sm">BTTS</div>
-                            <div class="text-xl font-black text-yellow-400">1.75</div>
+                            <div class="text-lg font-black text-yellow-400">1.75</div>
                         </div>
                         
                         <div class="flex justify-between text-xs">
@@ -127,29 +155,29 @@
                         </div>
                     </div>
 
-                    <div class="carte rounded-2xl p-4 border border-gray-700 hover:border-blue-600 transition-all duration-300 hover:shadow-lg hover:shadow-blue-600/20" data-statut="aujourdhui" data-date="2025-06-01">
-                        <div class="flex justify-between items-center mb-3">
+                    <div class="carte rounded-xl p-3 border border-gray-700 hover:border-blue-600 transition-all duration-300 hover:shadow-lg hover:shadow-blue-600/20 bg-gray-800" data-statut="aujourdhui" data-date="2025-06-01">
+                        <div class="flex justify-between items-center mb-2">
                             <span class="text-xs text-gray-400">Premier League</span>
                             <span class="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded-full">Aujourd'hui</span>
                         </div>
                         
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="flex items-center space-x-3">
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="flex items-center space-x-2">
                                 <img src="/assets/img/Liverpool-Logo.png" alt="Liverpool" class="logo-equipe">
                                 <span class="text-white font-medium text-sm">Liverpool</span>
                             </div>
                             <span class="text-gray-400 text-sm">vs</span>
-                            <div class="flex items-center space-x-3">
+                            <div class="flex items-center space-x-2">
                                 <span class="text-white font-medium text-sm">Arsenal</span>
                                 <img src="/assets/img/Arsenal-Logo.png" alt="Arsenal" class="logo-equipe">
                             </div>
                         </div>
                         
-                        <p class="text-gray-400 text-xs mb-3 text-center">Aujourd'hui 18:30</p>
+                        <p class="text-gray-400 text-xs mb-2 text-center">Aujourd'hui 18:30</p>
                         
-                        <div class="bg-yellow-400/20 rounded-lg p-3 mb-3 text-center">
+                        <div class="bg-yellow-400/20 rounded-lg p-2 mb-2 text-center">
                             <div class="text-white font-bold text-sm">1X2 - Liverpool</div>
-                            <div class="text-xl font-black text-yellow-400">2.10</div>
+                            <div class="text-lg font-black text-yellow-400">2.10</div>
                         </div>
                         
                         <div class="flex justify-between text-xs">
@@ -158,29 +186,29 @@
                         </div>
                     </div>
 
-                    <div class="carte rounded-2xl p-4 border border-gray-700 hover:border-blue-600 transition-all duration-300 hover:shadow-lg hover:shadow-blue-600/20" data-statut="aujourdhui" data-date="2025-06-01">
-                        <div class="flex justify-between items-center mb-3">
+                    <div class="carte rounded-xl p-3 border border-gray-700 hover:border-blue-600 transition-all duration-300 hover:shadow-lg hover:shadow-blue-600/20 bg-gray-800" data-statut="aujourdhui" data-date="2025-06-01">
+                        <div class="flex justify-between items-center mb-2">
                             <span class="text-xs text-gray-400">La Liga</span>
                             <span class="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded-full">Aujourd'hui</span>
                         </div>
                         
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="flex items-center space-x-3">
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="flex items-center space-x-2">
                                 <img src="/assets/img/Real-Madrid-Logo.png" alt="Real Madrid" class="logo-equipe">
                                 <span class="text-white font-medium text-sm">Real Madrid</span>
                             </div>
                             <span class="text-gray-400 text-sm">vs</span>
-                            <div class="flex items-center space-x-3">
+                            <div class="flex items-center space-x-2">
                                 <span class="text-white font-medium text-sm">Barcelona</span>
                                 <img src="/assets/img/Barcelona-Logo.png" alt="Barcelona" class="logo-equipe">
                             </div>
                         </div>
                         
-                        <p class="text-gray-400 text-xs mb-3 text-center">Aujourd'hui 21:00</p>
+                        <p class="text-gray-400 text-xs mb-2 text-center">Aujourd'hui 21:00</p>
                         
-                        <div class="bg-yellow-400/20 rounded-lg p-3 mb-3 text-center">
+                        <div class="bg-yellow-400/20 rounded-lg p-2 mb-2 text-center">
                             <div class="text-white font-bold text-sm">Plus de 2.5 Buts</div>
-                            <div class="text-xl font-black text-yellow-400">1.95</div>
+                            <div class="text-lg font-black text-yellow-400">1.95</div>
                         </div>
                         
                         <div class="flex justify-between text-xs">
@@ -189,29 +217,29 @@
                         </div>
                     </div>
 
-                    <div class="carte rounded-2xl p-4 border border-gray-700 hover:border-green-500 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/20" data-statut="gagne" data-date="2025-05-31">
-                        <div class="flex justify-between items-center mb-3">
+                    <div class="carte rounded-xl p-3 border border-gray-700 hover:border-green-500 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/20 bg-gray-800" data-statut="gagne" data-date="2025-05-31">
+                        <div class="flex justify-between items-center mb-2">
                             <span class="text-xs text-gray-400">Serie A</span>
                             <span class="text-xs bg-green-500 text-white px-2 py-1 rounded-full font-bold">Gagné</span>
                         </div>
                         
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="flex items-center space-x-3">
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="flex items-center space-x-2">
                                 <img src="/assets/img/Juventus-Logo.png" alt="Juventus" class="logo-equipe">
                                 <span class="text-white font-medium text-sm">Juventus</span>
                             </div>
                             <span class="text-gray-400 text-sm">2-1</span>
-                            <div class="flex items-center space-x-3">
+                            <div class="flex items-center space-x-2">
                                 <span class="text-white font-medium text-sm">AC Milan</span>
                                 <img src="/assets/img/Milan-Logo.png" alt="AC Milan" class="logo-equipe">
                             </div>
                         </div>
                         
-                        <p class="text-gray-400 text-xs mb-3 text-center">31 Mai 2025 - 19:45</p>
+                        <p class="text-gray-400 text-xs mb-2 text-center">31 Mai 2025 - 19:45</p>
                         
-                        <div class="bg-green-500/20 rounded-lg p-3 mb-3 text-center border border-green-500/30">
+                        <div class="bg-green-500/20 rounded-lg p-2 mb-2 text-center border border-green-500/30">
                             <div class="text-white font-bold text-sm">1X2 - Juventus</div>
-                            <div class="text-xl font-black text-green-400">2.25</div>
+                            <div class="text-lg font-black text-green-400">2.25</div>
                         </div>
                         
                         <div class="flex justify-between text-xs">
@@ -220,29 +248,29 @@
                         </div>
                     </div>
 
-                    <div class="carte rounded-2xl p-4 border border-gray-700 hover:border-green-500 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/20" data-statut="gagne" data-date="2025-05-30">
-                        <div class="flex justify-between items-center mb-3">
+                    <div class="carte rounded-xl p-3 border border-gray-700 hover:border-green-500 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/20 bg-gray-800" data-statut="gagne" data-date="2025-05-30">
+                        <div class="flex justify-between items-center mb-2">
                             <span class="text-xs text-gray-400">Bundesliga</span>
                             <span class="text-xs bg-green-500 text-white px-2 py-1 rounded-full font-bold">Gagné</span>
                         </div>
                         
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="flex items-center space-x-3">
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="flex items-center space-x-2">
                                 <img src="/assets/img/Borussia-Dortmund-Logo.png" alt="Dortmund" class="logo-equipe">
                                 <span class="text-white font-medium text-sm">Dortmund</span>
                             </div>
                             <span class="text-gray-400 text-sm">3-1</span>
-                            <div class="flex items-center space-x-3">
+                            <div class="flex items-center space-x-2">
                                 <span class="text-white font-medium text-sm">Leipzig</span>
                                 <img src="/assets/img/New-York-Red-Bulls-Logo.png" alt="Leipzig" class="logo-equipe">
                             </div>
                         </div>
                         
-                        <p class="text-gray-400 text-xs mb-3 text-center">30 Mai 2025 - 20:30</p>
+                        <p class="text-gray-400 text-xs mb-2 text-center">30 Mai 2025 - 20:30</p>
                         
-                        <div class="bg-green-500/20 rounded-lg p-3 mb-3 text-center border border-green-500/30">
+                        <div class="bg-green-500/20 rounded-lg p-2 mb-2 text-center border border-green-500/30">
                             <div class="text-white font-bold text-sm">BTTS</div>
-                            <div class="text-xl font-black text-green-400">1.65</div>
+                            <div class="text-lg font-black text-green-400">1.65</div>
                         </div>
                         
                         <div class="flex justify-between text-xs">
@@ -251,29 +279,29 @@
                         </div>
                     </div>
 
-                    <div class="carte rounded-2xl p-4 border border-gray-700 hover:border-green-500 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/20" data-statut="gagne" data-date="2025-05-29">
-                        <div class="flex justify-between items-center mb-3">
+                    <div class="carte rounded-xl p-3 border border-gray-700 hover:border-green-500 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/20 bg-gray-800" data-statut="gagne" data-date="2025-05-29">
+                        <div class="flex justify-between items-center mb-2">
                             <span class="text-xs text-gray-400">Ligue 1</span>
                             <span class="text-xs bg-green-500 text-white px-2 py-1 rounded-full font-bold">Gagné</span>
                         </div>
                         
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="flex items-center space-x-3">
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="flex items-center space-x-2">
                                 <img src="/assets/img/Olympique-de-Marseille-Logo.png" alt="Marseille" class="logo-equipe">
                                 <span class="text-white font-medium text-sm">Marseille</span>
                             </div>
                             <span class="text-gray-400 text-sm">2-0</span>
-                            <div class="flex items-center space-x-3">
+                            <div class="flex items-center space-x-2">
                                 <span class="text-white font-medium text-sm">Lyon</span>
                                 <img src="/assets/img/Olympique-Lyonnais-Logo-700x394.png" alt="Lyon" class="logo-equipe">
                             </div>
                         </div>
                         
-                        <p class="text-gray-400 text-xs mb-3 text-center">29 Mai 2025 - 21:00</p>
+                        <p class="text-gray-400 text-xs mb-2 text-center">29 Mai 2025 - 21:00</p>
                         
-                        <div class="bg-green-500/20 rounded-lg p-3 mb-3 text-center border border-green-500/30">
+                        <div class="bg-green-500/20 rounded-lg p-2 mb-2 text-center border border-green-500/30">
                             <div class="text-white font-bold text-sm">1X2 - Marseille</div>
-                            <div class="text-xl font-black text-green-400">1.80</div>
+                            <div class="text-lg font-black text-green-400">1.80</div>
                         </div>
                         
                         <div class="flex justify-between text-xs">
@@ -282,29 +310,29 @@
                         </div>
                     </div>
 
-                    <div class="carte rounded-2xl p-4 border border-gray-700 hover:border-green-500 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/20" data-statut="gagne" data-date="2025-05-28">
-                        <div class="flex justify-between items-center mb-3">
+                    <div class="carte rounded-xl p-3 border border-gray-700 hover:border-green-500 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/20 bg-gray-800" data-statut="gagne" data-date="2025-05-28">
+                        <div class="flex justify-between items-center mb-2">
                             <span class="text-xs text-gray-400">Premier League</span>
                             <span class="text-xs bg-green-500 text-white px-2 py-1 rounded-full font-bold">Gagné</span>
                         </div>
                         
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="flex items-center space-x-3">
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="flex items-center space-x-2">
                                 <img src="/assets/img/Manchester-City-Logo.png" alt="Man City" class="logo-equipe">
                                 <span class="text-white font-medium text-sm">Man City</span>
                             </div>
                             <span class="text-gray-400 text-sm">4-2</span>
-                            <div class="flex items-center space-x-3">
+                            <div class="flex items-center space-x-2">
                                 <span class="text-white font-medium text-sm">Chelsea</span>
                                 <img src="/assets/img/Chelsea-Logo.png" alt="Chelsea" class="logo-equipe">
                             </div>
                         </div>
                         
-                        <p class="text-gray-400 text-xs mb-3 text-center">28 Mai 2025 - 17:30</p>
+                        <p class="text-gray-400 text-xs mb-2 text-center">28 Mai 2025 - 17:30</p>
                         
-                        <div class="bg-green-500/20 rounded-lg p-3 mb-3 text-center border border-green-500/30">
+                        <div class="bg-green-500/20 rounded-lg p-2 mb-2 text-center border border-green-500/30">
                             <div class="text-white font-bold text-sm">Plus de 3.5 Buts</div>
-                            <div class="text-xl font-black text-green-400">2.75</div>
+                            <div class="text-lg font-black text-green-400">2.75</div>
                         </div>
                         
                         <div class="flex justify-between text-xs">
@@ -313,29 +341,29 @@
                         </div>
                     </div>
 
-                    <div class="carte rounded-2xl p-4 border border-gray-700 hover:border-green-500 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/20" data-statut="gagne" data-date="2025-05-27">
-                        <div class="flex justify-between items-center mb-3">
+                    <div class="carte rounded-xl p-3 border border-gray-700 hover:border-green-500 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/20 bg-gray-800" data-statut="gagne" data-date="2025-05-27">
+                        <div class="flex justify-between items-center mb-2">
                             <span class="text-xs text-gray-400">La Liga</span>
                             <span class="text-xs bg-green-500 text-white px-2 py-1 rounded-full font-bold">Gagné</span>
                         </div>
                         
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="flex items-center space-x-3">
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="flex items-center space-x-2">
                                 <img src="/assets/img/atletico-madrid-Logo.png" alt="Atletico" class="logo-equipe">
                                 <span class="text-white font-medium text-sm">Atletico</span>
                             </div>
                             <span class="text-gray-400 text-sm">1-0</span>
-                            <div class="flex items-center space-x-3">
+                            <div class="flex items-center space-x-2">
                                 <span class="text-white font-medium text-sm">Sevilla</span>
                                 <img src="/assets/img/Sevilla-Logo-700x394.png" alt="Sevilla" class="logo-equipe">
                             </div>
                         </div>
                         
-                        <p class="text-gray-400 text-xs mb-3 text-center">27 Mai 2025 - 16:00</p>
+                        <p class="text-gray-400 text-xs mb-2 text-center">27 Mai 2025 - 16:00</p>
                         
-                        <div class="bg-green-500/20 rounded-lg p-3 mb-3 text-center border border-green-500/30">
+                        <div class="bg-green-500/20 rounded-lg p-2 mb-2 text-center border border-green-500/30">
                             <div class="text-white font-bold text-sm">Moins de 2.5 Buts</div>
-                            <div class="text-xl font-black text-green-400">1.55</div>
+                            <div class="text-lg font-black text-green-400">1.55</div>
                         </div>
                         
                         <div class="flex justify-between text-xs">
@@ -344,29 +372,29 @@
                         </div>
                     </div>
 
-                    <div class="carte rounded-2xl p-4 border border-gray-700 hover:border-red-500 transition-all duration-300 hover:shadow-lg hover:shadow-red-500/20" data-statut="perdu" data-date="2025-05-26">
-                        <div class="flex justify-between items-center mb-3">
+                    <div class="carte rounded-xl p-3 border border-gray-700 hover:border-red-500 transition-all duration-300 hover:shadow-lg hover:shadow-red-500/20 bg-gray-800" data-statut="perdu" data-date="2025-05-26">
+                        <div class="flex justify-between items-center mb-2">
                             <span class="text-xs text-gray-400">Serie A</span>
                             <span class="text-xs bg-red-500 text-white px-2 py-1 rounded-full font-bold">Perdu</span>
                         </div>
                         
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="flex items-center space-x-3">
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="flex items-center space-x-2">
                                 <img src="/assets/img/New-Inter-Logo.png" alt="Inter" class="logo-equipe">
                                 <span class="text-white font-medium text-sm">Inter</span>
                             </div>
                             <span class="text-gray-400 text-sm">1-2</span>
-                            <div class="flex items-center space-x-3">
+                            <div class="flex items-center space-x-2">
                                 <span class="text-white font-medium text-sm">AS Roma</span>
                                 <img src="/assets/img/Roma-Logo.png" alt="Roma" class="logo-equipe">
                             </div>
                         </div>
                         
-                        <p class="text-gray-400 text-xs mb-3 text-center">26 Mai 2025 - 18:00</p>
+                        <p class="text-gray-400 text-xs mb-2 text-center">26 Mai 2025 - 18:00</p>
                         
-                        <div class="bg-red-500/20 rounded-lg p-3 mb-3 text-center border border-red-500/30">
+                        <div class="bg-red-500/20 rounded-lg p-2 mb-2 text-center border border-red-500/30">
                             <div class="text-white font-bold text-sm">1X2 - Inter</div>
-                            <div class="text-xl font-black text-red-400">1.70</div>
+                            <div class="text-lg font-black text-red-400">1.70</div>
                         </div>
                         
                         <div class="flex justify-between text-xs">
@@ -375,51 +403,37 @@
                         </div>
                     </div>
 
-                    <div class="carte rounded-2xl p-4 border border-gray-700 hover:border-red-500 transition-all duration-300 hover:shadow-lg hover:shadow-red-500/20" data-statut="perdu" data-date="2025-05-25">
-                        <div class="flex justify-between items-center mb-3">
+                    <div class="carte rounded-xl p-3 border border-gray-700 hover:border-red-500 transition-all duration-300 hover:shadow-lg hover:shadow-red-500/20 bg-gray-800" data-statut="perdu" data-date="2025-05-25">
+                        <div class="flex justify-between items-center mb-2">
                             <span class="text-xs text-gray-400">Bundesliga</span>
                             <span class="text-xs bg-red-500 text-white px-2 py-1 rounded-full font-bold">Perdu</span>
                         </div>
                         
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="flex items-center space-x-3">
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="flex items-center space-x-2">
                                 <img src="/assets/img/FC-Bayern-Munchen-Logo.png" alt="Bayern" class="logo-equipe">
                                 <span class="text-white font-medium text-sm">Bayern</span>
                             </div>
-                            <span class="text-gray-400 text-sm">0-3</span>
+                            <span class="text-gray-400 text-sm">0-1</span>
                             <div class="flex items-center space-x-3">
                                 <span class="text-white font-medium text-sm">Leverkusen</span>
                                 <img src="/assets/img/Bayer-04-Leverkusen-Logo.png" alt="Leverkusen" class="logo-equipe">
                             </div>
                         </div>
                         
-                        <p class="text-gray-400 text-xs mb-3 text-center">25 Mai 2025 - 15:30</p>
+                        <p class="text-gray-400 text-xs mb-2 text-center">25 Mai 2025 - 15:30</p>
                         
-                        <div class="bg-red-500/20 rounded-lg p-3 mb-3 text-center border border-red-500/30">
+                        <div class="bg-red-500/20 rounded-lg p-2 mb-2 text-center border border-red-500/30">
                             <div class="text-white font-bold text-sm">Plus de 2.5 Buts</div>
-                            <div class="text-xl font-black text-red-400">1.85</div>
+                            <div class="text-lg font-black text-red-400">1.90</div>
                         </div>
                         
                         <div class="flex justify-between text-xs">
                             <span class="text-gray-400">Confiance</span>
-                            <span class="text-white font-bold px-2 py-1 rounded text-xs bg-red-600">89%</span>
+                            <span class="text-white font-bold px-2 py-1 rounded text-xs bg-red-600">78%</span>
                         </div>
                     </div>
 
-                </div>
-
-                <div class="flex justify-center mt-8">
-                    <div class="flex space-x-2">
-                        <button class="px-3 py-2 rounded-lg bg-gray-700 text-gray-300 hover:bg-gray-600 transition-all">
-                            <i class="fas fa-chevron-left"></i>
-                        </button>
-                        <button class="px-3 py-2 rounded-lg bg-blue-600 text-white">1</button>
-                        <button class="px-3 py-2 rounded-lg bg-gray-700 text-gray-300 hover:bg-gray-600 transition-all">2</button>
-                        <button class="px-3 py-2 rounded-lg bg-gray-700 text-gray-300 hover:bg-gray-600 transition-all">3</button>
-                        <button class="px-3 py-2 rounded-lg bg-gray-700 text-gray-300 hover:bg-gray-600 transition-all">
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
-                    </div>
                 </div>
             </div>
         </div>
