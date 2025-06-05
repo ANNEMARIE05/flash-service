@@ -40,6 +40,6 @@ const btnDeconnexion = document.getElementById('btnDeconnexion');
 btnDeconnexion.addEventListener('click', (e) => {
     e.preventDefault();
     if (confirm('Êtes-vous sûr de vouloir vous déconnecter ?')) {
-        window.location.href = 'login.html';
+        window.location.href = '/auth/login.html';
     }
 });

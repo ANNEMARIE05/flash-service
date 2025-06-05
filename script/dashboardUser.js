@@ -119,8 +119,7 @@ const btnDeco = document.getElementById('btnDeco');
 btnDeco.addEventListener('click', function(e) {
     e.preventDefault();
     if (confirm('Êtes-vous sûr de vouloir vous déconnecter ?')) {
-        localStorage.removeItem('userToken');
-        window.location.href = 'index.html';
+        window.location.href = '/auth/login.html';
     }
 });
 
