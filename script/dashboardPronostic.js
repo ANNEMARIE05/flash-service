@@ -10,7 +10,6 @@ tailwind.config = {
         }
     }
 }
-
 const btnOuvrir = document.getElementById('btnOuvrir');
 const btnFermer = document.getElementById('btnFermer');
 const menuNav = document.getElementById('menuNav');
@@ -31,35 +30,57 @@ fondEcran.addEventListener('click', () => {
     fondEcran.classList.add('hidden');
 });
 
+const liens = document.querySelectorAll('.lien-nav');
+liens.forEach(lien => {
+    lien.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href && href !== '#') {
+            window.location.href = href;
+            return;
+        }
 
-const btnsFiltres = document.querySelectorAll('.btn-filtre');
-const cartes = document.querySelectorAll('.carte');
+        e.preventDefault();
 
-btnsFiltres.forEach(btn => {
-    btn.addEventListener('click', () => {
-        btnsFiltres.forEach(b => {
-            b.classList.remove('bg-blue-600', 'text-white');
-            b.classList.add('bg-gray-700', 'text-gray-300');
+        liens.forEach(l => l.classList.remove('actif'));
+        liens.forEach(l => {
+            l.classList.remove('bg-gradient-to-r', 'from-bleu-principal', 'to-bleu-fonce', 'text-white');
+            l.classList.add('text-gray-300', 'hover:text-white');
         });
 
-        btn.classList.remove('bg-gray-700', 'text-gray-300');
-        btn.classList.add('bg-blue-600', 'text-white');
+        this.classList.add('actif');
+        this.classList.remove('text-gray-300', 'hover:text-white');
+        this.classList.add('bg-gradient-to-r', 'from-bleu-principal', 'to-bleu-fonce', 'text-white');
+    });
+});
 
-        const filtre = btn.id;
+const filtres = document.querySelectorAll('.filtre');
+const cartes = document.querySelectorAll('.carte');
+
+filtres.forEach(filtre => {
+    filtre.addEventListener('click', () => {
+        filtres.forEach(f => {
+            f.classList.remove('bg-blue-600', 'text-white');
+            f.classList.add('bg-gray-700', 'text-gray-300');
+        });
+
+        filtre.classList.remove('bg-gray-700', 'text-gray-300');
+        filtre.classList.add('bg-blue-600', 'text-white');
+
+        const filtreId = filtre.id;
 
         cartes.forEach(carte => {
-            if (filtre === 'tous') {
+            if (filtreId === 'tous') {
                 carte.style.display = 'block';
-            } else if (filtre === 'aujourdhui') {
+            } else if (filtreId === 'aujourdhui') {
                 if (carte.dataset.statut === 'aujourdhui') {
                     carte.style.display = 'block';
                 } else {
                     carte.style.display = 'none';
                 }
-            } else if (filtre === 'gagnes') {
+            } else if (filtreId === 'gagnes') {
                 if (carte.dataset.statut === 'gagne') {
                     carte.style.display = 'block';
-                } else {
+                    } else {
                     carte.style.display = 'none';
                 }
             }
@@ -67,17 +88,25 @@ btnsFiltres.forEach(btn => {
     });
 });
 
-const btnDeco = document.getElementById('btnDeco');
-btnDeco.addEventListener('click', (e) => {
+document.getElementById('btnDepot').addEventListener('click', () => {
+    window.location='dashboardDepot.html'
+});
+
+document.getElementById('btnRetrait').addEventListener('click', () => {
+    window.location='dashboardRetrait.html'
+});
+
+document.getElementById('btnDeco').addEventListener('click', (e) => {
     e.preventDefault();
     if (confirm('Êtes-vous sûr de vouloir vous déconnecter ?')) {
-        window.location.href = '/auth/login.html';
+        alert('Déconnexion en cours...');
+        window.location='/auth/login.html'
     }
 });
 
 cartes.forEach(carte => {
     carte.addEventListener('mouseenter', () => {
-        carte.style.transform = 'translateY(-5px) scale(1.02)';
+        carte.style.transform = 'translateY(-4px) scale(1.02)';
     });
 
     carte.addEventListener('mouseleave', () => {

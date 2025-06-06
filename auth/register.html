@@ -102,15 +102,21 @@
                 </div>
 
                 <div>
-                    <input 
-                        type="text"
+                    <select 
                         id="adresse-complete" 
                         name="adresseComplete"
-                        class="focus-champ-saisie w-full px-3 py-2.5 bg-white/10 border border-white/20 rounded-xl text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all duration-300"
-                        placeholder="Votre addresse"
+                        class="focus-champ-saisie w-full px-3 py-2.5 bg-white/10 border border-white/20 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all duration-300"
                         required
-                    >
+                        >
+                        <option value="" disabled selected>Sélectionner votre ville</option>
+                        <option value="Abidjan">Abidjan</option>
+                        <option value="Bonoua">Bonoua</option>
+                        <option value="Bouaké">Bouaké</option>
+                        <option value="Daloa">Daloa</option>
+                        <option value="Dimbokro">Dimbokro</option>
+                    </select>
                 </div>
+
 
                 <div>
                     <input 

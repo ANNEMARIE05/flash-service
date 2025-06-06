@@ -108,24 +108,37 @@
             </nav>
 
             <div class="p-4 lg:p-6">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                    <div class="bg-gray-800 rounded-lg p-6 text-center">
-                        <i class="fas fa-wallet text-blue-400 text-3xl mb-3 hidden sm:block"></i>
-                        <h3 class="text-white font-medium mb-2">Solde bonus</h3>
-                        <p class="text-2xl font-bold text-blue-400">12000 XOF</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-6">
+                    <div class="bg-gray-800 rounded-2xl p-4 sm:p-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-400 text-sm">Solde Bonus</p>
+                                <p class="text-xl sm:text-2xl font-bold text-jaune-accent">2,450.00 XOF</p>
+                            </div>
+                            <i class="fas fa-wallet text-jaune-accent text-xl sm:text-2xl"></i>
+                        </div>
                     </div>
-                    <div class="bg-gray-800 rounded-lg p-6 text-center">
-                        <i class="fas fa-chart-line text-green-400 text-3xl mb-3 hidden sm:block"></i>
-                        <h3 class="text-white font-medium mb-2">Pronostics Réussis</h3>
-                        <p class="text-2xl font-bold text-green-400">92%</p>
+                    
+                    <div class="bg-gray-800 rounded-2xl p-4 sm:p-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-400 text-sm">Pronostics Réussis</p>
+                                <p class="text-xl sm:text-2xl font-bold text-green-400">92%</p>
+                            </div>
+                            <i class="fas fa-chart-line text-green-400 text-xl sm:text-2xl"></i>
+                        </div>
                     </div>
-                    <div class="bg-gray-800 rounded-lg p-6 text-center">
-                        <i class="fas fa-gift text-red-400 text-3xl mb-3 hidden sm:block"></i>
-                        <h3 class="text-white font-medium mb-2">Bonus Récoltés</h3>
-                        <p class="text-2xl font-bold text-red-400">4000 XOF</p>
+                    
+                    <div class="bg-gray-800 rounded-2xl p-4 sm:p-6 sm:col-span-2 lg:col-span-1">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-400 text-sm">Bonus Récoltés</p>
+                                <p class="text-xl sm:text-2xl font-bold text-bleu-principal">15,750.00 XOF</p>
+                            </div>
+                            <i class="fas fa-gift text-bleu-principal text-xl sm:text-2xl"></i>
+                        </div>
                     </div>
                 </div>
-
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
                     <div class="lg:col-span-2">
                         <div class="bg-gray-800 rounded-xl p-4 lg:p-6">
@@ -138,29 +151,31 @@
                             </div>
                             
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div class="carte-prono anim-carte rounded-xl p-4 border border-gray-700 hover:border-bleu-principal transition-all duration-300 hover:shadow-lg hover:shadow-bleu-principal/20">
+                                <div class="carte anim-carte rounded-xl p-4 border border-gray-700 hover:border-blue-600 transition-all duration-300 hover:shadow-lg hover:shadow-blue-600/20 bg-gray-800" data-statut="aujourdhui" data-date="2025-06-01">
                                     <div class="flex justify-between items-center mb-3">
                                         <span class="text-xs text-gray-400">Champions League</span>
                                         <span class="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded-full">Aujourd'hui</span>
                                     </div>
                                     
-                                    <div class="flex items-center justify-between mb-3">
-                                        <div class="flex items-center space-x-2">
-                                            <img src="/assets/img/PSG-Logo.png" alt="PSG" class="logo-club">
-                                            <span class="text-white font-medium text-sm">PSG</span>
-                                        </div>
-                                        <span class="text-gray-400 text-sm">vs</span>
-                                        <div class="flex items-center space-x-2">
-                                            <span class="text-white font-medium text-sm">Bayern</span>
-                                            <img src="/assets/img/FC-Bayern-Munchen-Logo.png" alt="Bayern Munich" class="logo-club">
+                                    <div class="flex flex-col items-center mb-4">
+                                        <div class="flex items-center justify-between w-full mb-3">
+                                            <div class="flex flex-col items-center">
+                                                <img src="/assets/img/PSG-Logo.png" alt="PSG" class="logo-equipe mb-2">
+                                                <span class="text-white font-medium text-sm text-center">PSG</span>
+                                            </div>
+                                            <div class="text-gray-400 text-lg font-bold">VS</div>
+                                            <div class="flex flex-col items-center">
+                                                <img src="/assets/img/FC-Bayern-Munchen-Logo.png" alt="Bayern Munich" class="logo-equipe mb-2">
+                                                <span class="text-white font-medium text-sm text-center">Bayern</span>
+                                            </div>
                                         </div>
                                     </div>
                                     
                                     <p class="text-gray-400 text-xs mb-3 text-center">Aujourd'hui 20:00</p>
                                     
-                                    <div class="bg-jaune-accent/20 rounded-lg p-3 mb-3 text-center">
-                                        <div class="text-white font-bold text-sm">BTTS</div>
-                                        <div class="text-xl font-black text-jaune-accent">1.75</div>
+                                    <div class="bg-yellow-400/20 rounded-lg p-3 mb-3 text-center">
+                                        <div class="text-white font-bold text-sm mb-1">BTTS</div>
+                                        <div class="text-xl font-black text-yellow-400">1.75</div>
                                     </div>
                                     
                                     <div class="flex justify-between text-xs">
@@ -168,35 +183,37 @@
                                         <span class="text-white font-bold px-2 py-1 rounded text-xs bg-green-600">92%</span>
                                     </div>
                                 </div>
-
-                                <div class="carte-prono anim-carte rounded-xl p-4 border border-gray-700 hover:border-bleu-principal transition-all duration-300 hover:shadow-lg hover:shadow-bleu-principal/20">
+            
+                                <div class="carte anim-carte rounded-xl p-4 border border-gray-700 hover:border-blue-600 transition-all duration-300 hover:shadow-lg hover:shadow-blue-600/20 bg-gray-800" data-statut="aujourdhui" data-date="2025-06-01">
                                     <div class="flex justify-between items-center mb-3">
                                         <span class="text-xs text-gray-400">Premier League</span>
-                                        <span class="text-xs bg-blue-500/20 text-blue-400 px-2 py-1 rounded-full">Aujourd'hui</span>
+                                        <span class="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded-full">Aujourd'hui</span>
                                     </div>
                                     
-                                    <div class="flex items-center justify-between mb-3">
-                                        <div class="flex items-center space-x-2">
-                                            <img src="/assets/img/Manchester-City-Logo.png" alt="Manchester City" class="logo-club">
-                                            <span class="text-white font-medium text-sm">Man City</span>
-                                        </div>
-                                        <span class="text-gray-400 text-sm">vs</span>
-                                        <div class="flex items-center space-x-2">
-                                            <span class="text-white font-medium text-sm">Arsenal</span>
-                                            <img src="/assets/img/Arsenal-Logo.png" alt="Arsenal" class="logo-club">
+                                    <div class="flex flex-col items-center mb-4">
+                                        <div class="flex items-center justify-between w-full mb-3">
+                                            <div class="flex flex-col items-center">
+                                                <img src="/assets/img/Liverpool-Logo.png" alt="Liverpool" class="logo-equipe mb-2">
+                                                <span class="text-white font-medium text-sm text-center">Liverpool</span>
+                                            </div>
+                                            <div class="text-gray-400 text-lg font-bold">VS</div>
+                                            <div class="flex flex-col items-center">
+                                                <img src="/assets/img/Arsenal-Logo.png" alt="Arsenal" class="logo-equipe mb-2">
+                                                <span class="text-white font-medium text-sm text-center">Arsenal</span>
+                                            </div>
                                         </div>
                                     </div>
                                     
-                                    <p class="text-gray-400 text-xs mb-3 text-center">Aujourd'hui 17:30</p>
+                                    <p class="text-gray-400 text-xs mb-3 text-center">Aujourd'hui 18:30</p>
                                     
-                                    <div class="bg-bleu-principal/20 rounded-lg p-3 mb-3 text-center">
-                                        <div class="text-white font-bold text-sm">Victoire 1</div>
-                                        <div class="text-xl font-black text-bleu-principal">2.10</div>
+                                    <div class="bg-yellow-400/20 rounded-lg p-3 mb-3 text-center">
+                                        <div class="text-white font-bold text-sm mb-1">1X2 - Liverpool</div>
+                                        <div class="text-xl font-black text-yellow-400">2.10</div>
                                     </div>
                                     
                                     <div class="flex justify-between text-xs">
                                         <span class="text-gray-400">Confiance</span>
-                                        <span class="text-white font-bold px-2 py-1 rounded text-xs bg-green-600">92%</span>
+                                        <span class="text-white font-bold px-2 py-1 rounded text-xs bg-green-600">88%</span>
                                     </div>
                                 </div>
                             </div>
@@ -249,8 +266,8 @@
                                         </div>
                                     </div>
                                     <div class="text-right">
-                                        <p class="text-sm font-bold text-jaune-accent">5,000 FCFA</p>
-                                        <span class="text-xs text-green-400">Réclamé</span>
+                                        <p class="text-sm font-bold text-jaune-accent">5,00 FCFA</p>
+                                        <button class="btn-bonus text-xs bg-jaune-accent text-white px-2 py-1 rounded font-medium">Réclamer</button>
                                     </div>
                                 </div>
                             </div>

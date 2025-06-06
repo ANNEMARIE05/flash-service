@@ -1,16 +1,14 @@
-.logo-club {
-    width: 32px;
-    height: 32px;
+.logo-equipe {
+    width: 60px;
+    height: 60px;
     object-fit: contain;
     border-radius: 50%;
-    background: white;
-    padding: 1px;
 }
 .anim-carte {
     transition: all 0.3s ease;
 }
 .anim-carte:hover {
-    transform: translateY(-3px) scale(1.01);
+    transform: translateY(-2px) scale(1.01);
 }
 .box {
     background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);

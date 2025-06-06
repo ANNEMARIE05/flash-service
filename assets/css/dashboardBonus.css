@@ -4,7 +4,7 @@
 .carte-bonus:hover {
     transform: translateY(-4px) scale(1.02);
 }
-.boite-user {
+.box {
     background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
     padding: 12px;
     margin-bottom: 12px;

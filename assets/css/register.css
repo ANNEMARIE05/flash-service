@@ -20,3 +20,7 @@
 .focus-champ-saisie:focus {
     box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.3);
 }
+
+option{
+    background-color: #3730a3;
+}

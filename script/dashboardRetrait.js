@@ -11,89 +11,43 @@ tailwind.config = {
     }
 }
 
+let etapeCourante = 1;
+let montantDemande = 0;
+let plateformeDemande = '';
+let chronoInterval;
+let tempsRestant = 1200; 
+
+const etapes = {
+    1: document.getElementById('etap1'),
+    att: document.getElementById('etapAtt'),
+    coord: document.getElementById('etapCoord'),
+    retrait: document.getElementById('etapRetrait'),
+    exp: document.getElementById('etapExp')
+};
+
+const modal = document.getElementById('modal');
+const modalTitle = document.getElementById('modalTitle');
+const modalText = document.getElementById('modalText');
+const modalBtn = document.getElementById('modalBtn');
+
 const btnMenu = document.getElementById('btnMenu');
 const menu = document.getElementById('menu');
 const fondMenu = document.getElementById('fondMenu');
 const fermer = document.getElementById('fermer');
-const form = document.getElementById('formRetrait');
-const modal = document.getElementById('modal');
-const fermerModal = document.getElementById('fermerModal');
-const btnDepot = document.getElementById('btnDepot');
-const btnRetrait = document.getElementById('btnRetrait');
-const id = document.getElementById('id');
-const code = document.getElementById('code');
-const montant = document.getElementById('montant');
-const tel = document.getElementById('tel');
-const btn = document.getElementById('btn');
-const liste = document.getElementById('liste');
-const option = document.getElementById('option');
-const deco = document.getElementById('deco');
 
-let methode = '';
-
-function ouvrirMenu() {
+btnMenu.addEventListener('click', () => {
     menu.classList.remove('-translate-x-full');
     fondMenu.classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
-}
-
-function fermerMenu() {
-    menu.classList.add('-translate-x-full');
-    fondMenu.classList.add('hidden');
-    document.body.style.overflow = 'auto';
-}
-
-btnMenu.addEventListener('click', ouvrirMenu);
-fermer.addEventListener('click', fermerMenu);
-fondMenu.addEventListener('click', fermerMenu);
-
-btnDepot.addEventListener('click', function() {
-    window.location.href = 'dashboardDepot.html';
 });
 
-btnRetrait.addEventListener('click', function() {
-    window.location.href = 'dashboardRetrait.html';
-});
-
-btn.addEventListener('click', function() {
-    liste.classList.toggle('active');
-});
-
-document.addEventListener('click', function(e) {
-    if (!btn.contains(e.target) && !liste.contains(e.target)) {
-        liste.classList.remove('active');
-    }
-});
-
-const items = document.querySelectorAll('.dropdown-item');
-items.forEach(item => {
-    item.addEventListener('click', function() {
-        methode = this.dataset.value;
-        const img = this.querySelector('img');
-        const text = this.querySelector('span').textContent;
-        
-        const newImg = img.cloneNode(true);
-        newImg.className = 'selected-img';
-        
-        option.innerHTML = '';
-        option.appendChild(newImg);
-        option.appendChild(document.createTextNode(text));
-        
-        liste.classList.remove('active');
+[fermer, fondMenu].forEach(el => {
+    el.addEventListener('click', () => {
+        menu.classList.add('-translate-x-full');
+        fondMenu.classList.add('hidden');
     });
 });
 
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-        fermerMenu();
-        if (!modal.classList.contains('hidden')) {
-            modal.classList.add('hidden');
-        }
-        liste.classList.remove('active');
-    }
-});
-
-const liens = document.querySelectorAll('.lien');
+const liens = document.querySelectorAll('.lien-nav');
 liens.forEach(lien => {
     lien.addEventListener('click', function(e) {
         const href = this.getAttribute('href');
@@ -101,73 +55,183 @@ liens.forEach(lien => {
             window.location.href = href;
             return;
         }
-                
+        
         e.preventDefault();
+        
         liens.forEach(l => l.classList.remove('actif'));
         liens.forEach(l => {
             l.classList.remove('bg-gradient-to-r', 'from-bleu-principal', 'to-bleu-fonce', 'text-white');
             l.classList.add('text-gray-300', 'hover:text-white');
         });
-
+        
         this.classList.add('actif');
         this.classList.remove('text-gray-300', 'hover:text-white');
         this.classList.add('bg-gradient-to-r', 'from-bleu-principal', 'to-bleu-fonce', 'text-white');
     });
 });
 
-const platformes = document.querySelectorAll('.platforme');
-platformes.forEach(item => {
-    item.addEventListener('click', function() {
-        platformes.forEach(autre => {
-            const div = autre.querySelector('div');
-            div.classList.remove('border-jaune-accent', 'bg-jaune-accent/10');
-            div.classList.add('border-gray-600', 'bg-gray-700');
-        });
+const dropdown = document.getElementById('btn');
+const liste = document.getElementById('liste');
+const opt = document.getElementById('opt');
 
-        const div = this.querySelector('div');
-        div.classList.remove('border-gray-600', 'bg-gray-700');
-        div.classList.add('border-jaune-accent', 'bg-jaune-accent/10');
+dropdown.addEventListener('click', () => {
+    liste.classList.toggle('show');
+});
+
+document.querySelectorAll('.dropdown-item').forEach(item => {
+    item.addEventListener('click', () => {
+        const value = item.dataset.value;
+        const text = item.querySelector('span').textContent;
+        const img = item.querySelector('img').src;
+        
+        opt.innerHTML = `<img src="${img}" class="w-6 h-6 mr-2 rounded"> ${text}`;
+        liste.classList.remove('show');
     });
 });
 
-form.addEventListener('submit', function(e) {
+document.addEventListener('click', (e) => {
+    if (!dropdown.contains(e.target)) {
+        liste.classList.remove('show');
+    }
+});
+
+function afficherEtape(etape) {
+    Object.values(etapes).forEach(el => el.classList.add('hidden'));
+    if (etapes[etape]) {
+        etapes[etape].classList.remove('hidden');
+    }
+}
+
+function afficherModal(titre, texte, callback = null) {
+    modalTitle.textContent = titre;
+    modalText.textContent = texte;
+    modal.classList.remove('hidden');
+    
+    modalBtn.onclick = () => {
+        modal.classList.add('hidden');
+        if (callback) callback();
+    };
+}
+
+function demarrerChrono() {
+    const chronoEl = document.getElementById('chrono');
+    
+    chronoInterval = setInterval(() => {
+        const minutes = Math.floor(tempsRestant / 60);
+        const secondes = tempsRestant % 60;
+        
+        chronoEl.textContent = `${minutes.toString().padStart(2, '0')}:${secondes.toString().padStart(2, '0')}`;
+        
+        if (tempsRestant <= 0) {
+            clearInterval(chronoInterval);
+            afficherEtape('exp');
+            return;
+        }
+        
+        tempsRestant--;
+    }, 1000);
+}
+
+function genererCoordonnees() {
+    const villes = ['Abidjan', 'Bouaké', 'Daloa', 'Yamoussoukro', 'San-Pédro', 'Korhogo', 'Man', 'Divo'];
+    const rues = ['Rue des Jardins', 'Avenue de la Paix', 'Boulevard du Commerce', 'Rue de la République', 'Avenue des Cocotiers', 'Rue du Marché', 'Boulevard de l\'Indépendance'];
+    
+    const villeAleatoire = villes[Math.floor(Math.random() * villes.length)];
+    const rueAleatoire = rues[Math.floor(Math.random() * rues.length)];
+    
+    return { ville: villeAleatoire, rue: rueAleatoire };
+}
+
+document.getElementById('formDemand').addEventListener('submit', (e) => {
     e.preventDefault();
     
-    const idVal = id.value.trim();
-    const codeVal = code.value.trim();
-    const montantVal = parseFloat(montant.value);
-    const telVal = tel.value.trim();
-    const platformeSelec = document.querySelector('input[name="platformeeforme"]:checked');
+    const montant = document.getElementById('montant').value;
+    const plat = document.getElementById('plat').value;
     
-    if (!idVal || !codeVal || !montantVal || !telVal || !methode || !platformeSelec) {
-        alert('Veuillez remplir tous les champs requis');
+    if (!montant || montant < 1000) {
+        afficherModal('Erreur', 'Le montant minimum est de 1000 FCFA');
         return;
     }
-            
-    if (montantVal < 1000) {
-        alert('Le montant minimum de retrait est de 1000 FCFA');
+    
+    if (!plat) {
+        afficherModal('Erreur', 'Veuillez sélectionner une plateforme');
         return;
     }
-            
-    modal.classList.remove('hidden');
+    
+    montantDemande = parseInt(montant);
+    plateformeDemande = plat;
+    
+    afficherEtape('att');
+    
+    setTimeout(() => {
+        const coords = genererCoordonnees();
+        
+        document.getElementById('nomPlat').textContent = plat.toUpperCase();
+        document.getElementById('montantAff').value = montantDemande;
+        document.getElementById('villeAff').value = coords.ville;
+        document.getElementById('rueAff').value = coords.rue;
+        document.getElementById('montantFin').value = montantDemande;
+        
+        afficherEtape('coord');
+        demarrerChrono();
+    }, 3000);
 });
 
-fermerModal.addEventListener('click', function() {
-    modal.classList.add('hidden');
-    form.reset();
-    option.textContent = 'Sélectionnez une méthode';
-    methode = '';
+document.getElementById('formCoord').addEventListener('submit', (e) => {
+    e.preventDefault();
+    afficherEtape('retrait');
+});
+
+document.getElementById('formRetrait').addEventListener('submit', (e) => {
+    e.preventDefault();
     
-    platformes.forEach(item => {
-        const div = item.querySelector('div');
-        div.classList.remove('border-jaune-accent', 'bg-jaune-accent/10');
-        div.classList.add('border-gray-600', 'bg-gray-700');
+    const code = document.getElementById('code').value;
+    const tel = document.getElementById('tel').value;
+    const platDest = document.querySelector('input[name="platDest"]:checked');
+    
+    if (!code) {
+        afficherModal('Erreur', 'Veuillez saisir le code de retrait');
+        return;
+    }
+    
+    if (!tel) {
+        afficherModal('Erreur', 'Veuillez saisir votre numéro de téléphone');
+        return;
+    }
+    
+    if (!platDest) {
+        afficherModal('Erreur', 'Veuillez sélectionner une plateforme de destination');
+        return;
+    }
+    
+    clearInterval(chronoInterval);
+    afficherModal('Succès!', `Votre retrait de ${montantDemande} FCFA a été effectué avec succès. Vous recevrez une confirmation par SMS.`, () => {
+        document.getElementById('formDemand').reset();
+        document.getElementById('formRetrait').reset();
+        tempsRestant = 1200;
+        afficherEtape(1);
     });
 });
 
-deco.addEventListener('click', function(e) {
+document.getElementById('recom').addEventListener('click', () => {
+    tempsRestant = 1200;
+    clearInterval(chronoInterval);
+    afficherEtape(1);
+});
+
+document.getElementById('depot').addEventListener('click', () => {
+    window.location.href = 'dashboardDepot.html';
+});
+
+document.getElementById('retrait').addEventListener('click', () => {
+    window.location.href = 'dashboardRetrait.html';
+});
+
+document.getElementById('deco').addEventListener('click', (e) => {
     e.preventDefault();
     if (confirm('Êtes-vous sûr de vouloir vous déconnecter ?')) {
         window.location.href = '/auth/login.html';
     }
 });
+
+afficherEtape(1);

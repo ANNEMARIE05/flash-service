@@ -72,7 +72,7 @@ const btnsBonus = document.querySelectorAll('.btn-bonus');
 btnsBonus.forEach(btn => {
     btn.addEventListener('click', function() {
         this.textContent = 'Réclamé';
-        this.classList.remove('bg-red-400', 'bg-blue-400');
+        this.classList.remove('bg-red-400', 'bg-blue-400', 'bg-jaune-accent');
         this.classList.add('bg-green-500');
         this.disabled = true;
     });
