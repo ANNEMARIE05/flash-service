@@ -140,3 +140,11 @@ const today = new Date().toISOString().split('T')[0];
 inputs.date.value = today;
 inputs.heure.value = '20:00';
 updatePreview();
+
+const deco = document.getElementById('deco');
+deco.addEventListener('click', function(e) {
+    e.preventDefault();
+    if (confirm('Êtes-vous sûr de vouloir vous déconnecter ?')) {
+        window.location.href = '/auth/login.html';
+    }
+});

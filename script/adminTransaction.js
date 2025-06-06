@@ -268,5 +268,13 @@ function majCompteurs() {
 document.getElementById('filtreType').addEventListener('change', afficher);
 document.getElementById('filtreStatut').addEventListener('change', afficher);
 
+
+const deco = document.getElementById('deco');
+deco.addEventListener('click', function(e) {
+    e.preventDefault();
+    if (confirm('Êtes-vous sûr de vouloir vous déconnecter ?')) {
+        window.location.href = '/auth/login.html';
+    }
+});
 afficher();
 majCompteurs();

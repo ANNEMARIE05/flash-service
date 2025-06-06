@@ -136,4 +136,11 @@ soumettre.addEventListener('click', () => {
     }
 });
 
+const deco = document.getElementById('deco');
+deco.addEventListener('click', function(e) {
+    e.preventDefault();
+    if (confirm('Êtes-vous sûr de vouloir vous déconnecter ?')) {
+        window.location.href = '/auth/login.html';
+    }
+});
 afficherDemandes();

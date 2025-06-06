@@ -205,5 +205,13 @@ document.getElementById('formProno').addEventListener('submit', function(e) {
 
 document.getElementById('filtreStatut').addEventListener('change', afficherPronostics);
 
+
+const deco = document.getElementById('deco');
+deco.addEventListener('click', function(e) {
+    e.preventDefault();
+    if (confirm('Êtes-vous sûr de vouloir vous déconnecter ?')) {
+        window.location.href = '/auth/login.html';
+    }
+});
 afficherPronostics();
 majCompteurs();
