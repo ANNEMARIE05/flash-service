@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flash Service - Dashboard Bonus</title>
+    <title>Flash Service - Dashboard</title>
     <link rel="shortcut icon" href="/assets/img/log.jpeg" type="image/jpeg">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -11,369 +11,216 @@
 </head>
 <body class="bg-gray-900 text-white min-h-screen">
     <div class="flex">
-        <div id="fond" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden lg:hidden"></div>
+        <div id="fondMenu" class="fixed inset-0 bg-black bg-opacity-50 z-40 fondObscur lg:hidden"></div>
         
-        <div id="menu" class="w-64 bg-gray-800 min-h-screen fixed left-0 top-0 z-50 transform -translate-x-full lg:translate-x-0 transition-transform duration-300">
-            <button id="fermer" class="lg:hidden absolute top-4 right-4 text-white text-xl p-2 hover:bg-gray-700 rounded-lg transition-colors">
+        <div id="menu" class="w-64 bg-gray-800 min-h-screen fixed left-0 top-0 z-50 barreNav">
+            <button id="btnFermer" class="lg:hidden absolute top-4 right-4 text-white text-xl p-2 hover:bg-gray-700 rounded-lg transition-colors">
                 <i class="fas fa-times"></i>
             </button>
 
-            <div class="box text-center">
-                <div class="my-1">
-                    <span class="text-2xl mr-1">👋</span>
-                    <span class="text-white font-bold text-base">Bienvenue, YAO</span>
-                </div>
-                <div class="mb-4">
-                    <div class="text-white text-base mb-4 font-medium">Solde : 12 000 XOF</div>
-                    <div class="flex gap-2">
-                        <button id="depot" class="bg-green-600 text-xs hover:bg-green-700 text-white px-4 py-2 rounded-lg flex items-center justify-center space-x-2 transition-all flex-1">
-                            <i class="fas fa-dollar-sign"></i>
-                            <span>Dépôt</span>
-                        </button>
-                        <button id="retrait" class="bg-red-600 text-xs hover:bg-red-700 text-white px-4 py-2 rounded-lg flex items-center justify-center space-x-2 transition-all flex-1">
-                            <i class="fas fa-money-bill-wave"></i>
-                            <span>Retrait</span>
-                        </button>
+            <div class="p-4 lg:p-6 border-b border-bleuPrinc">
+                <div class="flex items-center justify-between mb-3 lg:mb-4">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gradient-to-r from-jauneAcc to-yellow-300 rounded-full flex items-center justify-center mr-3 icone iconeFlottante">
+                            <i class="fas fa-user text-bleuFonce text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-base">Hello Yao</h3>
+                            <p class="text-sm text-gray-300">Bonus: 45,000 XOF</p>
+                        </div>
                     </div>
+                </div>
+                <div class="flex gap-2">
+                    <button onclick="aller('dashboardRetrait.html')" class="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 px-3 py-1 rounded text-sm flex-1 transition-all duration-300 transform hover:scale-105">
+                        <i class="fas fa-money-bill-wave mr-1"></i> Retrait
+                    </button>
+                    <button onclick="aller('dashboardDepot.html')" class="bg-gradient-to-r from-vertPar to-green-700 hover:from-green-700 hover:to-green-800 px-3 py-1 rounded text-sm flex-1 transition-all duration-300 transform hover:scale-105">
+                        <i class="fas fa-dollar-sign mr-1"></i> Dépôt
+                    </button>
                 </div>
             </div>
             
-            <nav class="space-y-2 px-4 py-1">
-                <a href="dashboardUser.html" class="lien flex items-center space-x-3 py-2 px-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
-                    <i class="fas fa-chart-pie"></i>
-                    <span class="font-medium">Dashboard</span>
-                </a>
-                <a href="dashboardDepot.html" class="lien flex items-center space-x-3 py-2 px-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
-                    <i class="fas fa-plus-circle"></i>
-                    <span class="font-medium">Dépôt</span>
-                </a>
-                <a href="dashboardRetrait.html" class="lien flex items-center space-x-3 py-2 px-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
-                    <i class="fas fa-minus-circle"></i>
-                    <span class="font-medium">Retrait</span>
-                </a>
-                <a href="dashboardTransaction.html" class="lien flex items-center space-x-3 py-2 px-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
-                    <i class="fas fa-list-alt"></i>
-                    <span class="font-medium">Mes Transactions</span>
-                </a>
-                <a href="dashboardPronostic.html" class="lien flex items-center space-x-3 py-2 px-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
-                    <i class="fas fa-futbol"></i>
-                    <span class="font-medium">Pronostic</span>
-                </a>
-                <a href="dashboardVideo.html" class="lien flex items-center space-x-3 py-2 px-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
-                    <i class="fas fa-video"></i>
-                    <span class="font-medium">Vidéo</span>
-                </a>
-                <a href="dashboardBonus.html" class="lien actif flex items-center space-x-3 py-2 px-3 rounded-xl bg-gradient-to-r from-blue-700 to-blue-800 text-white">
-                    <i class="fas fa-gift"></i>
-                    <span class="font-medium">Bonus</span>
-                </a>
-                <a href="dashboardProfile.html" class="lien flex items-center space-x-3 py-2 px-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
-                    <i class="fas fa-user"></i>
-                    <span class="font-medium">Profile</span>
-                </a>
-                <a href="#" id="deco" class="flex items-center space-x-3 py-2 px-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
-                    <i class="fas fa-sign-out-alt"></i>
-                    <span class="font-medium">Déconnexion</span>
-                </a>
+            <nav class="p-3 lg:p-4">
+                <ul class="space-y-1 lg:space-y-2">
+                    <li><a href="dashboardUser.html" class="flex items-center p-3 rounded hover:bg-gray-700 text-gray-300 hover:text-white transition-all text-base">
+                        <i class="fas fa-home mr-3"></i> Dashboard
+                    </a></li>
+                    <li><a href="dashboardDepot.html" class="flex items-center p-3 rounded hover:bg-gray-700 text-gray-300 hover:text-white transition-all text-base">
+                        <i class="fas fa-arrow-down mr-3"></i> Dépôt
+                    </a></li>
+                    <li><a href="dashboardRetrait.html" class="flex items-center p-3 rounded hover:bg-gray-700 text-gray-300 hover:text-white transition-all text-base">
+                        <i class="fas fa-arrow-up mr-3"></i> Retrait
+                    </a></li>
+                    <li><a href="dashboardTransaction.html" class="flex items-center p-3 rounded hover:bg-gray-700 text-gray-300 hover:text-white transition-all text-base">
+                        <i class="fas fa-exchange-alt mr-3"></i> Mes Transactions
+                    </a></li>
+                    <li><a href="dashboardPronostic.html" class="flex items-center p-3 rounded hover:bg-gray-700 text-gray-300 hover:text-white transition-all text-base">
+                        <i class="fas fa-chart-line mr-3"></i> Pronostics
+                    </a></li>
+                    <li><a href="dashboardVideo.html" class="flex items-center p-3 rounded hover:bg-gray-700 text-gray-300 hover:text-white transition-all text-base">
+                        <i class="fas fa-video mr-3"></i> Vidéo
+                    </a></li>
+                    <li><a href="dashboardBonus.html" class="flex items-center p-3 rounded transition-colors bg-bleuPrinc text-base">
+                        <i class="fas fa-gift mr-3"></i> Bonus
+                    </a></li>
+                    <li><a href="dashboardProfile.html" class="flex items-center p-3 rounded hover:bg-gray-700 text-gray-300 hover:text-white transition-all text-base">
+                        <i class="fas fa-user-cog mr-3"></i> Profil
+                    </a></li>
+                    <li><a href="#" id="btnDeco" class="flex items-center p-3 rounded hover:bg-red-600 transition-colors mt-6 lg:mt-8 text-base">
+                        <i class="fas fa-user mr-3"></i> Déconnexion
+                    </a></li>
+                </ul>
             </nav>
         </div>
 
         <div class="flex-1 lg:ml-64">
-            <nav class="bg-gray-800 border-b border-gray-700 p-4 lg:p-6">
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center space-x-4">
-                        <button id="ouvrir" class="lg:hidden p-2 rounded-lg bg-gray-700 text-white">
-                            <span class="block w-6 h-0.5 bg-white mb-1"></span>
-                            <span class="block w-6 h-0.5 bg-white mb-1"></span>
-                            <span class="block w-6 h-0.5 bg-white"></span>
-                        </button>
-                        <div>
-                            <div class="flex items-center space-x-2">
-                                <i class="fas fa-gift text-yellow-400 text-xl"></i>
-                                <h1 class="text-xl lg:text-2xl font-bold text-white">Bonus</h1>
-                            </div>
-                            <p class="text-gray-400 text-sm">Réclamez vos bonus et participez aux quiz</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center space-x-3">
-                        <div class="hidden sm:block text-right">
-                            <p class="text-sm text-white font-medium">YAO</p>
-                            <p class="text-xs text-gray-400">En ligne</p>
-                        </div>
-                        <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
-                            <a href="/users/dashboardProfile.html"><i class="fas fa-user text-white text-sm"></i></a>
-                        </div>
+            <header class="bg-gradient-to-r from-gray-900 to-gray-800 shadow-2xl border-b border-white/10 px-3 sm:px-4 lg:px-6 py-3 lg:py-4 flex items-center justify-between backdrop-blur-sm">
+                <div class="flex items-center">
+                    <button id="btnOuvrir" class="lg:hidden mr-3 text-white hover:text-jauneAcc transition-colors">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                    <h1 class="text-base sm:text-lg lg:text-2xl font-bold text-white">Bonus & Récompenses</h1>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="w-8 h-8 bg-blue-700 rounded-full flex items-center justify-center">
+                        <a href="/users/dashboardProfile.html"><i class="fas fa-user text-white text-sm"></i></a>
                     </div>
                 </div>
-            </nav>
+            </header>
 
-            <div class="p-2 sm:p-4 lg:p-6">
-                <div class="mb-6 sm:mb-8">
-                    <div class="bg-yellow-400 rounded-2xl p-3 sm:p-6 lg:p-8 text-center">
-                        <h3 class="text-xl sm:text-2xl lg:text-3xl font-bold text-blue-900 mb-4">🎁 Promotion Spéciale Flash Service</h3>
-                        <p class="text-blue-800 text-sm sm:text-base lg:text-lg mb-6">
-                            En plus du bonus bookmaker, recevez 10% de bonus supplémentaire sur votre première recharge !
-                        </p>
-                        <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-                            <div class="text-center">
-                                <div class="text-xl sm:text-2xl font-bold text-blue-900" id="compteur">23:47:32</div>
-                                <div class="text-blue-700 text-sm">Temps restant</div>
-                            </div>
-                            <button class="bg-blue-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold hover:bg-blue-800 transition-all duration-300 text-sm sm:text-base">
-                                <i class="fas fa-bolt mr-2"></i>
-                                Profiter Maintenant
-                            </button>
-                        </div>
-                    </div>
-                </div>
+            <div class="p-4 lg:p-6">
+                <div class="max-w-7xl mx-auto space-y-4 lg:space-y-6">
+                    
+                    <div id="cartesStat" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-6"></div>
 
-                <div class="mb-8 sm:mb-12">
-                    <h2 class="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6">👑 Devenir Membre VIP</h2>
-                    <div class="bg-gradient-to-r from-purple-600 to-purple-800 rounded-2xl p-6 sm:p-8 text-center mb-8">
-                        <div class="flex items-center justify-center mb-4">
-                            <i class="fas fa-crown text-yellow-400 text-3xl sm:text-4xl mr-3"></i>
-                            <h3 class="text-xl sm:text-2xl font-bold text-white">Membre VIP</h3>
-                        </div>
-                        <p class="text-purple-200 mb-6 text-sm sm:text-base">
-                            Accédez aux bonus exclusifs, support prioritaire et avantages premium
-                        </p>
-                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
-                            <div class="text-center">
-                                <i class="fas fa-star text-yellow-400 text-lg mb-2"></i>
-                                <p class="text-xs text-purple-200">Bonus +20%</p>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
+                        <div class="bg-gray-800 rounded-xl lg:rounded-2xl p-4 lg:p-6 backdrop-blur-xl border border-white/10">
+                            <div class="flex items-center justify-between mb-4 lg:mb-6">
+                                <h3 class="text-sm sm:text-base lg:text-xl font-bold text-white flex items-center">
+                                    <i class="fas fa-question-circle text-bleuDash mr-2 lg:mr-3"></i>
+                                    Quiz Bonus
+                                </h3>
+                                <span class="text-xs sm:text-sm font-medium text-jauneAcc bg-jauneAcc/20 px-2 py-1 rounded-full">
+                                    100 XOF
+                                </span>
                             </div>
-                            <div class="text-center">
-                                <i class="fas fa-headset text-yellow-400 text-lg mb-2"></i>
-                                <p class="text-xs text-purple-200">Support 24/7</p>
+                            
+                            <div id="quizAccueil" class="quizVisible">
+                                <div class="text-center">
+                                    <div class="w-16 h-16 bg-gradient-to-r from-jauneAcc to-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4 iconeFlottante">
+                                        <i class="fas fa-brain text-2xl text-gray-900"></i>
+                                    </div>
+                                    <h4 class="text-lg font-bold text-white mb-2">Quiz Quotidien</h4>
+                                    <p class="text-gray-400 text-sm mb-4">Répondez à 10 questions et gagnez 100 XOF</p>
+                                    <button id="btnDemarrerQuiz" class="bg-gradient-to-r from-jauneAcc to-yellow-500 text-gray-900 px-6 py-3 rounded-lg font-medium btnAnim shadow-lg btnPulse">
+                                        <i class="fas fa-play mr-2"></i>Commencer le Quiz
+                                    </button>
+                                </div>
                             </div>
-                            <div class="text-center">
-                                <i class="fas fa-gift text-yellow-400 text-lg mb-2"></i>
-                                <p class="text-xs text-purple-200">Cadeaux exclusifs</p>
-                            </div>
-                            <div class="text-center">
-                                <i class="fa-solid fa-money-bill-transfer text-yellow-400 text-lg mb-2"></i>
-                                <p class="text-xs text-purple-200">Retraits rapides</p>
-                            </div>
-                        </div>
-                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                            <button class="bg-yellow-400 text-purple-900 px-6 py-3 rounded-lg font-bold hover:bg-yellow-300 transition-all">
-                                Devenir VIP - 50,000 XOF/mois
-                            </button>
-                            <button class="bg-purple-500 text-white px-6 py-3 rounded-lg font-bold hover:bg-purple-400 transition-all">
-                                En savoir plus
-                            </button>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="mb-8 sm:mb-12">
-                    <h2 class="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6">🏆 Bonus Bookmakers</h2>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
-                        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-white/20 text-center">
-                            <div class="w-12 h-12 sm:w-16 sm:h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <span class="text-white font-bold text-sm">1X</span>
+                            <div id="quizJeu" class="quizCache">
+                                <div class="mb-4">
+                                    <div class="flex justify-between text-sm text-gray-400 mb-2">
+                                        <span>Question <span id="numQuest">1</span>/10</span>
+                                        <span id="scoreQuiz">Score: 0</span>
+                                    </div>
+                                    <div class="w-full bg-gray-700 rounded-full h-2">
+                                        <div id="progressQuiz" class="progressBar h-2 rounded-full" style="width: 10%"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-6">
+                                    <h4 id="txtQuestion" class="text-white font-medium mb-4"></h4>
+                                    <div id="reponses" class="space-y-2"></div>
+                                </div>
+                                
+                                <div class="flex justify-between">
+                                    <button id="btnPrecedent" class="bg-gray-600 text-white px-4 py-2 rounded-lg btnAnim" disabled>
+                                        <i class="fas fa-arrow-left mr-2"></i>Précédent
+                                    </button>
+                                    <button id="btnSuivant" class="bg-bleuDash text-white px-4 py-2 rounded-lg btnAnim" disabled>
+                                        Suivant<i class="fas fa-arrow-right ml-2"></i>
+                                    </button>
+                                </div>
                             </div>
-                            <h3 class="text-lg sm:text-xl font-bold text-white mb-2">1XBET</h3>
-                            <div class="text-2xl sm:text-3xl font-bold text-yellow-400 mb-2">200%</div>
-                            <p class="text-white/80 mb-4 text-xs sm:text-sm">Bonus de bienvenue jusqu'à 200,000 FCFA</p>
-                            <div class="flex flex-col sm:flex-row gap-2">
-                                <button class="flex-1 bg-blue-800 text-white py-2 sm:py-3 rounded-lg font-bold hover:shadow-lg transition-all text-xs sm:text-sm">
-                                    Obtenir le bonus
-                                </button>
-                                <button class="bg-blue-800 text-white py-2 sm:py-3 px-3 sm:px-4 rounded-lg font-bold hover:shadow-lg transition-all">
-                                    <i class="fa-solid fa-download"></i>
+
+                            <div id="quizResultat" class="quizCache text-center">
+                                <div id="iconeResultat" class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 iconeFlottante">
+                                    <i class="text-3xl"></i>
+                                </div>
+                                <h4 id="titreResultat" class="text-xl font-bold mb-2"></h4>
+                                <p id="msgResultat" class="text-gray-400 mb-4"></p>
+                                <div id="bonusGagne" class="bg-gradient-to-r from-jauneAcc/20 to-yellow-500/20 rounded-lg p-4 mb-4 border border-jauneAcc/30">
+                                    <p class="text-jauneAcc font-bold text-lg">Bonus Gagné: <span id="montantBonus">0</span> XOF</p>
+                                </div>
+                                <button id="btnRestart" class="bg-gradient-to-r from-bleuDash to-indigo-600 text-white px-6 py-3 rounded-lg font-medium btnAnim">
+                                    <i class="fas fa-redo mr-2"></i>Recommencer
                                 </button>
                             </div>
                         </div>
 
-                        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-white/20 text-center">
-                            <div class="w-12 h-12 sm:w-16 sm:h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <span class="text-white font-bold text-sm">MB</span>
+                        <div class="bg-gray-800 rounded-xl lg:rounded-2xl p-4 lg:p-6 backdrop-blur-xl border border-white/10">
+                            <div class="flex items-center justify-between mb-4 lg:mb-6">
+                                <h3 class="text-sm sm:text-base lg:text-xl font-bold text-white flex items-center">
+                                    <i class="fas fa-star text-purple-400 mr-2 lg:mr-3"></i>
+                                    Session VIP
+                                </h3>
+                                <span class="text-xs sm:text-sm font-medium text-purple-400 bg-purple-500/20 px-2 py-1 rounded-full">
+                                    Bronze
+                                </span>
                             </div>
-                            <h3 class="text-lg sm:text-xl font-bold text-white mb-2">MELBET</h3>
-                            <div class="text-2xl sm:text-3xl font-bold text-yellow-400 mb-2">130%</div>
-                            <p class="text-white/80 mb-4 text-xs sm:text-sm">Bonus sport jusqu'à 130,000 FCFA</p>
-                            <div class="flex flex-col sm:flex-row gap-2">
-                                <button class="flex-1 bg-purple-600 text-white py-2 sm:py-3 rounded-lg font-bold hover:shadow-lg transition-all text-xs sm:text-sm">
-                                    Obtenir le bonus
-                                </button>
-                                <button class="bg-purple-600 text-white py-2 sm:py-3 px-3 sm:px-4 rounded-lg font-bold hover:shadow-lg transition-all">
-                                    <i class="fa-solid fa-download"></i>
-                                </button>
-                            </div>
-                        </div>
 
-                        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-white/20 text-center">
-                            <div class="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <i class="fas fa-calendar-day text-white text-lg sm:text-2xl"></i>
-                            </div>
-                            <h3 class="text-lg sm:text-xl font-bold text-white mb-2">Mardi Bonus</h3>
-                            <div class="text-xl sm:text-2xl font-bold text-yellow-400 mb-2">5 000F</div>
-                            <p class="text-white/80 mb-4 text-xs sm:text-sm">Pour les meilleurs dépôts de la semaine</p>
-                            <button class="w-full bg-blue-700 text-white py-2 sm:py-3 rounded-lg font-bold hover:shadow-lg transition-all text-xs sm:text-sm">
-                                Obtenir le bonus
-                            </button>
-                        </div>
-
-                        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-white/20 text-center">
-                            <div class="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <i class="fas fa-question-circle text-white text-lg sm:text-2xl"></i>
-                            </div>
-                            <h3 class="text-lg sm:text-xl font-bold text-white mb-2">Quiz Bonus</h3>
-                            <div class="text-xl sm:text-2xl font-bold text-yellow-400 mb-2">5 000F</div>
-                            <p class="text-white/80 mb-4 text-xs sm:text-sm">Répondez au quiz et gagnez</p>
-                            <button class="w-full bg-gradient-to-r from-purple-600 to-purple-700 text-white py-2 sm:py-3 rounded-lg font-bold hover:shadow-lg transition-all text-xs sm:text-sm" onclick="ouvQuiz()">
-                                Commencer le Quiz
-                            </button>
+                            <div id="tachesVip" class="space-y-4"></div>
                         </div>
                     </div>
-                </div>
 
-                <div class="mb-8 sm:mb-12">
-                    <h2 class="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6">🎮 Bonus Interactifs</h2>
-                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
-                        <div class="bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl p-4 sm:p-6 text-center">
-                            <div class="w-12 h-12 sm:w-16 sm:h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <i class="fas fa-brain text-white text-lg sm:text-2xl"></i>
-                            </div>
-                            <h3 class="text-lg sm:text-xl font-bold text-white mb-2">Quiz Quotidien</h3>
-                            <p class="text-white/80 mb-4 text-sm">Répondez aux questions et gagnez des points</p>
-                            <div class="mb-4">
-                                <div class="text-xs sm:text-sm text-white/60 mb-1">Progression: 3/10 questions</div>
-                                <div class="w-full bg-white/20 rounded-full h-2">
-                                    <div class="bg-white h-2 rounded-full" style="width: 30%"></div>
-                                </div>
-                            </div>
-                            <button class="w-full bg-white/20 text-white py-2 sm:py-3 rounded-lg font-bold hover:bg-white/30 transition-all text-sm" onclick="ouvQuiz()">
-                                Continuer le Quiz
-                            </button>
+                    <div id="partenaires" class="bg-gray-800 rounded-xl lg:rounded-2xl p-4 lg:p-6 backdrop-blur-xl border border-white/10">
+                        <div class="flex items-center justify-between mb-4 lg:mb-6">
+                            <h3 class="text-sm sm:text-base lg:text-xl font-bold text-white flex items-center">
+                                <i class="fas fa-bullseye text-red-500 mr-2 lg:mr-3"></i>
+                                Bookmakers Partenaires
+                            </h3>
                         </div>
-
-                        <div class="bg-gradient-to-br from-green-600 to-green-800 rounded-2xl p-4 sm:p-6 text-center">
-                            <div class="w-12 h-12 sm:w-16 sm:h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <i class="fas fa-users text-white text-lg sm:text-2xl"></i>
-                            </div>
-                            <h3 class="text-lg sm:text-xl font-bold text-white mb-2">Parrainage</h3>
-                            <p class="text-white/80 mb-4 text-sm">Invitez vos amis et tentez de gagner 2.000f</p>
-                            <div class="mb-4">
-                                <div class="text-xl sm:text-2xl font-bold text-white">GRATIS9</div>
-                                <div class="text-xs sm:text-sm text-white/60">Code de parrainage</div>
-                            </div>
-                            <button class="w-full bg-white/20 text-white py-2 sm:py-3 rounded-lg font-bold hover:bg-white/30 transition-all text-sm">
-                                Inviter un ami
-                            </button>
-                        </div>
-
-                        <div class="bg-gradient-to-br from-orange-600 to-orange-800 rounded-2xl p-4 sm:p-6 text-center">
-                            <div class="w-12 h-12 sm:w-16 sm:h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <i class="fas fa-trophy text-white text-lg sm:text-2xl"></i>
-                            </div>
-                            <h3 class="text-lg sm:text-xl font-bold text-white mb-2">Missions</h3>
-                            <p class="text-white/80 mb-4 text-sm">Complétez les défis pour débloquer des récompenses</p>
-                            <div class="mb-4">
-                                <div class="text-xs sm:text-sm text-white/60 mb-2">Mission active: Effectuer 5 dépôts</div>
-                                <div class="w-full bg-white/20 rounded-full h-2">
-                                    <div class="bg-white h-2 rounded-full" style="width: 40%"></div>
-                                </div>
-                                <div class="text-xs text-white/60 mt-1">2/5 terminé</div>
-                            </div>
-                            <button class="w-full bg-white/20 text-white py-2 sm:py-3 rounded-lg font-bold hover:bg-white/30 transition-all text-sm">
-                                Voir les missions
-                            </button>
-                        </div>
+                        <div id="bookmakers" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
                     </div>
-                </div>
 
-                <div class="mb-6 sm:mb-8">
-                    <div class="bg-gray-800 rounded-2xl border border-gray-700">
-                        <div class="p-4 border-b border-gray-600 flex items-center justify-between">
-                            <h2 class="text-xl sm:text-2xl font-bold text-white">📊 Historique des Bonus</h2>
+                    <div class="bg-gray-800 rounded-xl lg:rounded-2xl p-4 lg:p-6 backdrop-blur-xl border border-white/10">
+                        <div class="flex items-center justify-between mb-4 lg:mb-6">
+                            <h3 class="text-sm sm:text-base lg:text-xl font-bold text-white flex items-center">
+                                <i class="fas fa-gift text-jauneAcc mr-2 lg:mr-3"></i>
+                                Bonus Quotidiens
+                            </h3>
                         </div>
-                        <div class="p-2 sm:p-4 space-y-2">
-                            <div class="bg-gray-700/50 p-3 rounded-lg">
-                                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                                    <div class="flex items-center space-x-4">
-                                        <div class="min-w-0">
-                                            <p class="text-white font-medium text-xs sm:text-sm">Mardi Bonus</p>
-                                            <p class="text-gray-400 text-sm">04/06/2025</p>
-                                        </div>
-                                    </div>
-                                    <div class="flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-3">
-                                        <span class="text-yellow-400 font-bold text-xs sm:text-sm">+1 500 XOF</span>
-                                        <button class="bg-orange-500 text-white px-3 py-1 rounded-lg text-xs w-full sm:w-auto">
-                                           En attente
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="bg-gray-700/50 p-3 rounded-lg">
-                                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                                    <div class="flex items-center space-x-4">
-                                        <div class="min-w-0">
-                                            <p class="text-white font-medium text-xs sm:text-sm">Parrainage</p>
-                                            <p class="text-gray-400 text-sm">03/06/2025</p>
-                                        </div>
-                                    </div>
-                                    <div class="flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-3">
-                                        <span class="text-yellow-400 font-bold text-xs sm:text-sm">+1 500 XOF</span>
-                                        <button class="bg-green-600 text-white px-3 py-1 rounded-lg text-xs w-full sm:w-auto">
-                                            Reçu
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="bg-gray-700/50 p-3 rounded-lg">
-                                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                                    <div class="flex items-center space-x-4">
-                                        <div class="min-w-0">
-                                            <p class="text-white font-medium text-xs sm:text-sm">Quiz Quotidien</p>
-                                            <p class="text-gray-400 text-sm">02/06/2025</p>
-                                        </div>
-                                    </div>
-                                    <div class="flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-3">
-                                        <span class="text-yellow-400 font-bold text-xs sm:text-sm">+1 500 XOF</span>
-                                        <button class="bg-green-600 text-white px-3 py-1 rounded-lg text-xs w-full sm:w-auto">
-                                            Reçu
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
+                        <div id="bonusQuot" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+                    </div>
+
+                    <div class="bg-gray-800 rounded-xl lg:rounded-2xl p-4 lg:p-6 backdrop-blur-xl border border-white/10">
+                        <div class="flex items-center justify-between mb-4 lg:mb-6">
+                            <h3 class="text-sm sm:text-base lg:text-xl font-bold text-white flex items-center">
+                                <i class="fas fa-history text-blue-400 mr-2 lg:mr-3"></i>
+                                Historique des Bonus
+                            </h3>
                         </div>
+                        <div id="histBonus" class="space-y-3"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    
+    <div class="fixed bottom-6 right-6 z-40">
+        <a href="https://wa.me/+2250777169313" class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white text-2xl shadow-2xl hover:bg-green-400 transition-all transform hover:scale-110 animate-bounce">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
 
-    <div id="quiz" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-gray-800 rounded-2xl p-4 sm:p-6 max-w-md w-full">
-            <div class="text-center mb-6">
-                <h3 class="text-xl sm:text-2xl font-bold text-white mb-2">Quiz Flash Service</h3>
-                <p class="text-gray-400">Question <span id="numQ">1</span>/10</p>
-            </div>
-            
-            <div id="contenuQ" class="mb-6">
-                <h4 class="text-xs sm:text-sm font-bold text-white mb-4">Quel est le montant minimum de dépôt sur Flash Service ?</h4>
-                <div class="space-y-3">
-                    <button class="option w-full text-left p-3 rounded-lg bg-gray-700 hover:bg-gray-600 text-white transition-all text-sm sm:text-base" data-rep="500">
-                        A) 500 XOF
-                    </button>
-                    <button class="option w-full text-left p-3 rounded-lg bg-gray-700 hover:bg-gray-600 text-white transition-all text-sm sm:text-base" data-rep="1000">
-                        B) 1 000 XOF
-                    </button>
-                    <button class="option w-full text-left p-3 rounded-lg bg-gray-700 hover:bg-gray-600 text-white transition-all text-sm sm:text-base" data-rep="1500">
-                        C) 1 500 XOF
-                    </button>
-                </div>
-            </div>
-            
-            <div class="flex justify-between items-center">
-                <button id="fermerQuiz" class="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-500 transition-all">
-                    Fermer
-                </button>
-                <button id="suivant" class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all font-bold">
-                    Suivant
-                </button>
+    <div id="modalNotif" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-gray-800 rounded-2xl p-6 max-w-sm w-full border border-white/10">
+            <div class="text-center">
+                <div id="iconeNotif" class="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center"></div>
+                <h4 id="titreNotif" class="text-white font-bold text-lg mb-2"></h4>
+                <p id="msgNotif" class="text-gray-400 text-sm mb-4"></p>
+                <button id="btnFermNotif" class="bg-bleuDash text-white px-6 py-2 rounded-lg btnAnim">OK</button>
             </div>
         </div>
     </div>

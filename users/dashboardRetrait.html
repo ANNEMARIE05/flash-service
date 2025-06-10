@@ -11,387 +11,376 @@
 </head>
 <body class="bg-gray-900 text-white min-h-screen">
     <div class="flex">
-        <div id="fondMenu" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden lg:hidden"></div>
+        <div id="fondMenu" class="fixed inset-0 bg-black bg-opacity-50 z-40 fondObscur"></div>
         
-        <div id="menu" class="w-64 bg-gray-800 min-h-screen fixed left-0 top-0 z-50 transform -translate-x-full lg:translate-x-0 transition-transform duration-300">
-            <button id="fermer" class="lg:hidden absolute top-4 right-4 text-white text-xl p-2 hover:bg-gray-700 rounded-lg transition-colors">
+        <div id="menu" class="w-64 bg-gray-800 min-h-screen fixed left-0 top-0 z-50 sideBar">
+            <button id="btnFermer" class="lg:hidden absolute top-4 right-4 text-white text-xl p-2 hover:bg-gray-700 rounded-lg transition-colors">
                 <i class="fas fa-times"></i>
             </button>
 
-            <div class="box text-center">
-                <div class="my-1">
-                    <span class="text-2xl mr-1">👋</span>
-                    <span class="text-white font-bold text-md">Bienvenue, YAO</span>
-                </div>
-                <div class="mb-4">
-                    <div class="text-white text-base mb-4 font-medium text-md">Solde : 12 000 XOF</div>
-                    <div class="flex gap-2 flex-row">
-                        <button id="depot" class="bg-green-600 text-xs hover:bg-green-700 text-white px-4 py-2 rounded-lg flex items-center justify-center space-x-2 transition-all flex-1">
-                            <i class="fas fa-dollar-sign"></i>
-                            <span>Dépôt</span>
-                        </button>
-                        <button id="retrait" class="bg-red-600 text-xs hover:bg-red-700 text-white px-4 py-2 rounded-lg flex items-center justify-center space-x-2 transition-all flex-1">
-                            <i class="fas fa-money-bill-wave"></i>
-                            <span>Retrait</span>
-                        </button>
+            <div class="p-4 lg:p-6 border-b border-bleuPrinc">
+                <div class="flex items-center justify-between mb-3 lg:mb-4">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gradient-to-r from-jauneAcc to-yellow-300 rounded-full flex items-center justify-center mr-3 icone iconeFlottante">
+                            <i class="fas fa-user text-bleuFonce text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-base">Hello Yao</h3>
+                            <p class="text-sm text-gray-300">Bonus: 45,000 XOF</p>
+                        </div>
                     </div>
+                </div>
+                <div class="flex gap-2">
+                    <button onclick="aller('dashboardRetrait.html')" class="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 px-3 py-1 rounded text-sm flex-1 transition-all duration-300 transform hover:scale-105">
+                        <i class="fas fa-money-bill-wave mr-1"></i> Retrait
+                    </button>
+                    <button onclick="aller('dashboardDepot.html')" class="bg-gradient-to-r from-vertPar to-green-700 hover:from-green-700 hover:to-green-800 px-3 py-1 rounded text-sm flex-1 transition-all duration-300 transform hover:scale-105">
+                        <i class="fas fa-dollar-sign mr-1"></i> Dépôt
+                    </button>
                 </div>
             </div>
             
-            <nav class="space-y-2 px-4 py-1">
-                <a href="dashboardUser.html" class="lien-nav flex items-center space-x-3 py-2 px-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
-                    <i class="fas fa-chart-pie"></i>
-                    <span class="font-medium">Dashboard</span>
-                </a>
-                <a href="dashboardDepot.html" class="lien-nav flex items-center space-x-3 py-2 px-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
-                    <i class="fas fa-plus-circle"></i>
-                    <span class="font-medium">Dépôt</span>
-                </a>
-                <a href="dashboardRetrait.html" class="lien-nav actif flex items-center space-x-3 py-2 px-3 rounded-xl bg-gradient-to-r from-bleu-principal to-bleu-fonce text-white">
-                    <i class="fas fa-minus-circle"></i>
-                    <span class="font-medium">Retrait</span>
-                </a>
-                <a href="dashboardTransaction.html" class="lien-nav flex items-center space-x-3 py-2 px-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
-                    <i class="fas fa-list-alt"></i>
-                    <span class="font-medium">Mes Transactions</span>
-                </a>
-                <a href="dashboardPronostic.html" class="lien-nav flex items-center space-x-3 py-2 px-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
-                    <i class="fas fa-futbol"></i>
-                    <span class="font-medium">Pronostic</span>
-                </a>
-                <a href="dashboardVideo.html" class="lien-nav flex items-center space-x-3 py-2 px-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
-                    <i class="fas fa-video"></i>
-                    <span class="font-medium">Vidéo</span>
-                </a>
-                <a href="dashboardBonus.html" class="lien-nav flex items-center space-x-3 py-2 px-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
-                    <i class="fas fa-gift"></i>
-                    <span class="font-medium">Bonus</span>
-                </a>
-                <a href="dashboardProfile.html" class="lien-nav flex items-center space-x-3 py-2 px-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
-                    <i class="fas fa-user"></i>
-                    <span class="font-medium">Profile</span>
-                </a>
-                <a href="#" id="deco" class="flex items-center space-x-3 py-2 px-3 rounded-xl hover:bg-gray-700 text-gray-300 hover:text-white transition-all">
-                    <i class="fas fa-sign-out-alt"></i>
-                    <span class="font-medium">Déconnexion</span>
-                </a>
+            <nav class="p-3 lg:p-4">
+                <ul class="space-y-1 lg:space-y-2">
+                    <li><a href="dashboardUser.html" class="flex items-center p-3 rounded hover:bg-gray-700 text-gray-300 hover:text-white transition-all text-base">
+                        <i class="fas fa-home mr-3"></i> Dashboard
+                    </a></li>
+                    <li><a href="dashboardDepot.html" class="flex items-center p-3 rounded hover:bg-gray-700 text-gray-300 hover:text-white transition-all text-base">
+                        <i class="fas fa-arrow-down mr-3"></i> Dépôt
+                    </a></li>
+                    <li><a href="dashboardRetrait.html" class="flex items-center p-3 rounded transition-colors bg-bleuPrinc text-base">
+                        <i class="fas fa-arrow-up mr-3"></i> Retrait
+                    </a></li>
+                    <li><a href="dashboardTransaction.html" class="flex items-center p-3 rounded hover:bg-gray-700 text-gray-300 hover:text-white transition-all text-base">
+                        <i class="fas fa-exchange-alt mr-3"></i> Mes Transactions
+                    </a></li>
+                    <li><a href="dashboardPronostic.html" class="flex items-center p-3 rounded hover:bg-gray-700 text-gray-300 hover:text-white transition-all text-base">
+                        <i class="fas fa-chart-line mr-3"></i> Pronostics
+                    </a></li>
+                    <li><a href="dashboardVideo.html" class="flex items-center p-3 rounded hover:bg-gray-700 text-gray-300 hover:text-white transition-all text-base">
+                        <i class="fas fa-video mr-3"></i> Vidéo
+                    </a></li>
+                    <li><a href="dashboardBonus.html" class="flex items-center p-3 rounded hover:bg-gray-700 text-gray-300 hover:text-white transition-all text-base">
+                        <i class="fas fa-gift mr-3"></i> Bonus
+                    </a></li>
+                    <li><a href="dashboardProfile.html" class="flex items-center p-3 rounded hover:bg-gray-700 text-gray-300 hover:text-white transition-all text-base">
+                        <i class="fas fa-user-cog mr-3"></i> Profil
+                    </a></li>
+                    <li><a href="#" id="btnDeco" class="flex items-center p-3 rounded hover:bg-red-600 transition-colors mt-6 lg:mt-8 text-base">
+                        <i class="fas fa-user mr-3"></i> Déconnexion
+                    </a></li>
+                </ul>
             </nav>
         </div>
 
         <div class="flex-1 lg:ml-64">
-            <nav class="bg-gray-800 border-b border-gray-700 p-4 lg:p-6">
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center space-x-4">
-                        <button id="btnMenu" class="lg:hidden p-2 rounded-lg bg-gray-700 text-white">
-                            <span class="block w-6 h-0.5 bg-white mb-1"></span>
-                            <span class="block w-6 h-0.5 bg-white mb-1"></span>
-                            <span class="block w-6 h-0.5 bg-white"></span>
-                        </button>
-                        <div>
-                            <div class="flex items-center space-x-2">
-                                <i class="fas fa-minus-circle text-red-500 text-xl"></i>
-                                <h1 class="text-xl lg:text-2xl font-bold text-white">Retrait</h1>
-                            </div>
-                            <p class="text-gray-400 text-sm">Effectuer un Retrait</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center space-x-3">
-                        <div class="hidden sm:block text-right">
-                            <p class="text-sm text-white font-medium">YAO</p>
-                            <p class="text-xs text-gray-400">En ligne</p>
-                        </div>
-                        <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
-                            <a href="/users/dashboardProfile.html"><i class="fas fa-user text-white text-sm"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-
-            <div class="p-2 sm:p-4 lg:p-6 min-h-screen">
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                    <div class="lg:col-span-2">
-                        <div class="bg-gray-800 rounded-2xl p-6 sm:p-8 shadow-2xl border border-gray-700">
-                            
-                            <div id="etap1" class="etap">
-                                <div class="text-center mb-8">
-                                    <div class="w-16 h-16 bg-gradient-to-r from-red-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                                        <i class="fas fa-money-bill-wave text-white text-2xl"></i>
-                                    </div>
-                                    <h2 class="text-2xl font-bold text-white mb-2">DEMANDE DE COORDONNÉES DE RETRAIT</h2>
-                                    <p class="text-gray-400">Première étape de votre demande de retrait</p>
-                                </div>
-
-                                <form id="formDemand" class="space-y-6">
-                                    <div class="bg-gray-700 rounded-xl p-6">
-                                        <div class="flex flex-wrap items-center gap-2 text-lg">
-                                            <span class="text-white">Je veux effectuer un retrait d'un montant de</span>
-                                            <input type="number" id="montant" min="1000" class="w-32 px-3 py-2 bg-gray-600 border border-gray-500 rounded-lg text-white text-center font-bold focus:outline-none focus:ring-2 focus:ring-red-500" placeholder="1000">
-                                            <span class="text-white">FCFA sur</span>
-                                            <select id="plat" class="px-4 py-2 bg-gray-600 border border-gray-500 rounded-lg text-white font-bold focus:outline-none focus:ring-2 focus:ring-red-500">
-                                                <option value="">Sélectionner</option>
-                                                <option value="1xbet">1XBET</option>
-                                                <option value="melbet">MELBET</option>
-                                            </select>
-                                        </div>
-                                        <div class="mt-4 text-lg text-white">
-                                            Veuillez m'envoyer les coordonnées
-                                        </div>
-                                    </div>
-
-                                    <button type="submit" class="w-full bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-bold py-4 px-6 rounded-xl transition-all transform hover:scale-105 shadow-lg hover:shadow-xl">
-                                        <i class="fas fa-paper-plane mr-2"></i>
-                                        Envoyer ma demande
-                                    </button>
-                                </form>
-                            </div>
-
-                            <div id="etapAtt" class="etap hidden">
-                                <div class="text-center py-12">
-                                    <div class="w-20 h-20 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                                        <div class="loader"></div>
-                                    </div>
-                                    <h2 class="text-2xl font-bold text-white mb-4">Traitement en cours</h2>
-                                    <p class="text-gray-400 mb-4">Veuillez patienter au moins 3 minutes pour recevoir vos coordonnées de retrait</p>
-                                    <div class="bg-blue-900/30 border border-blue-500 rounded-xl p-4 inline-block">
-                                        <i class="fas fa-clock text-blue-400 mr-2"></i>
-                                        <span class="text-white">Temps d'attente estimé: 3 minutes</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div id="etapCoord" class="etap hidden">
-                                <div class="text-center mb-8">
-                                    <div class="w-16 h-16 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                                        <i class="fas fa-map-marker-alt text-white text-2xl"></i>
-                                    </div>
-                                    <h2 class="text-2xl font-bold text-white mb-2">DEMANDE DE COORDONNÉES DE RETRAIT</h2>
-                                    <p class="text-gray-400">Voici les coordonnées à utiliser</p>
-                                </div>
-
-                                <form id="formCoord" class="space-y-6">
-                                    <div class="bg-gray-700 rounded-xl p-6">
-                                        <div class="text-lg text-white mb-4">
-                                            Voici les coordonnées à mettre sur <span id="nomPlat" class="font-bold text-yellow-400"></span>
-                                        </div>
-                                        
-                                        <div class="space-y-4">
-                                            <div class="flex flex-wrap items-center gap-2">
-                                                <span class="text-white font-semibold">Montant :</span>
-                                                <input type="number" id="montantAff" class="w-32 px-3 py-2 bg-gray-600 border border-gray-500 rounded-lg text-white text-center font-bold" readonly>
-                                                <span class="text-white">FCFA</span>
-                                            </div>
-                                            
-                                            <div class="flex flex-wrap items-center gap-2">
-                                                <span class="text-white font-semibold">Ville :</span>
-                                                <input type="text" id="villeAff" class="flex-1 min-w-48 px-3 py-2 bg-gray-600 border border-gray-500 rounded-lg text-white" readonly>
-                                            </div>
-                                            
-                                            <div class="flex flex-wrap items-center gap-2">
-                                                <span class="text-white font-semibold">Rue :</span>
-                                                <input type="text" id="rueAff" class="flex-1 min-w-48 px-3 py-2 bg-gray-600 border border-gray-500 rounded-lg text-white" readonly>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="bg-red-900/30 border border-red-500 rounded-xl p-4 mb-6">
-                                        <div class="flex items-center justify-center space-x-2">
-                                            <i class="fas fa-stopwatch text-red-400 text-xl"></i>
-                                            <span class="text-white font-bold text-lg">Temps restant: </span>
-                                            <span id="chrono" class="text-red-400 font-bold text-2xl">20:00</span>
-                                        </div>
-                                    </div>
-
-                                    <button type="submit" class="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-4 px-6 rounded-xl transition-all transform hover:scale-105 shadow-lg hover:shadow-xl">
-                                        <i class="fas fa-check mr-2"></i>
-                                        Coordonnées reçues avec succès
-                                    </button>
-                                </form>
-                            </div>
-
-                            <div id="etapRetrait" class="etap hidden">
-                                <div class="text-center mb-8">
-                                    <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                                        <i class="fas fa-credit-card text-white text-2xl"></i>
-                                    </div>
-                                    <h2 class="text-2xl font-bold text-white mb-2">FINALISER LE RETRAIT</h2>
-                                    <p class="text-gray-400">Complétez les informations de transaction</p>
-                                </div>
-
-                                <form id="formRetrait" class="space-y-6">
-                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                        <div>
-                                            <label class="block text-sm font-semibold text-gray-300 mb-3">Identifiant du Compte</label>
-                                            <input type="text" id="id" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all" value="001">
-                                        </div>
-
-                                        <div>
-                                            <label class="block text-sm font-semibold text-gray-300 mb-3">Code de Retrait</label>
-                                            <input type="text" id="code" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all" placeholder="Code de retrait">
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        <label class="block text-sm font-semibold text-gray-300 mb-3">Montant du Retrait (FCFA)</label>
-                                        <div class="relative">
-                                            <input type="number" id="montantFin" min="1000" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all" readonly>
-                                            <span class="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 font-medium">FCFA</span>
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        <label class="block text-sm font-medium text-gray-300 mb-2">Méthode de Paiement</label>
-                                        <div class="dropdown">
-                                            <div id="btn" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-xl text-white cursor-pointer focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all flex items-center justify-between">
-                                                <span id="opt">Sélectionnez une méthode</span>
-                                                <i class="fas fa-chevron-down"></i>
-                                            </div>
-                                            <div id="liste" class="dropdown-menu">
-                                                <div class="dropdown-item" data-value="orange-money">
-                                                    <img src="/assets/img/orange.png" alt="Orange Money">
-                                                    <span>Orange Money</span>
-                                                </div>
-                                                <div class="dropdown-item" data-value="mtn-money">
-                                                    <img src="/assets/img/mtn-money.png" alt="MTN Money">
-                                                    <span>MTN Money</span>
-                                                </div>
-                                                <div class="dropdown-item" data-value="moov-money">
-                                                    <img src="/assets/img/moov.png" alt="Moov Money">
-                                                    <span>Moov Money</span>
-                                                </div>
-                                                <div class="dropdown-item" data-value="wave">
-                                                    <img src="/assets/img/wave.png" alt="Wave">
-                                                    <span>Wave</span>
-                                                </div>
-                                                <div class="dropdown-item" data-value="solde-bonus">
-                                                    <img src="/assets/img/log.jpeg" alt="solde Bonus">
-                                                    <span>Solde Bonus</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        <label class="block text-sm font-semibold text-gray-300 mb-3">Numéro de Téléphone</label>
-                                        <input type="tel" id="tel" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all" placeholder="Ex: 0172317983">
-                                    </div>
-
-                                    <div>
-                                        <label class="block text-sm font-semibold text-gray-300 mb-3">Plateforme de Destination</label>
-                                        <div class="grid grid-cols-2 gap-4">
-                                            <label class="platChoice cursor-pointer">
-                                                <input type="radio" name="platDest" value="1xbet" class="sr-only">
-                                                <div class="p-4 border-2 border-gray-600 rounded-xl hover:border-yellow-400 transition-all bg-gray-700 hover:bg-gray-600 flex justify-center items-center space-x-3">
-                                                    <img src="/assets/img/1xbet-icon.png" class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center" alt="1xbet">
-                                                    <span class="hidden sm:block font-medium text-white">1XBET</span>
-                                                </div>
-                                            </label>
-                                            
-                                            <label class="platChoice cursor-pointer">
-                                                <input type="radio" name="platDest" value="melbet" class="sr-only">
-                                                <div class="p-4 border-2 border-gray-600 rounded-xl hover:border-yellow-400 transition-all bg-gray-700 hover:bg-gray-600 flex justify-center items-center space-x-3">
-                                                    <img src="/assets/img/melbet.jpg" class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center" alt="melbet">
-                                                    <span class="hidden sm:block font-medium text-white">MELBET</span>
-                                                </div>
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <button type="submit" class="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-4 px-6 rounded-xl transition-all transform hover:scale-105 shadow-lg hover:shadow-xl">
-                                        <i class="fas fa-minus-circle mr-2"></i>
-                                        Effectuer le Retrait
-                                    </button>
-                                </form>
-                            </div>
-
-                            <div id="etapExp" class="etap hidden">
-                                <div class="text-center py-12">
-                                    <div class="w-20 h-20 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                                        <i class="fas fa-times text-white text-3xl"></i>
-                                    </div>
-                                    <h2 class="text-2xl font-bold text-white mb-4">Temps Expiré</h2>
-                                    <p class="text-gray-400 mb-8">Le délai de 20 minutes est écoulé. Vous devez recommencer la procédure.</p>
-                                    <button id="recom" class="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-3 px-8 rounded-xl transition-all">
-                                        <i class="fas fa-redo mr-2"></i>
-                                        Recommencer
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="space-y-6">
-                        <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-6 border border-gray-700 shadow-2xl">
-                            <div class="flex items-center space-x-3 mb-6">
-                                <div class="w-10 h-10 bg-gradient-to-r from-red-500 to-red-600 rounded-full flex items-center justify-center">
-                                    <i class="fas fa-info-circle text-white"></i>
-                                </div>
-                                <h3 class="text-xl font-bold text-white">Informations Importantes</h3>
-                            </div>
-
-                            <div class="space-y-4">
-                                <div class="flex items-start space-x-3">
-                                    <i class="fas fa-clock text-yellow-400 mt-1"></i>
-                                    <div>
-                                        <h4 class="font-semibold text-white mb-1">Délai de Traitement</h4>
-                                        <p class="text-sm text-gray-400">Les retraits sont traités sous 24h ouvrables</p>
-                                    </div>
-                                </div>
-
-                                <div class="flex items-start space-x-3">
-                                    <i class="fas fa-coins text-yellow-400 mt-1"></i>
-                                    <div>
-                                        <h4 class="font-semibold text-white mb-1">Montant Minimum</h4>
-                                        <p class="text-sm text-gray-400">Retrait minimum: 1,000 FCFA</p>
-                                    </div>
-                                </div>
-
-                                <div class="flex items-start space-x-3">
-                                    <i class="fas fa-shield-alt text-yellow-400 mt-1"></i>
-                                    <div>
-                                        <h4 class="font-semibold text-white mb-1">Sécurité</h4>
-                                        <p class="text-sm text-gray-400">Toutes les transactions sont sécurisées</p>
-                                    </div>
-                                </div>
-
-                                <div class="flex items-start space-x-3">
-                                    <i class="fas fa-headset text-yellow-400 mt-1"></i>
-                                    <div>
-                                        <h4 class="font-semibold text-white mb-1">Support</h4>
-                                        <p class="text-sm text-gray-400">Assistance 24h/24 et 7j/7</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-2xl p-6 border border-green-500/20">
-                            <div class="flex items-center space-x-3 mb-3">
-                                <div class="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center">
-                                    <i class="fas fa-shield-alt text-white"></i>
-                                </div>
-                                <h4 class="text-lg font-bold text-green-400">Sécurité Garantie</h4>
-                            </div>
-                            <p class="text-sm text-gray-300">Toutes vos transactions sont cryptées et sécurisées. Vos données personnelles sont protégées selon les standards internationaux.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
-            <div class="bg-gray-800 rounded-lg p-8 max-w-md w-full mx-4 border border-gray-700">
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-check text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2" id="modalTitle">Retrait Soumis</h3>
-                    <p class="text-gray-400 mb-6" id="modalText">Votre demande de retrait a été soumise avec succès. Vous recevrez une notification une fois le traitement terminé.</p>
-                    <button id="modalBtn" class="w-full bg-red-600 hover:bg-red-700 text-white font-medium py-3 px-4 rounded-xl transition-all">
-                        Fermer
+            <header class="bg-gradient-to-r from-gray-900 to-gray-800 shadow-2xl border-b border-white/10 px-3 sm:px-4 lg:px-6 py-3 lg:py-4 flex items-center justify-between backdrop-blur-sm">
+                <div class="flex items-center">
+                    <button id="btnOuvrir" class="lg:hidden mr-3 text-white hover:text-jauneAcc transition-colors">
+                        <i class="fas fa-bars text-xl"></i>
                     </button>
+                    <h1 class="text-base sm:text-lg lg:text-2xl font-bold text-white">Effectuer un Retrait</h1>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="w-8 h-8 bg-blue-700 rounded-full flex items-center justify-center">
+                        <a href="/users/dashboardProfile.html"><i class="fas fa-user text-white text-sm"></i></a>
+                    </div>
+                </div>
+            </header>
+
+            <div class="p-4 lg:p-6">
+                <div class="max-w-6xl mx-auto">
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                        <div class="lg:col-span-2">
+                            <div class="bg-gray-800 rounded-2xl p-4 sm:p-6 lg:p-8 shadow-2xl border border-gray-700 cardDepot">
+                                
+                                <div id="etap1" class="etap actif">
+                                    <div class="text-center mb-6 lg:mb-8">
+                                        <div class="w-12 h-12 lg:w-16 lg:h-16 bg-gradient-to-r from-red-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                            <i class="fas fa-money-bill-wave text-white text-lg lg:text-2xl"></i>
+                                        </div>
+                                        <h2 class="text-lg lg:text-2xl font-bold text-white mb-2">DEMANDE DE COORDONNÉES DE RETRAIT</h2>
+                                        <p class="text-sm lg:text-base text-gray-400">Première étape de votre demande de retrait</p>
+                                    </div>
+    
+                                    <form id="formDem" class="space-y-4 lg:space-y-6">
+                                        <div class="bg-gray-700 rounded-xl p-4 lg:p-6">
+                                            <div class="flex flex-wrap items-center gap-2 text-sm lg:text-lg">
+                                                <span class="text-white">Je veux effectuer un retrait d'un montant de</span>
+                                                <input type="number" id="montant" min="1000" class="w-24 lg:w-32 px-2 lg:px-3 py-1 lg:py-2 bg-gray-600 border border-gray-500 rounded-lg text-white text-center font-bold focus:outline-none focus:ring-2 focus:ring-red-500 text-sm lg:text-base" placeholder="1000">
+                                                <span class="text-white">FCFA sur</span>
+                                                <select id="plat" class="px-2 lg:px-4 py-1 lg:py-2 bg-gray-600 border border-gray-500 rounded-lg text-white font-bold focus:outline-none focus:ring-2 focus:ring-red-500 text-sm lg:text-base">
+                                                    <option value="">Sélectionner</option>
+                                                    <option value="1xbet">1XBET</option>
+                                                    <option value="melbet">MELBET</option>
+                                                </select>
+                                            </div>
+                                            <div class="mt-4 text-sm lg:text-lg text-white">
+                                                Veuillez m'envoyer les coordonnées
+                                            </div>
+                                        </div>
+    
+                                        <button type="submit" class="w-full bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-bold py-3 lg:py-4 px-4 lg:px-6 rounded-xl transition-all transform hover:scale-105 shadow-lg hover:shadow-xl text-sm lg:text-base">
+                                            <i class="fas fa-paper-plane mr-2"></i>
+                                            Envoyer ma demande
+                                        </button>
+                                    </form>
+                                </div>
+    
+                                <div id="etapAtt" class="etap">
+                                    <div class="text-center py-8 lg:py-12">
+                                        <div class="w-16 h-16 lg:w-20 lg:h-20 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                                            <div class="loader"></div>
+                                        </div>
+                                        <h2 class="text-lg lg:text-2xl font-bold text-white mb-4">Traitement en cours</h2>
+                                        <p class="text-sm lg:text-base text-gray-400 mb-4">Veuillez patienter au moins 3 minutes pour recevoir vos coordonnées de retrait</p>
+                                        <div class="bg-blue-900/30 border border-blue-500 rounded-xl p-3 lg:p-4 inline-block">
+                                            <i class="fas fa-clock text-blue-400 mr-2"></i>
+                                            <span class="text-white text-sm lg:text-base">Temps d'attente estimé: 3 minutes</span>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div id="etapCoord" class="etap">
+                                    <div class="text-center mb-6 lg:mb-8">
+                                        <div class="w-12 h-12 lg:w-16 lg:h-16 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                            <i class="fas fa-map-marker-alt text-white text-lg lg:text-2xl"></i>
+                                        </div>
+                                        <h2 class="text-lg lg:text-2xl font-bold text-white mb-2">DEMANDE DE COORDONNÉES DE RETRAIT</h2>
+                                        <p class="text-sm lg:text-base text-gray-400">Voici les coordonnées à utiliser</p>
+                                    </div>
+    
+                                    <div class="space-y-4 lg:space-y-6">
+                                        <div class="bg-gray-700 rounded-xl p-4 lg:p-6">
+                                            <div class="text-sm lg:text-lg text-white mb-4">
+                                                Voici les coordonnées à mettre sur <span id="nomPlat" class="font-bold text-yellow-400"></span>
+                                            </div>
+                                            
+                                            <div class="space-y-3 lg:space-y-4">
+                                                <div class="flex flex-row sm:items-center gap-2">
+                                                    <span class="text-white font-semibold min-w-20">Montant :</span>
+                                                    <div class="flex items-center gap-2">
+                                                        <p id="montantAff" class="font-bold text-white text-sm lg:text-base"></p>
+                                                        <span class="text-white">FCFA</span>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="flex flex-row sm:items-center gap-2">
+                                                    <span class="text-white font-semibold min-w-20">Ville :</span>
+                                                    <p id="villeAff" class="font-bold text-white text-sm lg:text-base"></p>
+                                                </div>
+                                                
+                                                <div class="flex flex-row sm:items-center gap-2">
+                                                    <span class="text-white font-semibold min-w-20">Rue :</span>
+                                                    <p id="rueAff" class="font-bold text-white text-sm lg:text-base"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+    
+                                        <div class="bg-red-900/30 border border-red-500 rounded-xl p-3 lg:p-4 mb-4 lg:mb-6">
+                                            <div class="flex items-center justify-center space-x-2">
+                                                <i class="fas fa-stopwatch text-red-400 text-lg lg:text-xl"></i>
+                                                <span class="text-white font-bold text-sm lg:text-lg">Temps restant: </span>
+                                                <span id="chrono" class="text-red-400 font-bold text-lg lg:text-2xl">20:00</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="bg-gray-700 rounded-xl p-4 lg:p-6">
+                                            <h3 class="text-lg lg:text-xl font-bold text-white mb-4 lg:mb-6">Finaliser le Retrait</h3>
+                                            
+                                            <form id="formRet" class="space-y-4 lg:space-y-6">
+                                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
+                                                    <div>
+                                                        <label class="block text-xs lg:text-sm font-semibold text-gray-300 mb-2 lg:mb-3">Identifiant du Compte</label>
+                                                        <input type="text" id="id" class="w-full px-3 lg:px-4 py-2 lg:py-3 bg-gray-600 border border-gray-500 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all text-sm lg:text-base" value="001">
+                                                    </div>
+        
+                                                    <div>
+                                                        <label class="block text-xs lg:text-sm font-semibold text-gray-300 mb-2 lg:mb-3">Code de Retrait</label>
+                                                        <input type="text" id="code" class="w-full px-3 lg:px-4 py-2 lg:py-3 bg-gray-600 border border-gray-500 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all text-sm lg:text-base" placeholder="Code de retrait">
+                                                    </div>
+                                                </div>
+        
+                                                <div>
+                                                    <label class="block text-xs lg:text-sm font-semibold text-gray-300 mb-2 lg:mb-3">Montant du Retrait (FCFA)</label>
+                                                    <div class="relative">
+                                                        <input type="number" id="montantFin" min="1000" class="w-full px-3 lg:px-4 py-2 lg:py-3 bg-gray-600 border border-gray-500 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all text-sm lg:text-base" readonly>
+                                                        <span class="absolute right-3 lg:right-4 top-1/2 transform -translate-y-1/2 text-gray-400 font-medium text-sm lg:text-base">FCFA</span>
+                                                    </div>
+                                                </div>
+        
+                                                <div>
+                                                    <label class="block text-xs lg:text-sm font-medium text-gray-300 mb-2">Méthode de Paiement</label>
+                                                    <div class="dropdown">
+                                                        <div id="btnDrop" class="w-full px-3 lg:px-4 py-2 lg:py-3 bg-gray-600 border border-gray-500 rounded-xl text-white cursor-pointer focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all flex items-center justify-between text-sm lg:text-base">
+                                                            <div class="flex items-center">
+                                                                <img id="imgSel" src="" alt="" class="w-6 h-6 mr-3 hidden">
+                                                                <span id="optSel">Sélectionnez une méthode</span>
+                                                            </div>
+                                                            <i class="fas fa-chevron-down"></i>
+                                                        </div>
+                                                        <div id="listeDrop" class="menuDrop">
+                                                            <div class="itemDrop" data-value="orange-money" data-img="/assets/img/orange.png">
+                                                                <img src="/assets/img/orange.png" alt="Orange Money">
+                                                                <span>Orange Money</span>
+                                                            </div>
+                                                            <div class="itemDrop" data-value="mtn-money" data-img="/assets/img/mtn-money.png">
+                                                                <img src="/assets/img/mtn-money.png" alt="MTN Money">
+                                                                <span>MTN Money</span>
+                                                            </div>
+                                                            <div class="itemDrop" data-value="moov-money" data-img="/assets/img/moov.png">
+                                                                <img src="/assets/img/moov.png" alt="Moov Money">
+                                                                <span>Moov Money</span>
+                                                            </div>
+                                                            <div class="itemDrop" data-value="wave" data-img="/assets/img/wave.png">
+                                                                <img src="/assets/img/wave.png" alt="Wave">
+                                                                <span>Wave</span>
+                                                            </div>
+                                                            <div class="itemDrop" data-value="solde-bonus" data-img="/assets/img/log.jpeg">
+                                                                <img src="/assets/img/log.jpeg" alt="solde Bonus">
+                                                                <span>Solde Bonus</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+        
+                                                <div>
+                                                    <label class="block text-xs lg:text-sm font-semibold text-gray-300 mb-2 lg:mb-3">Numéro de Téléphone</label>
+                                                    <input type="tel" id="tel" class="w-full px-3 lg:px-4 py-2 lg:py-3 bg-gray-600 border border-gray-500 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all text-sm lg:text-base" placeholder="Ex: 0172317983">
+                                                </div>
+        
+                                                <div>
+                                                    <label class="block text-xs lg:text-sm font-semibold text-gray-300 mb-2 lg:mb-3">Plateforme de Destination</label>
+                                                    <div class="grid grid-cols-2 gap-3 lg:gap-4">
+                                                        <label class="choixPlat cursor-pointer">
+                                                            <input type="radio" name="platDest" value="1xbet" class="sr-only">
+                                                            <div class="p-3 lg:p-4 border-2 border-gray-600 rounded-xl hover:border-yellow-400 transition-all bg-gray-600 hover:bg-gray-500 flex justify-center items-center space-x-2 lg:space-x-3">
+                                                                <img src="/assets/img/1xbet-icon.png" class="w-8 h-8 lg:w-10 lg:h-10 bg-blue-600 rounded-lg" alt="">
+                                                                <span class="hidden sm:block font-medium text-white text-sm lg:text-base">1XBET</span>
+                                                            </div>
+                                                        </label>
+                                                        
+                                                        <label class="choixPlat cursor-pointer">
+                                                            <input type="radio" name="platDest" value="melbet" class="sr-only">
+                                                            <div class="p-3 lg:p-4 border-2 border-gray-600 rounded-xl hover:border-yellow-400 transition-all bg-gray-600 hover:bg-gray-500 flex justify-center items-center space-x-2 lg:space-3">
+                                                                <img src="/assets/img/melbet.jpg" class="w-8 h-8 lg:w-10 lg:h-10 bg-yellow-600 rounded-lg" alt="">
+                                                                <span class="hidden sm:block font-medium text-white text-sm lg:text-base">MELBET</span>
+                                                            </div>
+                                                        </label>
+                                                    </div>
+                                                </div>
+        
+                                                <button type="submit" class="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-3 lg:py-4 px-4 lg:px-6 rounded-xl transition-all transform hover:scale-105 shadow-lg hover:shadow-xl text-sm lg:text-base">
+                                                    <i class="fas fa-money-bill-wave mr-2"></i>
+                                                    Finaliser le Retrait
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="etapSucces" class="etap">
+                                    <div class="text-center py-8 lg:py-12">
+                                        <div class="w-16 h-16 lg:w-20 lg:h-20 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                                        <i class="fas fa-check text-white text-2xl lg:text-3xl"></i>
+                                    </div>
+                                    <h2 class="text-lg lg:text-2xl font-bold text-white mb-4">Retrait Effectué avec Succès!</h2>
+                                    <p class="text-sm lg:text-base text-gray-400 mb-6">Votre retrait a été traité avec succès. Vous recevrez un SMS de confirmation sous peu.</p>
+                                    <button onclick="retourAccueil()" class="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-3 lg:py-4 px-4 lg:px-6 rounded-xl transition-all transform hover:scale-105 shadow-lg hover:shadow-xl text-sm lg:text-base">
+                                        <i class="fas fa-home mr-2"></i>
+                                        Retour au Dashboard
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-1">
+                        <div class="space-y-6">
+                            <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-6 border border-gray-700 shadow-2xl">
+                                <div class="flex items-center space-x-3 mb-6">
+                                    <div class="w-10 h-10 bg-gradient-to-r from-red-500 to-red-600 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-info-circle text-white"></i>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-white">Informations Importantes</h3>
+                                </div>
+    
+                                <div class="space-y-4">
+                                    <div class="flex items-start space-x-3">
+                                        <i class="fas fa-clock text-yellow-400 mt-1"></i>
+                                        <div>
+                                            <h4 class="font-semibold text-white mb-1">Délai de Traitement</h4>
+                                            <p class="text-sm text-gray-400">Les retraits sont traités sous 24h ouvrables</p>
+                                        </div>
+                                    </div>
+    
+                                    <div class="flex items-start space-x-3">
+                                        <i class="fas fa-coins text-yellow-400 mt-1"></i>
+                                        <div>
+                                            <h4 class="font-semibold text-white mb-1">Frais de retrait</h4>
+                                            <p class="text-sm text-gray-400">Les frais de retrait sont de 10%</p>
+                                        </div>
+                                    </div>
+    
+                                    <div class="flex items-start space-x-3">
+                                        <i class="fas fa-shield-alt text-yellow-400 mt-1"></i>
+                                        <div>
+                                            <h4 class="font-semibold text-white mb-1">Sécurité</h4>
+                                            <p class="text-sm text-gray-400">Toutes les transactions sont sécurisées</p>
+                                        </div>
+                                    </div>
+    
+                                    <div class="flex items-start space-x-3">
+                                        <i class="fas fa-headset text-yellow-400 mt-1"></i>
+                                        <div>
+                                            <h4 class="font-semibold text-white mb-1">Support</h4>
+                                            <p class="text-sm text-gray-400">Assistance 24h/24 et 7j/7</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-2xl p-6 border border-green-500/20">
+                                <div class="flex items-center space-x-3 mb-3">
+                                    <div class="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-shield-alt text-white"></i>
+                                    </div>
+                                    <h4 class="text-lg font-bold text-green-400">Sécurité Garantie</h4>
+                                </div>
+                                <p class="text-sm text-gray-300">Toutes vos transactions sont cryptées et sécurisées. Vos données personnelles sont protégées selon les standards internationaux.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+<div class="fixed bottom-6 right-6 z-40">
+    <a href="https://wa.me/+2250777169313" class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white text-2xl shadow-2xl hover:bg-green-400 transition-all transform hover:scale-110 animate-bounce">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</div>
+
+<div id="modalConfirm" class="modal">
+    <div class="modalContent">
+        <div class="text-center">
+            <div class="w-16 h-16 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-exclamation-triangle text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-4">Confirmer la Déconnexion</h3>
+            <p class="text-gray-300 mb-6">Êtes-vous sûr de vouloir vous déconnecter?</p>
+            <div class="flex gap-4">
+                <button id="btnAnnuler" class="flex-1 bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-lg transition-colors">
+                    Annuler
+                </button>
+                <button id="btnConfirmer" class="flex-1 bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg transition-colors">
+                    Déconnexion
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 
     <script src="/script/dashboardRetrait.js"></script>
 </body>

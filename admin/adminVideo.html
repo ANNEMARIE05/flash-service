@@ -11,113 +11,137 @@
 <body class="bg-gray-50 font-sans">
     <div class="flex h-screen">
         <aside id="menu" class="bg-white shadow-lg w-64 fixed h-full z-30 transform -translate-x-full lg:translate-x-0 transition-transform duration-300">
-            <div class="flex items-center justify-between p-6 bg-bleu-principal">
-                <h2 class="text-white text-xl font-bold">Admin Panel</h2>
-                <button id="fermerMenu" class="lg:hidden text-white hover:text-gray-300">
-                    <i class="fas fa-times text-xl"></i>
+            <div class="flex items-center justify-between p-4 lg:p-6 bg-bleu-principal">
+                <h2 class="text-white text-lg lg:text-xl font-bold">Admin Panel</h2>
+                <button id="btnFermerMenu" class="lg:hidden text-white hover:text-gray-300">
+                    <i class="fas fa-times text-lg lg:text-xl"></i>
                 </button>
             </div>
             
             <nav class="mt-8">
                 <a href="dashboardAdmin.html" class="flex items-center px-6 py-3 text-gray-700 hover:bg-gray-100 transition-colors">
-                    <i class="fas fa-tachometer-alt mr-3"></i>
-                    Dashboard
+                    <i class="fas fa-tachometer-alt mr-3 text-base"></i>
+                    <span class="text-base">Dashboard</span>
                 </a>
                 <a href="adminPronostic.html" class="flex items-center px-6 py-3 text-gray-700 hover:bg-gray-100 transition-colors">
-                    <i class="fas fa-plus-circle mr-3"></i>
-                    Nouveau Pronostic
+                    <i class="fas fa-plus-circle mr-3 text-base"></i>
+                    <span class="text-base">Nouveau Pronostic</span>
                 </a>
                 <a href="adminMesProno.html" class="flex items-center px-6 py-3 text-gray-700 hover:bg-gray-100 transition-colors">
-                    <i class="fas fa-futbol mr-3"></i>
-                    Mes Pronostiques
+                    <i class="fas fa-futbol mr-3 text-base"></i>
+                    <span class="text-base">Mes Pronostiques</span>
                 </a>
                 <a href="adminCoordonnee.html" class="flex items-center px-6 py-3 text-gray-700 hover:bg-gray-100 transition-colors">
-                    <i class="fas fa-bell mr-3"></i>
-                    Coordonnées
+                    <i class="fas fa-bell mr-3 text-base"></i>
+                    <span class="text-base">Coordonnées</span>
                 </a>
                 <a href="#" class="flex items-center px-6 py-3 text-bleu-principal bg-blue-50 border-r-3 border-bleu-principal">
-                    <i class="fas fa-video mr-3"></i>
-                    Nouvelle Vidéo
+                    <i class="fas fa-video mr-3 text-base"></i>
+                    <span class="text-base">Nouvelle Vidéo</span>
                 </a>
                 <a href="adminHistorique.html" class="flex items-center px-6 py-3 text-gray-700 hover:bg-gray-100 transition-colors">
-                    <i class="fas fa-history mr-3"></i>
-                    Mes Historiques
+                    <i class="fas fa-history mr-3 text-base"></i>
+                    <span class="text-base">Mes Historiques</span>
                 </a>
                 <a href="adminUser.html" class="flex items-center px-6 py-3 text-gray-700 hover:bg-gray-100 transition-colors">
-                    <i class="fas fa-users mr-3"></i>
-                    Utilisateurs
+                    <i class="fas fa-users mr-3 text-base"></i>
+                    <span class="text-base">Utilisateurs</span>
                 </a>
-                <a href="dashboard.html" class="flex items-center px-6 py-3 text-gray-700 hover:bg-gray-100 transition-colors">
-                    <i class="fas fa-credit-card mr-3"></i>
-                    Transactions
+                <a href="adminTransaction.html" class="flex items-center px-6 py-3 text-gray-700 hover:bg-gray-100 transition-colors">
+                    <i class="fas fa-credit-card mr-3 text-base"></i>
+                    <span class="text-base">Transactions</span>
                 </a>
                 <a href="adminBonus.html" class="flex items-center px-6 py-3 text-gray-700 hover:bg-gray-100 transition-colors">
-                    <i class="fas fa-gift mr-3"></i>
-                    Bonus
+                    <i class="fas fa-gift mr-3 text-base"></i>
+                    <span class="text-base">Bonus</span>
                 </a>
-                <button id="deco" class="w-full flex items-center px-6 py-3 text-red-600 hover:bg-red-50 transition-colors mt-8">
-                    <i class="fas fa-sign-out-alt mr-3"></i>
-                    Déconnexion
+                <a href="adminVip.html" class="flex items-center px-6 py-3 text-gray-700 hover:bg-gray-100 transition-colors">
+                    <i class="fas fa-crown mr-3"></i>
+                    Utilisateurs VIP
+                </a>
+                <button id="btnDeco" class="w-full flex items-center px-6 py-3 text-red-600 hover:bg-red-50 transition-colors mt-8">
+                    <i class="fas fa-sign-out-alt mr-3 text-base"></i>
+                    <span class="text-base">Déconnexion</span>
                 </button>
             </nav>
         </aside>
 
         <div class="flex-1 lg:ml-64">
             <header class="bg-white shadow-sm border-b">
-                <div class="flex items-center justify-between px-4 lg:px-6 py-4">
+                <div class="flex items-center justify-between px-3 lg:px-6 py-3 lg:py-4">
                     <div class="flex items-center">
-                        <button id="ouvrirMenu" class="lg:hidden text-gray-600 mr-4">
-                            <i class="fas fa-bars text-xl"></i>
+                        <button id="btnOuvrirMenu" class="lg:hidden text-gray-600 mr-3">
+                            <i class="fas fa-bars text-lg"></i>
                         </button>
-                        <h1 class="text-xl lg:text-2xl font-semibold text-gray-800">Gestion des Vidéos</h1>
+                        <h1 class="text-lg lg:text-2xl font-semibold text-gray-800">Gestion des Vidéos</h1>
                     </div>
-                    <div class="flex items-center space-x-4">
+                    <div class="flex items-center space-x-3">
                         <div class="relative">
-                            <i class="fas fa-bell text-gray-600 text-lg lg:text-xl"></i>
-                            <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">3</span>
+                            <i class="fas fa-bell text-gray-600 text-base lg:text-xl"></i>
+                            <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-3 w-3 lg:h-4 lg:w-4 flex items-center justify-center">3</span>
                         </div>
-                        <img src="https://img.freepik.com/vecteurs-premium/icone-profil-avatar-par-defaut-image-utilisateur-medias-sociaux-icone-avatar-gris-silhouette-profil-vide-illustration-vectorielle_561158-3383.jpg?uid=R99967860&semt=ais_hybrid&w=740" alt="Avatar" class="w-8 h-8 rounded-full">
+                        <img src="https://img.freepik.com/vecteurs-premium/icone-profil-avatar-par-defaut-image-utilisateur-medias-sociaux-icone-avatar-gris-silhouette-profil-vide-illustration-vectorielle_561158-3383.jpg" alt="Avatar" class="w-7 h-7 lg:w-8 lg:h-8 rounded-full">
                     </div>
                 </div>
             </header>
 
-            <main class="p-4 lg:p-6">
-                <div class="bg-white rounded-lg shadow-md p-6 mb-6">
-                    <h2 class="text-xl font-semibold text-gray-800 mb-4">Ajouter une nouvelle vidéo</h2>
-                    <form id="formVideo" class="space-y-4">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <main class="p-3 lg:p-6">
+                <div class="bg-white rounded-lg shadow-md p-4 lg:p-6 mb-4 lg:mb-6">
+                    <h2 class="text-lg lg:text-xl font-semibold text-gray-800 mb-3 lg:mb-4">Ajouter une nouvelle vidéo</h2>
+                    <form id="formVid" class="space-y-3 lg:space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 lg:gap-4">
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Titre de la vidéo</label>
-                                <input type="text" id="titre" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-bleu-principal" required>
+                                <label class="block text-sm font-medium text-gray-700 mb-1 lg:mb-2">Titre de la vidéo</label>
+                                <input type="text" id="titreVid" class="w-full px-3 py-2 text-sm lg:text-base border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-bleu-principal" required>
                             </div>
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Durée (minutes)</label>
-                                <input type="number" id="duree" min="1" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-bleu-principal" required>
+                                <label class="block text-sm font-medium text-gray-700 mb-1 lg:mb-2">Plateforme</label>
+                                <select id="plateformeVid" class="w-full px-3 py-2 text-sm lg:text-base border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-bleu-principal" required>
+                                    <option value="">Choisir une plateforme</option>
+                                    <option value="1xbet">1XBET</option>
+                                    <option value="melbet">MELBET</option>
+                                    <option value="flash">Flash Service</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 lg:gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1 lg:mb-2">Durée (minutes)</label>
+                                <input type="number" id="dureeVid" min="1" class="w-full px-3 py-2 text-sm lg:text-base border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-bleu-principal" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1 lg:mb-2">Fichier vidéo</label>
+                                <input type="file" id="fichierVid" accept="video/*" class="w-full px-3 py-2 text-sm lg:text-base border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-bleu-principal" required>
                             </div>
                         </div>
 
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Fichier vidéo</label>
-                            <input type="file" id="fichier" accept="video/*" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-bleu-principal" required>
-                            <p class="text-sm text-gray-500 mt-1">Formats acceptés: MP4, AVI, MOV, WMV</p>
+                            <label class="block text-sm font-medium text-gray-700 mb-1 lg:mb-2">Description</label>
+                            <textarea id="descVid" rows="3" class="w-full px-3 py-2 text-sm lg:text-base border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-bleu-principal"></textarea>
                         </div>
-                       
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Description</label>
-                            <textarea id="desc" rows="4" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-bleu-principal"></textarea>
-                        </div>
-                        <button type="submit" class="bg-bleu-principal text-white px-6 py-2 rounded-lg hover:bg-bleu-fonce transition-colors">
+                        
+                        <button type="submit" class="bg-bleu-principal text-white px-4 lg:px-6 py-2 text-sm lg:text-base rounded-lg hover:bg-bleu-fonce transition-colors">
                             <i class="fas fa-plus mr-2"></i>Ajouter la vidéo
                         </button>
                     </form>
                 </div>
 
                 <div class="bg-white rounded-lg shadow-md">
-                    <div class="px-6 py-4 border-b">
-                        <h2 class="text-xl font-semibold text-gray-800">Liste des vidéos</h2>
+                    <div class="px-4 lg:px-6 py-3 lg:py-4 border-b flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                        <h2 class="text-lg lg:text-xl font-semibold text-gray-800">Liste des vidéos</h2>
+                        <div class="flex items-center space-x-2">
+                            <label class="text-sm font-medium text-gray-700">Trier par:</label>
+                            <select id="filtrePlateforme" class="px-3 py-1 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-bleu-principal">
+                                <option value="">Toutes les plateformes</option>
+                                <option value="1XBET">1XBET</option>
+                                <option value="MELBET">MELBET</option>
+                                <option value="FLASH SERVICE">Flash Service</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="p-6">
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="listeVideos">
+                    <div class="p-3 lg:p-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-6" id="listeVid">
                         </div>
                     </div>
                 </div>
@@ -125,22 +149,22 @@
         </div>
     </div>
 
-    <div id="voile" class="fixed inset-0 bg-black bg-opacity-50 z-20 hidden lg:hidden"></div>
+    <div id="voileMenu" class="fixed inset-0 bg-black bg-opacity-50 z-20 hidden lg:hidden"></div>
 
-    <div id="lecteur" class="fixed inset-0 bg-black bg-opacity-75 z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-lg max-w-4xl w-full max-h-full overflow-auto">
-            <div class="flex justify-between items-center p-4 border-b">
-                <h3 id="titreLecteur" class="text-xl font-semibold"></h3>
-                <button id="fermerLecteur" class="text-gray-500 hover:text-gray-700">
-                    <i class="fas fa-times text-xl"></i>
+    <div id="modalLecteur" class="fixed inset-0 bg-black bg-opacity-75 z-50 hidden flex items-center justify-center p-2 lg:p-4">
+        <div class="bg-white rounded-lg w-full max-w-4xl max-h-full overflow-auto">
+            <div class="flex justify-between items-center p-3 lg:p-4 border-b">
+                <h3 id="titreLecteur" class="text-base lg:text-xl font-semibold truncate pr-2"></h3>
+                <button id="btnFermerLecteur" class="text-gray-500 hover:text-gray-700 flex-shrink-0">
+                    <i class="fas fa-times text-lg lg:text-xl"></i>
                 </button>
             </div>
-            <div class="p-4">
-                <video id="videoPlayer" class="w-full h-64 md:h-96 bg-black rounded" controls>
+            <div class="p-3 lg:p-4">
+                <video id="lecteurVid" class="w-full h-48 sm:h-64 lg:h-96 bg-black rounded" controls>
                     <source src="" type="video/mp4">
                     Votre navigateur ne supporte pas la lecture vidéo.
                 </video>
-                <p id="descLecteur" class="mt-4 text-gray-600"></p>
+                <p id="descLecteur" class="mt-3 lg:mt-4 text-sm lg:text-base text-gray-600"></p>
             </div>
         </div>
     </div>
