@@ -1,58 +1,54 @@
-const btnAffichagePassword = document.getElementById('btnAffichagePassword');
-const passwordUtilisateur = document.getElementById('password-utilisateur');
-const btnAffichageConfirmationPassword = document.getElementById('btnConfirmationPassword');
-const confirmationPassword = document.getElementById('confirmation-password');
-const zoneMessagesErreur = document.getElementById('zone-messages-erreur');
-const texteMessageErreur = document.getElementById('texte-message-erreur');
+        const btnVoirPasse = document.getElementById('btnVoirPasse');
+        const motPasse = document.getElementById('motPasse');
+        const btnVoirConfirm = document.getElementById('btnVoirConfirm');
+        const confirmPasse = document.getElementById('confirmPasse');
+        const zoneErreur = document.getElementById('zoneErreur');
+        const texteErreur = document.getElementById('texteErreur');
 
-function afficherMessageErreur(message) {
-    texteMessageErreur.textContent = message;
-    zoneMessagesErreur.classList.remove('hidden');
-}
+        function montrerErreur(message) {
+            texteErreur.textContent = message;
+            zoneErreur.classList.remove('hidden');
+        }
 
-function masquerMessageErreur() {
-    zoneMessagesErreur.classList.add('hidden');
-}
+        function cacherErreur() {
+            zoneErreur.classList.add('hidden');
+        }
 
-btnAffichagePassword.addEventListener('click', function() {
-    const typePassword = passwordUtilisateur.getAttribute('type') === 'password' ? 'text' : 'password';
-    passwordUtilisateur.setAttribute('type', typePassword);
-});
+        btnVoirPasse.addEventListener('click', function() {
+            const type = motPasse.getAttribute('type') === 'password' ? 'text' : 'password';
+            motPasse.setAttribute('type', type);
+        });
 
-btnAffichageConfirmationPassword.addEventListener('click', function() {
-    const typeConfirmationPassword = confirmationPassword.getAttribute('type') === 'password' ? 'text' : 'password';
-    confirmationPassword.setAttribute('type', typeConfirmationPassword);
-});
+        btnVoirConfirm.addEventListener('click', function() {
+            const type = confirmPasse.getAttribute('type') === 'password' ? 'text' : 'password';
+            confirmPasse.setAttribute('type', type);
+        });
 
-const formulaireInscription = document.getElementById('formulaire-inscription');
-const btnValidation = document.getElementById('btn-validation');
-const texteValidation = document.getElementById('texte-validation');
-const indicateurChargement = document.getElementById('indicateur-chargement');
+        const formInscription = document.getElementById('formInscription');
+        const btnValider = document.getElementById('btnValider');
+        const texteBtn = document.getElementById('texteBtn');
+        const loader = document.getElementById('loader');
 
-formulaireInscription.addEventListener('submit', function(e) {
-    e.preventDefault();
-    masquerMessageErreur();
-    
-    if (passwordUtilisateur.value !== confirmationPassword.value) {
-        afficherMessageErreur('Les mots de passe ne correspondent pas');
-        return;
-    }
+        formInscription.addEventListener('submit', function(e) {
+            e.preventDefault();
+            cacherErreur();
+            
+            if (motPasse.value !== confirmPasse.value) {
+                montrerErreur('Les mots de passe ne correspondent pas');
+                return;
+            }
 
-    if (passwordUtilisateur.value.length < 8) {
-        afficherMessageErreur('Le mot de passe doit contenir au minimum 8 caractères');
-        return;
-    }
+            if (motPasse.value.length < 8) {
+                montrerErreur('Le mot de passe doit contenir au minimum 8 caractères');
+                return;
+            }
 
-    btnValidation.disabled = true;
-    texteValidation.classList.add('hidden');
-    indicateurChargement.classList.remove('hidden');
+            btnValider.disabled = true;
+            texteBtn.classList.add('hidden');
+            loader.classList.remove('hidden');
 
-    setTimeout(function() {
-        alert('Inscription réussie !');
-        btnValidation.disabled = false;
-        texteValidation.classList.remove('hidden');
-        indicateurChargement.classList.add('hidden');
-        formulaireInscription.reset();
-        masquerMessageErreur();
-    }, 2000);
-});
+            setTimeout(function() {
+                alert('Inscription réussie !');
+                window.location.href = 'login.html';
+            }, 2000);
+        });
